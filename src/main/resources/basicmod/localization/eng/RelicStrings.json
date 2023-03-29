@@ -8,14 +8,14 @@
   },
   "${modID}:CrimsonAmberMedallion": {
     "NAME": "Crimson Amber Medallion",
-    "FLAVOR": "A medallion with crimson amber inlaid.\nBoosts maximum HP.\n\nThe Erdtree's old sap becomes amber, treasured as the most precious of jewels in the age of Godfrey, the first Elden Lord.\n\nA primordial life energy resides inside.",
+    "FLAVOR": "A medallion with crimson amber inlaid.",
     "DESCRIPTIONS": [
       "Upon pickup, raise your Max HP by #b"
     ]
   },
   "${modID}:GreatJarsArsenal": {
     "NAME": "Great-Jar's Arsenal",
-    "FLAVOR": "A charm that resembles a great jar overflowing with weaponry.\nVastly boosts maximum equipment load.\n\nThe great jar grants this talisman to their warriors. Carry as much as you can — grow big and strong.",
+    "FLAVOR": "A charm that resembles a great jar overflowing with weaponry.",
     "DESCRIPTIONS": [
       "Upon pickup, gain #b2",
       " Potion slots."
@@ -23,7 +23,7 @@
   },
   "${modID}:ArsenalCharm": {
     "NAME": "Arsenal Charm",
-    "FLAVOR": "An iron charm that resembles a mass of weaponry.\nBoosts maximum equipment load.\n\nThis talisman was derived from an unusual greatsword, once wielded by a hero hungry for vengeance.",
+    "FLAVOR": "An iron charm that resembles a mass of weaponry.",
     "DESCRIPTIONS": [
       "Upon pickup, gain #b1",
       " Potion slots."
@@ -31,7 +31,7 @@
   },
   "${modID}:CrimsonSeedTalisman": {
     "NAME": "Crimson Seed Talisman",
-    "FLAVOR": "An iron charm that resembles a mass of weaponry.\nBoosts maximum equipment load.\n\nThis talisman was derived from an unusual greatsword, once wielded by a hero hungry for vengeance.",
+    "FLAVOR": "An iron charm that resembles a mass of weaponry.",
     "DESCRIPTIONS": [
       "Whenever you heal, heal #b",
       " more."
@@ -39,7 +39,7 @@
   },
   "${modID}:BlessedDewTalisman": {
     "NAME": "Blessed Dew Talisman",
-    "FLAVOR": "Talisman depicting a drop of the Erdtree's sap, a blessed boon.\n\nGradually restores HP.\n\nIt was once thought that the blessed sap of the Erdtree would drip from its boughs forever -- but that age of plenty swiftly came to a close, and with time, the Erdtree became more an object of faith.",
+    "FLAVOR": "Talisman depicting a drop of the Erdtree's sap, a blessed boon.",
     "DESCRIPTIONS": [
       "At the start of each combat, heal #b",
       " HP."
