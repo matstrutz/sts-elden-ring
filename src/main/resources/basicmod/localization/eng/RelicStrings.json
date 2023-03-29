@@ -1,0 +1,16 @@
+{
+  "${modID}:RelicID": {
+    "NAME": "Good Relic",
+    "FLAVOR": "Flavor text displayed in detailed relic view.",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of your turn. [E] is an energy icon."
+    ]
+  },
+  "${modID}:CrimsonAmberMedallion": {
+    "NAME": "Crimson Amber Medallion",
+    "FLAVOR": "A medallion with crimson amber inlaid.\nBoosts maximum HP.\n\nThe Erdtree's old sap becomes amber, treasured as the most precious of jewels in the age of Godfrey, the first Elden Lord.\n\nA primordial life energy resides inside.",
+    "DESCRIPTIONS": [
+      "Upon pickup, raise your Max HP by #b"
+    ]
+  }
+}
