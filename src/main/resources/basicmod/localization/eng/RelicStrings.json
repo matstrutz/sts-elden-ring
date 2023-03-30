@@ -17,7 +17,7 @@
     "NAME": "Great-Jar's Arsenal",
     "FLAVOR": "A charm that resembles a great jar overflowing with weaponry.",
     "DESCRIPTIONS": [
-      "Upon pickup, gain #b2",
+      "Upon pickup, gain #b",
       " Potion slots."
     ]
   },
@@ -25,7 +25,7 @@
     "NAME": "Arsenal Charm",
     "FLAVOR": "An iron charm that resembles a mass of weaponry.",
     "DESCRIPTIONS": [
-      "Upon pickup, gain #b1",
+      "Upon pickup, gain #b",
       " Potion slots."
     ]
   },
@@ -43,6 +43,60 @@
     "DESCRIPTIONS": [
       "At the start of each combat, heal #b",
       " HP."
+    ]
+  },
+  "${modID}:AxeTalisman": {
+    "NAME": "Axe Talisman",
+    "FLAVOR": "A talisman depicting an axe and a warrior.",
+    "DESCRIPTIONS": [
+      "Attacks that cost 3 or more have #b",
+      "% more damage."
+    ]
+  },
+  "${modID}:RedFeatheredBranchsword": {
+    "NAME": "Red-Feathered Branchsword",
+    "FLAVOR": "A talisman adorned with blue feathers, once used in ancient death rituals.",
+    "DESCRIPTIONS": [
+      "While your HP is at or below #b50%, you have #b",
+      " additional #yStrength."
+    ]
+  },
+  "${modID}:BlueFeatheredBranchsword": {
+    "NAME": "Blue-Feathered Branchsword",
+    "FLAVOR": "A talisman adorned with red feathers, once used in ancient death rituals.",
+    "DESCRIPTIONS": [
+      "While your HP is at or below #b50%, you have #b",
+      " additional #yDexterity."
+    ]
+  },
+  "${modID}:BullGoatsTalisman": {
+    "NAME": "Bull-Goat's Talisman",
+    "FLAVOR": "A talisman depicting the horns of a bull-goat.",
+    "DESCRIPTIONS": [
+      "You can no longer become #yFrail."
+    ]
+  },
+  "${modID}:CurvedSwordTalisman": {
+    "NAME": "Curved Sword Talisman",
+    "FLAVOR": "A talisman depicting a curved sword and a swordsman.",
+    "DESCRIPTIONS": [
+      "Upon losing block, deal half of excess damage back to enemy."
+    ]
+  },
+  "${modID}:DaedicarsWoe": {
+    "NAME": "Daedicar's Woe",
+    "FLAVOR": "Disturbing likeness of a woman whose skin was flayed.",
+    "DESCRIPTIONS": [
+      "At the start of your turn, ALL enemies gain #b",
+      " #yStrength."
+    ]
+  },
+  "${modID}:DragoncrestGreatshieldTalisman": {
+    "NAME": "Dragoncrest Greatshield Talisman",
+    "FLAVOR": "Legendary talisman of wrought iron depicting a massive ancient dragon.",
+    "DESCRIPTIONS": [
+      "Start each combat with #b",
+      " #yPlated #yArmor."
     ]
   }
 }

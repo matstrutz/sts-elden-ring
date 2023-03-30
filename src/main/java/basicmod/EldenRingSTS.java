@@ -12,7 +12,6 @@ import basicmod.util.KeywordInfo;
 import basicmod.util.TextureLoader;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.ModInfo;
 import com.evacipated.cardcrawl.modthespire.Patcher;
@@ -112,14 +111,14 @@ public class EldenRingSTS implements
             The same process is used to load keywords slightly below.
         */
         loadLocalization(defaultLanguage); //no except catching for default localization, you better have at least one that works.
-        if (!defaultLanguage.equals(getLangString())) {
-            try {
-                loadLocalization(getLangString());
-            }
-            catch (GdxRuntimeException e) {
-                e.printStackTrace();
-            }
-        }
+//        if (!defaultLanguage.equals(getLangString())) {
+//            try {
+//                loadLocalization(getLangString());
+//            }
+//            catch (GdxRuntimeException e) {
+//                e.printStackTrace();
+//            }
+//        }
     }
 
     private void loadLocalization(String lang) {
