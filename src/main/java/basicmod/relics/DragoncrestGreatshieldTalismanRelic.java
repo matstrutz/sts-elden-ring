@@ -8,11 +8,11 @@ import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 import static basicmod.EldenRingSTS.makeID;
 
 public class DragoncrestGreatshieldTalismanRelic extends BaseRelic {
-    private static final String NAME = "DaedicarsWoe";
+    private static final String NAME = "DragoncrestGreatshieldTalisman";
     public static final String ID = makeID(NAME);
     private static final RelicTier RARITY = RelicTier.RARE;
     private static final LandingSound SOUND = LandingSound.SOLID;
-    private static final int PLATE_GAIN = 8;
+    private static final int PLATE_GAIN = 5;
 
     public DragoncrestGreatshieldTalismanRelic() {
         super(ID, NAME, RARITY, SOUND);

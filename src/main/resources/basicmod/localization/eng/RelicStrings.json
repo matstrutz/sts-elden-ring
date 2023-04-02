@@ -87,16 +87,79 @@
     "NAME": "Daedicar's Woe",
     "FLAVOR": "Disturbing likeness of a woman whose skin was flayed.",
     "DESCRIPTIONS": [
-      "At the start of your turn, ALL enemies gain #b",
+      "ALL enemies start combat with and additional #b",
       " #yStrength."
+    ]
+  },
+  "${modID}:ErdtreesFavor": {
+    "NAME": "Erdtree's Favor",
+    "FLAVOR": "A talisman depicting a special blessing of the Erdtree.",
+    "DESCRIPTIONS": [
+      "Upon pickup, obtain #b1 potion slot.",
+      " NL Raise your Max HP by #b",
+      ". NL And Start each combat with an additional ",
+      "[E] "
+    ]
+  },
+  "${modID}:GoldScarab": {
+    "NAME": "Gold Scarab",
+    "FLAVOR": "A talisman facsimile of a scarab, the carrier of treasures and precious things.",
+    "DESCRIPTIONS": [
+      "Enemies drop #b25% more #yGold."
+    ]
+  },
+  "${modID}:GreatshieldTalisman": {
+    "NAME": "Greatshield Talisman",
+    "FLAVOR": "Wrought iron talisman depicting a trio of ancient dragons.",
+    "DESCRIPTIONS": [
+      "At end of your turn, gain #b",
+      " of your actual #yBlock."
+    ]
+  },
+  "${modID}:WarriorJarShard": {
+    "NAME": "Warrior Jar Shard",
+    "FLAVOR": "Shard of a shattered warrior jar.",
+    "DESCRIPTIONS": [
+      "At the start of your turn, gain #b",
+      " #yStrength"
+    ]
+  },
+  "${modID}:ShardOfAlexander": {
+    "NAME": "Shard of Alexander",
+    "FLAVOR": "Shard of the late Alexander, a shattered warrior jar.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, gain #b",
+      " #yStrength"
+    ]
+  },
+  "${modID}:WingedSwordInsignia": {
+    "NAME": "Winged Sword Insignia",
+    "FLAVOR": "A talisman depicting a raised prosthetic blade.",
+    "DESCRIPTIONS": [
+      "At the start of your turn, gain #b",
+      " #yStrength"
     ]
   },
   "${modID}:DragoncrestGreatshieldTalisman": {
     "NAME": "Dragoncrest Greatshield Talisman",
-    "FLAVOR": "Legendary talisman of wrought iron depicting a massive ancient dragon.",
+    "FLAVOR": "Talisman depicting a knight holding a greatshield.",
     "DESCRIPTIONS": [
-      "Start each combat with #b",
-      " #yPlated #yArmor."
+      "At end of your turn, gain #b",
+      " of your actual #yBlock."
+    ]
+  },
+  "${modID}:RadagonsScarseal": {
+    "NAME": "Radagon's Scarseal",
+    "FLAVOR": "An eye engraved with an Elden Rune. Said to be the seal of King Consort Radagon.",
+    "DESCRIPTIONS": [
+      "Upon pickup, raise your Max HP by 4. NL and start each combat with, 1 #yStrength and 1 #yDexsterity , NL and start each combat with an additional [E], but enemies start with and additional 1 #yStrength"
+    ]
+  },
+  "${modID}:RadagonsSoreseal": {
+    "NAME": "Radagon's Soreseal",
+    "FLAVOR": "This legendary talisman is an eye engraved with an Elden Rune, said to be the seal of King Consort Radagon.",
+    "DESCRIPTIONS": [
+      "Upon pickup, raise your Max HP by 7. NL and start each combat with, 2 #yStrength and 2 #yDexsterity , NL and start each combat with an additional [E][E], but enemies start with and additional 2 #yStrength"
     ]
   }
 }
