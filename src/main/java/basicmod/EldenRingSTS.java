@@ -6,11 +6,13 @@ import basemod.interfaces.EditKeywordsSubscriber;
 import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
 import basemod.interfaces.PostInitializeSubscriber;
+import basicmod.potions.MagicPotPotion;
 import basicmod.relics.BaseRelic;
 import basicmod.util.GeneralUtils;
 import basicmod.util.KeywordInfo;
 import basicmod.util.TextureLoader;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.ModInfo;
@@ -86,11 +88,10 @@ public class EldenRingSTS implements
 
     @Override
     public void receivePostInitialize() {
-        //This loads the image used as an icon in the in-game mods menu.
         Texture badgeTexture = TextureLoader.getTexture(resourcePath("badge.png"));
-        //Set up the mod information displayed in the in-game mods menu.
-        //The information used is taken from your pom.xml file.
         BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, null);
+
+        BaseMod.addPotion(MagicPotPotion.class, Color.BLUE, Color.WHITE, Color.GRAY, MagicPotPotion.ID);
     }
 
     /*----------Localization----------*/
@@ -188,6 +189,10 @@ public class EldenRingSTS implements
     }
     public static String relicPath(String file) {
         return resourcesFolder + "/relics/" + file;
+    }
+
+    public static String potionPath(String file) {
+        return resourcesFolder + "/potions/" + file;
     }
 
 

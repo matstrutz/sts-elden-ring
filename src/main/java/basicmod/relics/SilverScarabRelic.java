@@ -25,6 +25,6 @@ public class SilverScarabRelic extends BaseRelic {
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0] + EXTRA_ATTACK + DESCRIPTIONS[1];
+        return DESCRIPTIONS[0];
     }
 }
