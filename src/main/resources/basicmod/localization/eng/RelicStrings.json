@@ -1,11 +1,4 @@
 {
-  "${modID}:RelicID": {
-    "NAME": "Good Relic",
-    "FLAVOR": "Flavor text displayed in detailed relic view.",
-    "DESCRIPTIONS": [
-      "Gain [E] at the start of your turn. [E] is an energy icon."
-    ]
-  },
   "${modID}:CrimsonAmberMedallion": {
     "NAME": "Crimson Amber Medallion",
     "FLAVOR": "A medallion with crimson amber inlaid.",
@@ -101,7 +94,7 @@
       "[E] "
     ]
   },
-  "${modID}:GoldScarab": {
+  "${modID}:GoldScarabDeprecated": {
     "NAME": "Gold Scarab",
     "FLAVOR": "A talisman facsimile of a scarab, the carrier of treasures and precious things.",
     "DESCRIPTIONS": [
@@ -136,7 +129,7 @@
     "NAME": "Winged Sword Insignia",
     "FLAVOR": "A talisman depicting a raised prosthetic blade.",
     "DESCRIPTIONS": [
-      "At the start of your turn, gain #b",
+      "When you use a card that deals damage more than one time, gain #b",
       " #yStrength"
     ]
   },
@@ -152,14 +145,55 @@
     "NAME": "Radagon's Scarseal",
     "FLAVOR": "An eye engraved with an Elden Rune. Said to be the seal of King Consort Radagon.",
     "DESCRIPTIONS": [
-      "Upon pickup, raise your Max HP by 4. NL and start each combat with, 1 #yStrength and 1 #yDexsterity , NL and start each combat with an additional [E], but enemies start with and additional 1 #yStrength"
+      "Upon pickup, raise your Max HP by 4. NL and start each combat with, 1 #yStrength and 1 #yDexterity , NL and start each combat with an additional [E], but enemies start with and additional 1 #yStrength"
     ]
   },
   "${modID}:RadagonsSoreseal": {
     "NAME": "Radagon's Soreseal",
     "FLAVOR": "This legendary talisman is an eye engraved with an Elden Rune, said to be the seal of King Consort Radagon.",
     "DESCRIPTIONS": [
-      "Upon pickup, raise your Max HP by 7. NL and start each combat with, 2 #yStrength and 2 #yDexsterity , NL and start each combat with an additional [E][E], but enemies start with and additional 2 #yStrength"
+      "Upon pickup, raise your Max HP by 7. NL and start each combat with, 2 #yStrength and 2 #yDexterity , NL and start each combat with an additional [E][E], but enemies start with and additional 2 #yStrength"
+    ]
+  },
+  "${modID}:ProsthesisWearerHeirloom": {
+    "NAME": "Prosthesis Wearer Heirloom",
+    "FLAVOR": "A talisman engraved with a scene from a heroic tale.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, gain #b",
+      " #yStrength"
+    ]
+  },
+  "${modID}:StarscourgeHeirloom": {
+    "NAME": "Starscourge Heirloom",
+    "FLAVOR": "A talisman engraved with a scene from a heroic tale.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, gain #b",
+      " #yStrength"
+    ]
+  },
+  "${modID}:SilverScarab": {
+    "NAME": "Silver Scarab",
+    "FLAVOR": "A talisman facsimile of a scarab, the carrier of treasures and precious things.",
+    "DESCRIPTIONS": [
+      "Increase your chances of finding better cards"
+    ]
+  },
+  "${modID}:RottenWingedSwordInsignia": {
+    "NAME": "Rotten Winged Sword Insignia",
+    "FLAVOR": "A talisman depicting a raised prosthetic blade. An honor bestowed upon the valkyries who serve the goddess of rot.",
+    "DESCRIPTIONS": [
+      "When you use a card that deals damage more than one time, gain #b",
+      " #yStrength"
+    ]
+  },
+  "${modID}:MillicentsProsthesis": {
+    "NAME": "Millicent's Prosthesis",
+    "FLAVOR": "Part of the golden prosthesis used by Millicent. The hand is locked into a fist that once raised a sword aloft.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, gain #b",
+      " #yStrength",
+      " NL When you use a card that deals damage more than one time, gain #b",
+      " #yStrength"
     ]
   }
 }

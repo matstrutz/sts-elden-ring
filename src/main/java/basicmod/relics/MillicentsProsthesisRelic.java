@@ -1,24 +1,45 @@
 package basicmod.relics;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import java.util.Objects;
 
 import static basicmod.EldenRingSTS.makeID;
 
-public class WingedSwordInsigniaRelic extends BaseRelic {
-    private static final String NAME = "WingedSwordInsignia";
+public class MillicentsProsthesisRelic extends BaseRelic {
+    private static final String NAME = "MillicentsProsthesis";
     public static final String ID = makeID(NAME);
-    private static final RelicTier RARITY = RelicTier.COMMON;
+    private static final RelicTier RARITY = RelicTier.SPECIAL;
     private static final LandingSound SOUND = LandingSound.CLINK;
-    private static final int STR = 1;
+    private static final int STR = 2;
+    private static final int DEX = 2;
+    private boolean firstTurn = true;
 
-    public WingedSwordInsigniaRelic() {
+    public MillicentsProsthesisRelic() {
         super(ID, NAME, RARITY, SOUND);
+    }
+
+    @Override
+    public void atPreBattle() {
+        this.firstTurn = true;
+    }
+
+    @Override
+    public void atTurnStart() {
+        if(AbstractDungeon.player.hasRelic(this.relicId)){
+            if (this.firstTurn) {
+                this.flash();
+                this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+                this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player, DEX), DEX));
+                this.firstTurn = false;
+            }
+        }
     }
 
     @Override

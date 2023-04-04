@@ -10,14 +10,14 @@ import java.util.Objects;
 
 import static basicmod.EldenRingSTS.makeID;
 
-public class WingedSwordInsigniaRelic extends BaseRelic {
-    private static final String NAME = "WingedSwordInsignia";
+public class RottenWingedSwordInsigniaRelic extends BaseRelic {
+    private static final String NAME = "RottenWingedSwordInsignia";
     public static final String ID = makeID(NAME);
-    private static final RelicTier RARITY = RelicTier.COMMON;
+    private static final RelicTier RARITY = RelicTier.UNCOMMON;
     private static final LandingSound SOUND = LandingSound.CLINK;
-    private static final int STR = 1;
+    private static final int STR = 2;
 
-    public WingedSwordInsigniaRelic() {
+    public RottenWingedSwordInsigniaRelic() {
         super(ID, NAME, RARITY, SOUND);
     }
 
