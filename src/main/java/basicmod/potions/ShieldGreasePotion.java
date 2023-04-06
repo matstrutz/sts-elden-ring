@@ -1,22 +1,22 @@
 package basicmod.potions;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
+import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import static basicmod.EldenRingSTS.makeID;
 
-public class MagicPotPotion extends BasePotion {
-    private static final String NAME = "Magic Pot";
-    public static final String ID = makeID("MagicPot");
+public class ShieldGreasePotion extends BasePotion {
+    private static final String NAME = "Shield Grease";
+    public static final String ID = makeID("ShieldGrease");
     private static final PotionRarity RARITY = PotionRarity.COMMON;
-    private static final PotionSize SIZE = PotionSize.SPHERE;
-    private static final PotionColor COLOR = PotionColor.FIRE;
-    private static final int POTENCY = 20;
-    public MagicPotPotion() {
+    private static final PotionSize SIZE = PotionSize.SPIKY;
+    private static final PotionColor COLOR = PotionColor.BLUE;
+    private static final int POTENCY = 2;
+    public ShieldGreasePotion() {
         super(NAME, ID, RARITY, SIZE, COLOR);
         this.isThrown = true;
         this.targetRequired = true;
@@ -24,9 +24,10 @@ public class MagicPotPotion extends BasePotion {
 
     @Override
     public void use(AbstractCreature abstractCreature) {
-        DamageInfo info = new DamageInfo(AbstractDungeon.player, calcPotencyWithRelic(POTENCY), DamageInfo.DamageType.THORNS);
-        info.applyEnemyPowersOnly(abstractCreature);
-        this.addToBot(new DamageAction(abstractCreature, info, AbstractGameAction.AttackEffect.FIRE));
+        AbstractCreature target = AbstractDungeon.player;
+        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+            this.addToBot(new ApplyPowerAction(target, AbstractDungeon.player, new DexterityPower(target, calcPotencyWithRelic(POTENCY)), calcPotencyWithRelic(POTENCY)));
+        }
     }
 
     @Override

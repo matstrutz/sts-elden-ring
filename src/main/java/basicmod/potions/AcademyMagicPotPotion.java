@@ -9,14 +9,14 @@ import com.megacrit.cardcrawl.helpers.PowerTip;
 
 import static basicmod.EldenRingSTS.makeID;
 
-public class MagicPotPotion extends BasePotion {
-    private static final String NAME = "Magic Pot";
-    public static final String ID = makeID("MagicPot");
+public class AcademyMagicPotPotion extends BasePotion {
+    private static final String NAME = "Academy Magic Pot";
+    public static final String ID = makeID("AcademyMagicPot");
     private static final PotionRarity RARITY = PotionRarity.COMMON;
-    private static final PotionSize SIZE = PotionSize.SPHERE;
+    private static final PotionSize SIZE = PotionSize.FAIRY;
     private static final PotionColor COLOR = PotionColor.FIRE;
-    private static final int POTENCY = 20;
-    public MagicPotPotion() {
+    private static final int POTENCY = 30;
+    public AcademyMagicPotPotion() {
         super(NAME, ID, RARITY, SIZE, COLOR);
         this.isThrown = true;
         this.targetRequired = true;
@@ -37,7 +37,7 @@ public class MagicPotPotion extends BasePotion {
     @Override
     public void initializeData() {
         this.potency = calcPotencyWithRelic(POTENCY);
-        this.description = "Deal #" + POTENCY + " Damage.";
+        this.description = "Deal " + POTENCY + " Damage.";
         this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
     }

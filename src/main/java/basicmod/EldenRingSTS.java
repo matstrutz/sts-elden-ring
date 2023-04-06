@@ -6,7 +6,13 @@ import basemod.interfaces.EditKeywordsSubscriber;
 import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
 import basemod.interfaces.PostInitializeSubscriber;
+import basicmod.potions.AcademyMagicPotPotion;
+import basicmod.potions.BloodboilAromaticPotion;
+import basicmod.potions.MagicGreasePotion;
 import basicmod.potions.MagicPotPotion;
+import basicmod.potions.NeutralizingBolusesPotion;
+import basicmod.potions.ShieldGreasePotion;
+import basicmod.potions.VolcanoPotPotion;
 import basicmod.relics.BaseRelic;
 import basicmod.util.GeneralUtils;
 import basicmod.util.KeywordInfo;
@@ -91,9 +97,18 @@ public class EldenRingSTS implements
         Texture badgeTexture = TextureLoader.getTexture(resourcePath("badge.png"));
         BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, null);
 
-        BaseMod.addPotion(MagicPotPotion.class, Color.BLUE, Color.WHITE, Color.GRAY, MagicPotPotion.ID);
+        startPotionManual();
     }
 
+    public void startPotionManual(){
+        BaseMod.addPotion(MagicPotPotion.class, Color.BLUE, Color.WHITE, Color.GRAY, MagicPotPotion.ID);
+        BaseMod.addPotion(AcademyMagicPotPotion.class, Color.BLUE, Color.WHITE, Color.GRAY, AcademyMagicPotPotion.ID);
+        BaseMod.addPotion(VolcanoPotPotion.class, Color.RED, Color.YELLOW, Color.ORANGE, VolcanoPotPotion.ID);
+        BaseMod.addPotion(NeutralizingBolusesPotion.class, Color.GREEN, Color.GRAY, Color.BLACK, NeutralizingBolusesPotion.ID);
+        BaseMod.addPotion(BloodboilAromaticPotion.class, Color.RED, Color.FIREBRICK, Color.BLACK, BloodboilAromaticPotion.ID);
+        BaseMod.addPotion(MagicGreasePotion.class, Color.BLUE, Color.WHITE, Color.GRAY, MagicGreasePotion.ID);
+        BaseMod.addPotion(ShieldGreasePotion.class, Color.BLUE, Color.WHITE, Color.GRAY, ShieldGreasePotion.ID);
+    }
     /*----------Localization----------*/
 
     //This is used to load the appropriate localization files based on language.
