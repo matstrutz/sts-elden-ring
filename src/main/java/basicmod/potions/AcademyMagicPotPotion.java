@@ -12,9 +12,9 @@ import static basicmod.EldenRingSTS.makeID;
 public class AcademyMagicPotPotion extends BasePotion {
     private static final String NAME = "Academy Magic Pot";
     public static final String ID = makeID("AcademyMagicPot");
-    private static final PotionRarity RARITY = PotionRarity.COMMON;
-    private static final PotionSize SIZE = PotionSize.FAIRY;
-    private static final PotionColor COLOR = PotionColor.FIRE;
+    private static final PotionRarity RARITY = PotionRarity.UNCOMMON;
+    private static final PotionSize SIZE = PotionSize.BOLT;
+    private static final PotionColor COLOR = PotionColor.BLUE;
     private static final int POTENCY = 30;
     public AcademyMagicPotPotion() {
         super(NAME, ID, RARITY, SIZE, COLOR);

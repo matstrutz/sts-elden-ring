@@ -38,7 +38,7 @@ public class MagicGreasePotion extends BasePotion {
     @Override
     public void initializeData() {
         this.potency = calcPotencyWithRelic(POTENCY);
-        this.description = "Gain #" + POTENCY + " #yStrength.";
+        this.description = "Gain " + POTENCY + " #yStrength.";
         this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
     }

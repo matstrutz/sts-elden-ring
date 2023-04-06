@@ -13,13 +13,13 @@ public class ShieldGreasePotion extends BasePotion {
     private static final String NAME = "Shield Grease";
     public static final String ID = makeID("ShieldGrease");
     private static final PotionRarity RARITY = PotionRarity.COMMON;
-    private static final PotionSize SIZE = PotionSize.SPIKY;
-    private static final PotionColor COLOR = PotionColor.BLUE;
+    private static final PotionSize SIZE = PotionSize.S;
+    private static final PotionColor COLOR = PotionColor.WHITE;
     private static final int POTENCY = 2;
     public ShieldGreasePotion() {
         super(NAME, ID, RARITY, SIZE, COLOR);
-        this.isThrown = true;
-        this.targetRequired = true;
+        this.isThrown = false;
+        this.targetRequired = false;
     }
 
     @Override
@@ -38,7 +38,7 @@ public class ShieldGreasePotion extends BasePotion {
     @Override
     public void initializeData() {
         this.potency = calcPotencyWithRelic(POTENCY);
-        this.description = "Gain #" + POTENCY + " #yDexterity.";
+        this.description = "Gain " + POTENCY + " #yDexterity.";
         this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
     }
