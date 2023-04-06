@@ -20,7 +20,7 @@ public class GreatshieldTalismanRelic extends BaseRelic {
     public void onPlayerEndTurn() {
         if(AbstractDungeon.player.currentBlock > 0){
             this.flash();
-            this.addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, Math.toIntExact(Math.round(AbstractDungeon.player.currentBlock * 1.20))));
+            this.addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, Math.toIntExact(Math.round(AbstractDungeon.player.currentBlock * 0.20))));
         }
     }
 

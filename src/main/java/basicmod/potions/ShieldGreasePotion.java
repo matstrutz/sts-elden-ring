@@ -38,7 +38,7 @@ public class ShieldGreasePotion extends BasePotion {
     @Override
     public void initializeData() {
         this.potency = calcPotencyWithRelic(POTENCY);
-        this.description = "Deal #" + POTENCY + " Damage.";
+        this.description = "Gain #" + POTENCY + " #yDexterity.";
         this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
     }
