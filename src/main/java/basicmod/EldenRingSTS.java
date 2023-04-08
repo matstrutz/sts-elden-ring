@@ -6,6 +6,7 @@ import basemod.interfaces.EditKeywordsSubscriber;
 import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
 import basemod.interfaces.PostInitializeSubscriber;
+import basicmod.monsters.FootSoldierMonster;
 import basicmod.potions.AcademyMagicPotPotion;
 import basicmod.potions.BloodboilAromaticPotion;
 import basicmod.potions.MagicGreasePotion;
@@ -26,6 +27,7 @@ import com.evacipated.cardcrawl.modthespire.Patcher;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.EventStrings;
@@ -34,6 +36,7 @@ import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -98,6 +101,16 @@ public class EldenRingSTS implements
         BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, null);
 
         startPotionManual();
+        startMonsterManual();
+    }
+
+    public void startMonsterManual(){
+        BaseMod.addMonster(FootSoldierMonster.ID, FootSoldierMonster::new);
+//        BaseMod.addMonster(FootSoldierMonster.ID, () -> new MonsterGroup(new AbstractMonster[] {
+//                new FootSoldierMonster(),
+//                new FootSoldierMonster()
+//        }));
+        BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo(FootSoldierMonster.ID, 3));
     }
 
     public void startPotionManual(){
@@ -206,8 +219,8 @@ public class EldenRingSTS implements
         return resourcesFolder + "/relics/" + file;
     }
 
-    public static String potionPath(String file) {
-        return resourcesFolder + "/potions/" + file;
+    public static String monsterPath(String file) {
+        return resourcesFolder + "/monsters/" + file;
     }
 
 
