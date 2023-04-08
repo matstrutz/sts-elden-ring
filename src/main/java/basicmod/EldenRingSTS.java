@@ -6,19 +6,28 @@ import basemod.interfaces.EditKeywordsSubscriber;
 import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
 import basemod.interfaces.PostInitializeSubscriber;
+import basicmod.monsters.FootSoldierMonster;
+import basicmod.potions.AcademyMagicPotPotion;
+import basicmod.potions.BloodboilAromaticPotion;
+import basicmod.potions.MagicGreasePotion;
+import basicmod.potions.MagicPotPotion;
+import basicmod.potions.NeutralizingBolusesPotion;
+import basicmod.potions.ShieldGreasePotion;
+import basicmod.potions.VolcanoPotPotion;
 import basicmod.relics.BaseRelic;
 import basicmod.util.GeneralUtils;
 import basicmod.util.KeywordInfo;
 import basicmod.util.TextureLoader;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.ModInfo;
 import com.evacipated.cardcrawl.modthespire.Patcher;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.EventStrings;
@@ -27,6 +36,7 @@ import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -87,13 +97,31 @@ public class EldenRingSTS implements
 
     @Override
     public void receivePostInitialize() {
-        //This loads the image used as an icon in the in-game mods menu.
         Texture badgeTexture = TextureLoader.getTexture(resourcePath("badge.png"));
-        //Set up the mod information displayed in the in-game mods menu.
-        //The information used is taken from your pom.xml file.
         BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, null);
+
+        startPotionManual();
+        startMonsterManual();
     }
 
+    public void startMonsterManual(){
+        BaseMod.addMonster(FootSoldierMonster.ID, FootSoldierMonster::new);
+//        BaseMod.addMonster(FootSoldierMonster.ID, () -> new MonsterGroup(new AbstractMonster[] {
+//                new FootSoldierMonster(),
+//                new FootSoldierMonster()
+//        }));
+        BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo(FootSoldierMonster.ID, 3));
+    }
+
+    public void startPotionManual(){
+        BaseMod.addPotion(MagicPotPotion.class, Color.BLUE, Color.WHITE, Color.GRAY, MagicPotPotion.ID);
+        BaseMod.addPotion(AcademyMagicPotPotion.class, Color.BLUE, Color.WHITE, Color.GRAY, AcademyMagicPotPotion.ID);
+        BaseMod.addPotion(VolcanoPotPotion.class, Color.RED, Color.YELLOW, Color.ORANGE, VolcanoPotPotion.ID);
+        BaseMod.addPotion(NeutralizingBolusesPotion.class, Color.GREEN, Color.GRAY, Color.BLACK, NeutralizingBolusesPotion.ID);
+        BaseMod.addPotion(BloodboilAromaticPotion.class, Color.RED, Color.FIREBRICK, Color.BLACK, BloodboilAromaticPotion.ID);
+        BaseMod.addPotion(MagicGreasePotion.class, Color.BLUE, Color.WHITE, Color.GRAY, MagicGreasePotion.ID);
+        BaseMod.addPotion(ShieldGreasePotion.class, Color.BLUE, Color.WHITE, Color.GRAY, ShieldGreasePotion.ID);
+    }
     /*----------Localization----------*/
 
     //This is used to load the appropriate localization files based on language.
@@ -112,14 +140,14 @@ public class EldenRingSTS implements
             The same process is used to load keywords slightly below.
         */
         loadLocalization(defaultLanguage); //no except catching for default localization, you better have at least one that works.
-        if (!defaultLanguage.equals(getLangString())) {
-            try {
-                loadLocalization(getLangString());
-            }
-            catch (GdxRuntimeException e) {
-                e.printStackTrace();
-            }
-        }
+//        if (!defaultLanguage.equals(getLangString())) {
+//            try {
+//                loadLocalization(getLangString());
+//            }
+//            catch (GdxRuntimeException e) {
+//                e.printStackTrace();
+//            }
+//        }
     }
 
     private void loadLocalization(String lang) {
@@ -189,6 +217,10 @@ public class EldenRingSTS implements
     }
     public static String relicPath(String file) {
         return resourcesFolder + "/relics/" + file;
+    }
+
+    public static String monsterPath(String file) {
+        return resourcesFolder + "/monsters/" + file;
     }
 
 
