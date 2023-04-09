@@ -10,16 +10,16 @@
     "NAME": "Great-Jar's Arsenal",
     "FLAVOR": "A charm that resembles a great jar overflowing with weaponry.",
     "DESCRIPTIONS": [
-      "Upon pickup, gain #b",
-      " Potion slots."
+      "At the start of each combat, if you have 15 or less cards in your deck, gain #b",
+      " #yStrength"
     ]
   },
   "${modID}:ArsenalCharm": {
     "NAME": "Arsenal Charm",
     "FLAVOR": "An iron charm that resembles a mass of weaponry.",
     "DESCRIPTIONS": [
-      "Upon pickup, gain #b",
-      " Potion slots."
+      "At the start of each combat, if you have 20 or less cards in your deck, gain #b",
+      " #yStrength"
     ]
   },
   "${modID}:CrimsonSeedTalisman": {
@@ -191,9 +191,27 @@
     "FLAVOR": "Part of the golden prosthesis used by Millicent. The hand is locked into a fist that once raised a sword aloft.",
     "DESCRIPTIONS": [
       "At the start of each combat, gain #b",
-      " #yStrength",
+      " #yDexterity",
       " NL When you use a card that deals damage more than one time, gain #b",
       " #yStrength"
+    ]
+  },
+  "${modID}:BlueDancerCharm": {
+    "NAME": "Blue Dancer Charm",
+    "FLAVOR": "A cloth doll depicting a dancer garbed in blue.",
+    "DESCRIPTIONS": [
+      "At the start of each turn, if you don't have any potion, gain one #b",
+      " #yStrength",
+      ", #b",
+      " #yDexterity",
+      ", or [E]"
+    ]
+  },
+  "${modID}:CarianFiligreedCrest": {
+    "NAME": "Carian Filigreed Crest",
+    "FLAVOR": "A talisman adorned with the royal crest.",
+    "DESCRIPTIONS": [
+      "The first #ySkill you draw each turn, cost #b"
     ]
   }
 }

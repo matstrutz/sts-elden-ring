@@ -10,7 +10,8 @@ import static basicmod.EldenRingSTS.makeID;
 public class DaedicarsWoeRelic extends BaseRelic {
     private static final String NAME = "DaedicarsWoe";
     public static final String ID = makeID(NAME);
-    private static final RelicTier RARITY = RelicTier.SPECIAL;
+    //TODO Move do special um event is done
+    private static final RelicTier RARITY = RelicTier.SHOP;
     private static final LandingSound SOUND = LandingSound.SOLID;
     private static final int STR_GAIN = 2;
 

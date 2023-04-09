@@ -1,8 +1,9 @@
 package basicmod.relics;
 
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.potions.PotionSlot;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static basicmod.EldenRingSTS.makeID;
 
@@ -11,22 +12,33 @@ public class GreatJarsArsenalRelic extends BaseRelic {
     public static final String ID = makeID(NAME);
     private static final RelicTier RARITY = RelicTier.COMMON;
     private static final LandingSound SOUND = LandingSound.FLAT;
-    private static final int POTION_QTD = 2;
+    private static final int STR = 2;
+
+    private boolean firstTurn = true;
 
     public GreatJarsArsenalRelic() {
         super(ID, NAME, RARITY, SOUND);
     }
 
     @Override
-    public void onEquip() {
-        AbstractPlayer var10000 = AbstractDungeon.player;
-        var10000.potionSlots += POTION_QTD;
-        AbstractDungeon.player.potions.add(new PotionSlot(AbstractDungeon.player.potionSlots - POTION_QTD));
-        AbstractDungeon.player.potions.add(new PotionSlot(AbstractDungeon.player.potionSlots - (POTION_QTD - 1)));
+    public void atPreBattle() {
+        this.firstTurn = true;
+    }
+
+    @Override
+    public void atTurnStart() {
+        if (this.firstTurn) {
+            if(AbstractDungeon.player.masterDeck.size() < 15){
+                this.flash();
+                this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+                this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, STR), STR));
+            }
+            this.firstTurn = false;
+        }
     }
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0] + POTION_QTD + DESCRIPTIONS[1];
+        return DESCRIPTIONS[0] + STR + DESCRIPTIONS[1];
     }
 }

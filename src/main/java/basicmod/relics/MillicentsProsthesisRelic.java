@@ -15,7 +15,8 @@ import static basicmod.EldenRingSTS.makeID;
 public class MillicentsProsthesisRelic extends BaseRelic {
     private static final String NAME = "MillicentsProsthesis";
     public static final String ID = makeID(NAME);
-    private static final RelicTier RARITY = RelicTier.SPECIAL;
+    //TODO Move do special um event is done
+    private static final RelicTier RARITY = RelicTier.SHOP;
     private static final LandingSound SOUND = LandingSound.CLINK;
     private static final int STR = 2;
     private static final int DEX = 2;
@@ -54,6 +55,6 @@ public class MillicentsProsthesisRelic extends BaseRelic {
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0] + STR + DESCRIPTIONS[1];
+        return DESCRIPTIONS[0] + STR + DESCRIPTIONS[1] + DESCRIPTIONS[2] + STR + DESCRIPTIONS[3];
     }
 }
