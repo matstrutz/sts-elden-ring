@@ -145,14 +145,30 @@
     "NAME": "Radagon's Scarseal",
     "FLAVOR": "An eye engraved with an Elden Rune. Said to be the seal of King Consort Radagon.",
     "DESCRIPTIONS": [
-      "Upon pickup, raise your Max HP by 4. NL and start each combat with, 1 #yStrength and 1 #yDexterity , NL and start each combat with an additional [E], but enemies start with and additional 1 #yStrength"
+      "Upon pickup, raise your Max HP by #b ",
+      ". NL Start each combat with, #b",
+      " #yStrength",
+      ", #b",
+      " #yDexterity",
+      ", and",
+      " [E] ",
+      " NL but enemies start with and additional #b",
+      " #yStrength"
     ]
   },
   "${modID}:RadagonsSoreseal": {
     "NAME": "Radagon's Soreseal",
     "FLAVOR": "This legendary talisman is an eye engraved with an Elden Rune, said to be the seal of King Consort Radagon.",
     "DESCRIPTIONS": [
-      "Upon pickup, raise your Max HP by 7. NL and start each combat with, 2 #yStrength and 2 #yDexterity , NL and start each combat with an additional [E][E], but enemies start with and additional 2 #yStrength"
+      "Upon pickup, raise your Max HP by #b ",
+      ". NL Start each combat with, #b",
+      " #yStrength",
+      ", #b",
+      " #yDexterity",
+      ", and",
+      " [E] ",
+      " NL but enemies start with and additional #b",
+      " #yStrength"
     ]
   },
   "${modID}:ProsthesisWearerHeirloom": {
@@ -160,7 +176,7 @@
     "FLAVOR": "A talisman engraved with a scene from a heroic tale.",
     "DESCRIPTIONS": [
       "At the start of each combat, gain #b",
-      " #yStrength"
+      " #yDexterity"
     ]
   },
   "${modID}:StarscourgeHeirloom": {

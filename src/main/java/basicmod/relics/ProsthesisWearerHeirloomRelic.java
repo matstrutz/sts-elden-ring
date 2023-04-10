@@ -2,7 +2,7 @@ package basicmod.relics;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.powers.DexterityPower;
 
 import static basicmod.EldenRingSTS.makeID;
 
@@ -27,7 +27,7 @@ public class ProsthesisWearerHeirloomRelic extends BaseRelic {
     public void atTurnStart() {
         if (this.firstTurn) {
             this.flash();
-            this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, DEX), DEX));
+            this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player, DEX), DEX));
             this.firstTurn = false;
         }
 

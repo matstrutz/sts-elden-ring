@@ -13,12 +13,12 @@ public class RadagonsSoresealRelic extends BaseRelic {
     private static final String NAME = "RadagonsSoreseal";
     public static final String ID = makeID(NAME);
     private static final RelicTier RARITY = RelicTier.RARE;
-        private static final LandingSound SOUND = LandingSound.SOLID;
-    private static final int ENERGY_START = 2;
+    private static final LandingSound SOUND = LandingSound.SOLID;
+    private static final int ENERGY_START = 1;
     private static final int HP_AMOUNT = 7;
     private static final int STR = 2;
     private static final int DEX = 2;
-    private static final int ENEMY_STR = 2;
+    private static final int ENEMY_STR = 4;
     private boolean firstTurn = true;
 
     public RadagonsSoresealRelic() {
@@ -54,6 +54,10 @@ public class RadagonsSoresealRelic extends BaseRelic {
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0];
+        return DESCRIPTIONS[0] + HP_AMOUNT +
+                DESCRIPTIONS[1] + STR +
+                DESCRIPTIONS[2] + DESCRIPTIONS[3] + DEX +
+                DESCRIPTIONS[4] + DESCRIPTIONS[5] + DESCRIPTIONS[6] +
+                DESCRIPTIONS[7] + ENEMY_STR + DESCRIPTIONS[8];
     }
 }

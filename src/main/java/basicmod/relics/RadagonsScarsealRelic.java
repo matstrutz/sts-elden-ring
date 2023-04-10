@@ -18,7 +18,7 @@ public class RadagonsScarsealRelic extends BaseRelic {
     private static final int HP_AMOUNT = 4;
     private static final int STR = 1;
     private static final int DEX = 1;
-    private static final int ENEMY_STR = 1;
+    private static final int ENEMY_STR = 3;
     private boolean firstTurn = true;
 
     public RadagonsScarsealRelic() {
@@ -54,6 +54,10 @@ public class RadagonsScarsealRelic extends BaseRelic {
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0];
+        return DESCRIPTIONS[0] + HP_AMOUNT +
+                DESCRIPTIONS[1] + STR +
+                DESCRIPTIONS[2] + DESCRIPTIONS[3] + DEX +
+                DESCRIPTIONS[4] + DESCRIPTIONS[5] + DESCRIPTIONS[6] +
+                DESCRIPTIONS[7] + ENEMY_STR + DESCRIPTIONS[8];
     }
 }
