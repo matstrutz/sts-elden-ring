@@ -36,6 +36,8 @@ import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
@@ -78,17 +80,15 @@ public class EldenRingSTS implements
 
     @Override
     public void receiveEditRelics() {
-        new AutoAdd(modID) //Loads files from this mod
-                .packageFilter(BaseRelic.class) //In the same package as this class
-                .any(BaseRelic.class, (info, relic) -> { //Run this code for any classes that extend this class
+        new AutoAdd(modID)
+                .packageFilter(BaseRelic.class)
+                .any(BaseRelic.class, (info, relic) -> {
                     if (relic.pool != null) {
-                        BaseMod.addRelicToCustomPool(relic, relic.pool); //Register a custom character specific relic
+                        BaseMod.addRelicToCustomPool(relic, relic.pool);
                     } else {
-                        BaseMod.addRelic(relic, relic.relicType); //Register a shared or base game character specific relic
+                        BaseMod.addRelic(relic, relic.relicType);
                     }
 
-                    //If the class is annotated with @AutoAdd.Seen, it will be marked as seen, making it visible in the relic library.
-                    //If you want all your relics to be visible by default, just remove this if statement.
                     if (info.seen) {
                         UnlockTracker.markRelicAsSeen(relic.relicId);
                     }
@@ -105,12 +105,19 @@ public class EldenRingSTS implements
     }
 
     public void startMonsterManual(){
-        BaseMod.addMonster(FootSoldierMonster.ID, FootSoldierMonster::new);
-//        BaseMod.addMonster(FootSoldierMonster.ID, () -> new MonsterGroup(new AbstractMonster[] {
-//                new FootSoldierMonster(),
-//                new FootSoldierMonster()
-//        }));
+        BaseMod.addMonster(FootSoldierMonster.ID, () -> new FootSoldierMonster(0.0F, 0.0F));
+        BaseMod.addMonster(FootSoldierMonster.ID, () -> new MonsterGroup(new AbstractMonster[] {
+                new FootSoldierMonster(0.0F, 0.0F),
+                new FootSoldierMonster(250.0F, 00.0F)
+        }));
         BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo(FootSoldierMonster.ID, 3));
+
+//        BaseMod.addMonster(MalikethMonster.ID, MalikethMonster::new);
+//        BaseMod.addBoss(Exordium.ID, MalikethMonster.ID, createBossOutlinePath(MalikethMonster.ID), createBossOutlinePath(MalikethMonster.ID));
+    }
+
+    private String createBossOutlinePath(String baseUrl){
+        return baseUrl + "_outline.png";
     }
 
     public void startPotionManual(){

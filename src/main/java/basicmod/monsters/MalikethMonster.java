@@ -14,20 +14,17 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static basicmod.EldenRingSTS.makeID;
+public class MalikethMonster extends BaseMonster {
+    public final static String NAME = "Maliketh, The Black Blade";
+    public final static String ID = "Maliketh";
 
-public class FootSoldierMonster extends BaseMonster {
-    public final static String NAME = "Foot Soldier";
-    public final static String FAKE_ID = "FootSoldier";
-    public final static String ID = makeID(FAKE_ID);
-
-    private int stab = 9;
+    private int stab = 10;
     private int stabB = 7;
     private int def = 6;
     private List<Integer> turnPattern = Arrays.asList(0,1,2);
     private int countTurnPattern = 0;
-    public FootSoldierMonster(float offX, float offY) {
-        super(NAME, ID, 23, 0.0F, 0.0F, 150.0F, 250.0F, EldenRingSTS.monsterPath(FAKE_ID + ".png"), offX, offY);
+    public MalikethMonster() {
+        super(NAME, ID, 23, 0.0F, 0.0F, 170.0F, 230.0F, EldenRingSTS.monsterPath(ID + ".png"), 5.0F, 0.0F);
         Collections.shuffle(turnPattern);
         if (AbstractDungeon.ascensionLevel >= 2) {
             stab += 2;
