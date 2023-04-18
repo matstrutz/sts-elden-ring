@@ -103,7 +103,7 @@ public class EldenRingSTS implements
 
         startPotionManual();
         startMonsterManual();
-//        startBossManual();
+        startBossManual();
     }
 
     public void startBossManual(){
@@ -118,9 +118,6 @@ public class EldenRingSTS implements
                 new FootSoldierMonster(250.0F, 00.0F)
         }));
         BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo(FootSoldierMonster.ID, 3));
-
-//        BaseMod.addMonster(MalikethMonster.ID, MalikethMonster::new);
-//        BaseMod.addBoss(Exordium.ID, MalikethMonster.ID, createBossOutlinePath(MalikethMonster.ID), createBossOutlinePath(MalikethMonster.ID));
     }
 
     public void startPotionManual(){
@@ -234,7 +231,7 @@ public class EldenRingSTS implements
     }
 
     public static String bossIconPath(String file) {
-        return resourcesFolder + "/monsters/map" + file + "Icon.png";
+        return resourcesFolder + "/monsters/map/" + file + "Icon.png";
     }
 
 

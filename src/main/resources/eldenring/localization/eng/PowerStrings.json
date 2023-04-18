@@ -4,5 +4,13 @@
     "DESCRIPTIONS": [
       "You are Very Cool and Strong."
     ]
+  },
+  "${modID}:OmenBairn": {
+    "NAME": "Omen Bairn",
+    "DESCRIPTIONS": [
+      "When enemy loses block, gain #b",
+      " #yStrength.",
+      " When lose block, remove all #yStrength."
+    ]
   }
 }

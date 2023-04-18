@@ -19,18 +19,22 @@ public class FootSoldierMonster extends BaseMonster {
     public final static String FAKE_ID = "FootSoldier";
     public final static String ID = EldenRingSTS.makeID(FAKE_ID);
 
-    private int stab = 9;
-    private int stabB = 7;
+    private int stab = 8;
+    private int stabB = 5;
     private int def = 6;
     private List<Integer> turnPattern = Arrays.asList(0,1,2);
     private int countTurnPattern = 0;
     public FootSoldierMonster(float offX, float offY) {
-        super(NAME, ID, 23, 0.0F, 0.0F, 150.0F, 250.0F, EldenRingSTS.monsterPath(FAKE_ID), offX, offY);
+        super(NAME, ID, 18, 0.0F, 0.0F, 150.0F, 250.0F, EldenRingSTS.monsterPath(FAKE_ID), offX, offY);
         Collections.shuffle(turnPattern);
         if (AbstractDungeon.ascensionLevel >= 2) {
             stab += 2;
             stabB += 2;
+        }
+
+        if (AbstractDungeon.ascensionLevel >= 7) {
             def += 2;
+            this.maxHealth += 3;
         }
     }
 
