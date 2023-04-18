@@ -21,13 +21,16 @@ public class MorgottBoss extends BaseMonster {
     public final static String ID = EldenRingSTS.makeID(FAKE_ID);
 
     private int holyBladeRainDmg = 4;
+    private int holyBladeRainCount = 6;
     private int tailSwipeDmg = 12;
     private int tailSwipeDef = 15;
     private int holySpearThrowDmg = 16;
     private int holyDaggerDmg = 4;
+    private int holyDaggerCount = 5;
     private int holyHammerDmg = 20;
     private int holySwordDmg = 10;
     private int holySpearDmg = 10;
+    private int holySpearCount = 10;
     private int defPreCurse = 40;
     private int cursedBloodSliceDmg = 60;
     private boolean curseTrigger = true;
@@ -114,7 +117,9 @@ public class MorgottBoss extends BaseMonster {
     }
     private void holyBladeRain(){
         AbstractDungeon.actionManager.addToBottom(new AnimateFastAttackAction(this));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, holyBladeRainDmg), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        for (int i = 0; i < holyBladeRainCount - 1; i++) {
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, holyBladeRainDmg), AbstractGameAction.AttackEffect.SLASH_HEAVY));
+        }
     }
 
     private void tailSwipe(){
@@ -131,7 +136,13 @@ public class MorgottBoss extends BaseMonster {
 
     private void holyDagger(){
         AbstractDungeon.actionManager.addToBottom(new AnimateFastAttackAction(this));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, holyDaggerDmg), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        for (int i = 0; i < holyDaggerCount - 1; i++) {
+            if((i % 2) == 0){
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, holyDaggerDmg), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+            } else {
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, holyDaggerDmg), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+            }
+        }
     }
 
     private void holyHammer(){
@@ -147,7 +158,9 @@ public class MorgottBoss extends BaseMonster {
 
     private void holySpear(){
         AbstractDungeon.actionManager.addToBottom(new AnimateFastAttackAction(this));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, holySpearDmg), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        for (int i = 0; i < holySpearCount - 1; i++) {
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, holySpearDmg), AbstractGameAction.AttackEffect.LIGHTNING));
+        }
     }
 
     private void preCurseBlock(){
@@ -176,7 +189,7 @@ public class MorgottBoss extends BaseMonster {
         }
         switch (this.turnMove) {
             case 0:
-                this.setMove((byte)1, Intent.ATTACK, holyBladeRainDmg, 6, true);
+                this.setMove((byte)1, Intent.ATTACK, holyBladeRainDmg, holyBladeRainCount, true);
                 break;
             case 1:
                 this.setMove((byte)2, Intent.ATTACK_DEFEND, tailSwipeDmg);
@@ -185,7 +198,7 @@ public class MorgottBoss extends BaseMonster {
                 this.setMove((byte)3, Intent.ATTACK, holySpearThrowDmg);
                 break;
             case 3:
-                this.setMove((byte)4, Intent.ATTACK, holyDaggerDmg, 5, true);
+                this.setMove((byte)4, Intent.ATTACK, holyDaggerDmg, holyDaggerCount, true);
                 break;
             case 4:
                 this.setMove((byte)5, Intent.ATTACK, holyHammerDmg);
@@ -194,7 +207,7 @@ public class MorgottBoss extends BaseMonster {
                 this.setMove((byte)6, Intent.ATTACK_DEFEND, holySwordDmg);
                 break;
             case 6:
-                this.setMove((byte)7, Intent.ATTACK, holySpearDmg, 2,true);
+                this.setMove((byte)7, Intent.ATTACK, holySpearDmg, holySpearCount,true);
                 break;
         }
     }
