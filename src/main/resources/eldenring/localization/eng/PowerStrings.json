@@ -8,9 +8,9 @@
   "${modID}:OmenBairn": {
     "NAME": "Omen Bairn",
     "DESCRIPTIONS": [
-      "When enemy loses block, gain #b",
+      "Whenever this enemy deals blocked damage, it gains #b",
       " #yStrength.",
-      " When lose block, remove all #yStrength."
+      " Whenever this enemy receive blocked damage, remove all #yStrength."
     ]
   }
 }

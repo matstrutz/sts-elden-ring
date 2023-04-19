@@ -15,7 +15,6 @@ public class OmenBairnPower extends BasePower implements OnMyBlockBrokenPower {
     private static final AbstractPower.PowerType TYPE = AbstractPower.PowerType.BUFF;
     private static final boolean TURN_BASED = false;
     private boolean checkBlockEnemy = false;
-    private boolean checkBlockSelf = false;
     private static final int STR_GAIN = 2;
     public OmenBairnPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
@@ -30,6 +29,7 @@ public class OmenBairnPower extends BasePower implements OnMyBlockBrokenPower {
     public void onInflictDamage(DamageInfo info, int damageAmount, AbstractCreature target) {
         if (target.currentBlock < 1 && this.checkBlockEnemy) {
             this.addToBot(new ApplyPowerAction(this.owner, this.owner, new StrengthPower(this.owner, STR_GAIN)));
+            this.checkBlockEnemy = false;
         }
     }
 
