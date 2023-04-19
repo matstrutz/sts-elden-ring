@@ -13,15 +13,24 @@ public class DragoncrestGreatshieldTalismanRelic extends BaseRelic {
     private static final LandingSound SOUND = LandingSound.SOLID;
     private static final int PLATE_GAIN = 5;
 
+    private boolean firstTurn = true;
+
+    @Override
+    public void atPreBattle() {
+        this.firstTurn = true;
+    }
+
     public DragoncrestGreatshieldTalismanRelic() {
         super(ID, NAME, RARITY, SOUND);
     }
 
     @Override
     public void atTurnStart() {
-        this.flash();
-        this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new PlatedArmorPower(AbstractDungeon.player, PLATE_GAIN), PLATE_GAIN));
-        this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+        if (this.firstTurn) {
+            this.flash();
+            this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new PlatedArmorPower(AbstractDungeon.player, PLATE_GAIN), PLATE_GAIN));
+            this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+        }
     }
 
     @Override

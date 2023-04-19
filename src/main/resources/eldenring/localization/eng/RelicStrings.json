@@ -137,8 +137,8 @@
     "NAME": "Dragoncrest Greatshield Talisman",
     "FLAVOR": "Talisman depicting a knight holding a greatshield.",
     "DESCRIPTIONS": [
-      "At end of your turn, gain #b",
-      " of your actual #yBlock."
+      "Start each combat with #b",
+      " #yPlated #yArmor."
     ]
   },
   "${modID}:RadagonsScarseal": {

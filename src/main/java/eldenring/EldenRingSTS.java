@@ -38,6 +38,7 @@ import eldenring.potions.MagicPotPotion;
 import eldenring.potions.NeutralizingBolusesPotion;
 import eldenring.potions.ShieldGreasePotion;
 import eldenring.potions.VolcanoPotPotion;
+import eldenring.powers.OmenBairnPower;
 import eldenring.relics.BaseRelic;
 import eldenring.util.GeneralUtils;
 import eldenring.util.KeywordInfo;
@@ -102,9 +103,14 @@ public class EldenRingSTS implements
         Texture badgeTexture = TextureLoader.getTexture(resourcePath("badge.png"));
         BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, null);
 
+        startManualPowers();
         startPotionManual();
         startMonsterManual();
         startBossManual();
+    }
+
+    public void startManualPowers(){
+        BaseMod.addPower(OmenBairnPower.class, OmenBairnPower.POWER_ID);
     }
 
     public void startBossManual(){

@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.animations.AnimateFastAttackAction;
 import com.megacrit.cardcrawl.actions.animations.AnimateJumpAction;
 import com.megacrit.cardcrawl.actions.animations.AnimateShakeAction;
 import com.megacrit.cardcrawl.actions.animations.AnimateSlowAttackAction;
+import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -54,18 +55,6 @@ public class MorgottBoss extends BaseMonster {
 
     @Override
     public void takeTurn() {
-        if (this.triggerCurse) {
-            cursedBloodSlice();
-            this.triggerCurse = false;
-            return;
-        }
-
-        if (this.triggerCurseFirstMove) {
-            preCurseBlock();
-            this.triggerCurseFirstMove = false;
-            return;
-        }
-
         switch (this.turnMove) {
             case 0 :
                 holyBladeRain();
@@ -95,6 +84,21 @@ public class MorgottBoss extends BaseMonster {
                 holySpear();
                 calcNextMove();
                 break;
+            case 7:
+                AbstractDungeon.actionManager.addToBottom(new TalkAction(this, "AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"));
+                cursedBloodSlice();
+                this.triggerCurse = false;
+                calcNextMove();
+                break;
+            case 8:
+                preCurseBlock();
+                this.triggerCurseFirstMove = false;
+                calcNextMove();
+                break;
+            case 10:
+                this.addToBot(new ApplyPowerAction(this, this, new OmenBairnPower(this, 1)));
+                calcNextMove();
+                break;
         }
     }
 
@@ -102,8 +106,9 @@ public class MorgottBoss extends BaseMonster {
     protected void getMove(int i) {
         if(this.encounterStart){
             this.encounterStart = false;
-            this.addToBot(new ApplyPowerAction(this, this, new OmenBairnPower(this, 1)));
-            this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new OmenBairnPower(this, 1)));
+            this.setMove((byte)10, Intent.BUFF);
+            this.turnMove = 10;
+            return;
         }
         calcNextMove();
     }
@@ -175,17 +180,18 @@ public class MorgottBoss extends BaseMonster {
 
     private void calcNextMove(){
         calcTurn();
-        if(this.currentHealth < (this.maxHealth % 5) && this.curseTrigger){
-            this.curseTrigger = false;
+        if((this.currentHealth < (this.maxHealth/3)) && this.curseTrigger){
             if(this.curseFirstMove){
                 this.curseFirstMove = false;
-                this.triggerCurseFirstMove = true;
                 this.setMove((byte)8, Intent.DEFEND_BUFF, defPreCurse);
-                return;
+                this.turnMove = 8;
+            } else {
+                this.curseTrigger = false;
+                this.triggerCurse = true;
+                this.setMove((byte)9, Intent.ATTACK, cursedBloodSliceDmg/6, 6, true);
+                this.turnMove = 7;
+                this.holySwordDmg += 10;
             }
-            this.triggerCurse = true;
-            this.setMove((byte)9, Intent.ATTACK, cursedBloodSliceDmg % 6, 6, true);
-            return;
         }
         switch (this.turnMove) {
             case 0:
