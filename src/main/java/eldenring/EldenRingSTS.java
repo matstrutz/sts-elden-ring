@@ -31,6 +31,10 @@ import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import eldenring.bosses.MorgottBoss;
 import eldenring.monsters.FootSoldierMonster;
+import eldenring.monsters.GreatShieldGodrickSoldierMonster;
+import eldenring.monsters.GreatSwordGodrickSoldierMonster;
+import eldenring.monsters.SwordGodrickSoldierMonster;
+import eldenring.monsters.TorchGodrickSoldierMonster;
 import eldenring.potions.AcademyMagicPotPotion;
 import eldenring.potions.BloodboilAromaticPotion;
 import eldenring.potions.MagicGreasePotion;
@@ -121,10 +125,36 @@ public class EldenRingSTS implements
     public void startMonsterManual(){
 //        BaseMod.addMonster(FootSoldierMonster.ID, () -> new FootSoldierMonster(0.0F, 0.0F));
         BaseMod.addMonster(FootSoldierMonster.ID, () -> new MonsterGroup(new AbstractMonster[]{
-                new FootSoldierMonster(0.0F, 0.0F),
-                new FootSoldierMonster(250.0F, 00.0F)
+                new FootSoldierMonster(0.0F, 10.0F),
+                new FootSoldierMonster(250.0F, -10.0F)
         }));
+
+        BaseMod.addMonster("GodrickSoldierGSS", () -> new MonsterGroup(new AbstractMonster[]{
+                new GreatSwordGodrickSoldierMonster(0.0F, 10.0F),
+                new SwordGodrickSoldierMonster(250.0F, -10.0F)
+        }));
+
+        BaseMod.addMonster("GodrickSoldierGHS", () -> new MonsterGroup(new AbstractMonster[]{
+                new GreatShieldGodrickSoldierMonster(0.0F, 10.0F),
+                new SwordGodrickSoldierMonster(250.0F, -10.0F)
+        }));
+
+        BaseMod.addMonster("GodrickSoldierGST", () -> new MonsterGroup(new AbstractMonster[]{
+                new GreatSwordGodrickSoldierMonster(0.0F, 10.0F),
+                new TorchGodrickSoldierMonster(250.0F, -10.0F)
+        }));
+
+        BaseMod.addMonster("GodrickSoldierGHSS", () -> new MonsterGroup(new AbstractMonster[]{
+                new GreatSwordGodrickSoldierMonster(0.0F, 10.0F),
+                new GreatShieldGodrickSoldierMonster(250.0F, -10.0F)
+        }));
+
+
         BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo(FootSoldierMonster.ID, 3));
+        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo("GodrickSoldierGSS", 3));
+        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo("GodrickSoldierGHS", 3));
+        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo("GodrickSoldierGST", 3));
+        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo("GodrickSoldierGHSS", 3));
     }
 
     public void startPotionManual(){

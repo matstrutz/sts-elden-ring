@@ -216,7 +216,7 @@
     "NAME": "Blue Dancer Charm",
     "FLAVOR": "A cloth doll depicting a dancer garbed in blue.",
     "DESCRIPTIONS": [
-      "At the start of each turn, if you don't have any potion, gain one #b",
+      "At the start of each turn, if you don't have any #yPotion, gain one #b",
       " #yStrength",
       ", #b",
       " #yDexterity",
