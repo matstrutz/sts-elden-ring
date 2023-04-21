@@ -114,9 +114,10 @@ public class MorgottBoss extends BaseMonster {
     }
 
     private void calcTurn(){
-        int nextMov = (int) (Math.random() * 6);
+        int nextMov = (int) (Math.random() * 7);
         if(nextMov == this.turnMove) {
             calcTurn();
+            return;
         }
         this.turnMove = nextMov;
     }
