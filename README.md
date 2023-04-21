@@ -5,21 +5,24 @@ This version is not even close to the version I want to release in the future, b
 
 This early version has:
 
-- 26 new Relics
-- 7 common
-- 7 Uncommons
-- 7 Rares
-- 1 Boss
-- 4 Event Only (Shop while events have not been released)
+<h3>26 new Relics</h3>
+<ul>
+  <li>7 common</li>
+  <li>7 Uncommons</li>
+  <li>7 Rares</li>
+  <li>1 Boss</li>
+  <li>4 Event Only (Shop while events have not been released)</li>
+</ul>
 
-- 7 new Potions
-- 4 common
-- 3 Uncommon
+<h3>7 new Potions</h3>
+<ul>
+  <li>4 common</li>
+  <li>3 Uncommon</li>
+</ul>
 
-- 5 new encounters
+<h3>5 new encounters</h3>
 
-- 1 new boss
-
+<h3>1 new boss</h3>
 
 Well, what to expect from the mod?
 
