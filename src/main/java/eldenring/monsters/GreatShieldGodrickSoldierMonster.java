@@ -22,7 +22,7 @@ public class GreatShieldGodrickSoldierMonster extends BaseMonster {
     private int turnCount = 0;
 
     public GreatShieldGodrickSoldierMonster(float offX, float offY) {
-        super(NAME, ID, 29, 0.0F, 0.0F, 130.0F, 248.0F, EldenRingSTS.monsterPath("GodrickSoldier"), offX, offY);
+        super(NAME, ID, 31, 0.0F, 0.0F, 130.0F, 248.0F, EldenRingSTS.monsterPath("GodrickSoldier"), offX, offY);
         if (AbstractDungeon.ascensionLevel >= 2) {
             this.stock += 2;
             this.impale += 3;
@@ -57,9 +57,10 @@ public class GreatShieldGodrickSoldierMonster extends BaseMonster {
     }
 
     private void calcTurn(){
-        int nextMov = (int) (Math.random() * 2);
+        int nextMov = (int) (Math.random() * 3);
         if(nextMov == this.turnMove) {
             calcTurn();
+            return;
         }
         this.turnMove = nextMov;
     }
@@ -88,10 +89,10 @@ public class GreatShieldGodrickSoldierMonster extends BaseMonster {
 
     private void calcNextMove(){
         calcTurn();
-        turnCount++;
-        if(turnCount > 4){
+        this.turnCount++;
+        if(this.turnCount > 4){
             this.turnMove = 3;
-            turnCount = 0;
+            this.turnCount = 0;
         }
         switch (this.turnMove) {
             case 0:

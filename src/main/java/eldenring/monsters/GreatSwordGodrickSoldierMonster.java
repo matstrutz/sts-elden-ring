@@ -20,7 +20,7 @@ public class GreatSwordGodrickSoldierMonster extends BaseMonster {
     private int turnMove = 0;
 
     public GreatSwordGodrickSoldierMonster(float offX, float offY) {
-        super(NAME, ID, 26, 0.0F, 0.0F, 130.0F, 248.0F, EldenRingSTS.monsterPath("GodrickSoldier"), offX, offY);
+        super(NAME, ID, 28, 0.0F, 0.0F, 130.0F, 248.0F, EldenRingSTS.monsterPath("GodrickSoldier"), offX, offY);
         if (AbstractDungeon.ascensionLevel >= 2) {
             this.stomp += 3;
             this.slash += 2;
@@ -51,9 +51,10 @@ public class GreatSwordGodrickSoldierMonster extends BaseMonster {
     }
 
     private void calcTurn(){
-        int nextMov = (int) (Math.random() * 2);
+        int nextMov = (int) (Math.random() * 3);
         if(nextMov == this.turnMove) {
             calcTurn();
+            return;
         }
         this.turnMove = nextMov;
     }
@@ -79,7 +80,7 @@ public class GreatSwordGodrickSoldierMonster extends BaseMonster {
         calcTurn();
         switch (this.turnMove) {
             case 0:
-                this.setMove((byte) 1, Intent.ATTACK_DEBUFF, stomp);
+                this.setMove((byte) 1, Intent.ATTACK_DEFEND, stomp);
                 break;
             case 1:
                 this.setMove((byte) 2, Intent.ATTACK, slash);

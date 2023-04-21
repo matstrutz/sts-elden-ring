@@ -129,22 +129,22 @@ public class EldenRingSTS implements
                 new FootSoldierMonster(250.0F, -10.0F)
         }));
 
-        BaseMod.addMonster("GodrickSoldierGSS", () -> new MonsterGroup(new AbstractMonster[]{
+        BaseMod.addMonster(makeID("GodrickSoldierGSS"), () -> new MonsterGroup(new AbstractMonster[]{
                 new GreatSwordGodrickSoldierMonster(0.0F, 10.0F),
                 new SwordGodrickSoldierMonster(250.0F, -10.0F)
         }));
 
-        BaseMod.addMonster("GodrickSoldierGHS", () -> new MonsterGroup(new AbstractMonster[]{
+        BaseMod.addMonster(makeID("GodrickSoldierGHS"), () -> new MonsterGroup(new AbstractMonster[]{
                 new GreatShieldGodrickSoldierMonster(0.0F, 10.0F),
                 new SwordGodrickSoldierMonster(250.0F, -10.0F)
         }));
 
-        BaseMod.addMonster("GodrickSoldierGST", () -> new MonsterGroup(new AbstractMonster[]{
+        BaseMod.addMonster(makeID("GodrickSoldierGST"), () -> new MonsterGroup(new AbstractMonster[]{
                 new GreatSwordGodrickSoldierMonster(0.0F, 10.0F),
                 new TorchGodrickSoldierMonster(250.0F, -10.0F)
         }));
 
-        BaseMod.addMonster("GodrickSoldierGHSS", () -> new MonsterGroup(new AbstractMonster[]{
+        BaseMod.addMonster(makeID("GodrickSoldierGHSS"), () -> new MonsterGroup(new AbstractMonster[]{
                 new GreatSwordGodrickSoldierMonster(0.0F, 10.0F),
                 new GreatShieldGodrickSoldierMonster(250.0F, -10.0F)
         }));

@@ -23,7 +23,7 @@ public class TorchGodrickSoldierMonster extends BaseMonster {
     private int turnMove = 0;
 
     public TorchGodrickSoldierMonster(float offX, float offY) {
-        super(NAME, ID, 24, 0.0F, 0.0F, 130.0F, 248.0F, EldenRingSTS.monsterPath("GodrickSoldier"), offX, offY);
+        super(NAME, ID, 26, 0.0F, 0.0F, 130.0F, 248.0F, EldenRingSTS.monsterPath("GodrickSoldier"), offX, offY);
         if (AbstractDungeon.ascensionLevel >= 2) {
             this.torchAttack += 2;
             this.slash += 2;
@@ -54,9 +54,10 @@ public class TorchGodrickSoldierMonster extends BaseMonster {
     }
 
     private void calcTurn(){
-        int nextMov = (int) (Math.random() * 2);
+        int nextMov = (int) (Math.random() * 3);
         if(nextMov == this.turnMove) {
             calcTurn();
+            return;
         }
         this.turnMove = nextMov;
     }

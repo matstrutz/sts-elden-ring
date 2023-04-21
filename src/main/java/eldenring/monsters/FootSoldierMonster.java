@@ -25,7 +25,7 @@ public class FootSoldierMonster extends BaseMonster {
     private List<Integer> turnPattern = Arrays.asList(0,1,2);
     private int countTurnPattern = 0;
     public FootSoldierMonster(float offX, float offY) {
-        super(NAME, ID, 18, 0.0F, 0.0F, 150.0F, 250.0F, EldenRingSTS.monsterPath(FAKE_ID), offX, offY);
+        super(NAME, ID, 20, 0.0F, 0.0F, 150.0F, 250.0F, EldenRingSTS.monsterPath(FAKE_ID), offX, offY);
         Collections.shuffle(turnPattern);
         if (AbstractDungeon.ascensionLevel >= 2) {
             stab += 2;
