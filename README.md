@@ -9,7 +9,6 @@ This early version has:
 - 7 common
 - 7 Uncommons
 - 7 Rares
-- 1 boss
 - 4 Event Only (Shop while events have not been released)
 
 - 7 new Potions
