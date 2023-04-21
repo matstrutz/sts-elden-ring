@@ -1,0 +1,16 @@
+{
+  "${modID}:PowerID": {
+    "NAME": "Ultimate Power",
+    "DESCRIPTIONS": [
+      "You are Very Cool and Strong."
+    ]
+  },
+  "${modID}:OmenBairn": {
+    "NAME": "Omen Bairn",
+    "DESCRIPTIONS": [
+      "Whenever this enemy deals #yblocked damage, it gains #b",
+      " #yStrength.",
+      " Whenever this enemy receive #yblocked damage, remove all #yStrength."
+    ]
+  }
+}
