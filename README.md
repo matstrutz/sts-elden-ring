@@ -1,21 +1,30 @@
-[WIP] Mod based on elden ring game!
+[WIP] Mod based on the elden ring game!
 
-Apart from being my first mod, this mod is in a really early development, and you may encounter mispelled texts, crashes, and a lot of bugs. This is version is for anyone who wants to help me test it, because develop and test alone is really hard, so fell free to report anything you encounter and any adjust you feel the mod need.
+Apart from the fact that it's my first mod, it's in a very new phase of development, so maybe it's possible to find wrong texts, bugs, crashes, and many other problems.
+This version is not even close to the version I want to release in the future, but it's a version to show that I'm making the mod, and in case anyone wants to help me test it, because unfortunately testing everything alone is very difficult, so stay tuned willingness to report bugs and improvements you think the mod needs!
 
-Early release has:
+This early version has:
 
-- 24 new talismans
-  - 7 Common
-  - 6 Uncommon
-  - 7 Rare
-  - 4 Event Only (Not implemented yet, i will probably put it as shop only atleast the event is implemented)
-- 7 new potions
-  - 4 Common
-  - 3 Uncommon
-- 1 new enemy(WIP)
+- 26 new Relics
+- 7 common
+- 7 Uncommons
+- 7 Rares
+- 1 boss
+- 4 Event Only (Shop while events have not been released)
 
-Now, what you can expect from this mod ?
+- 7 new Potions
+- 4 common
+- 3 Uncommon
 
-I really want to make it big, so, the first release version will be release when the [b]Tarnished[/b] will be introduced, and probably the taslismans and potions will need a remake to match this new character, but, to implement this, we need a lot of new enemies, bosses, new acts, events to match Elden Ring story, and it will be a long journey.
+- 5 new encounters
 
-So, thanks for testing my mod!
+- 1 new boss
+
+
+Well, what to expect from the mod?
+
+I really want to make a big mod, and the first definitive version will be released together with Tarnished, and probably the potions and talismans need a rework to work with the new character, and to launch him, we need a lot of new enemies, bosses , acts and events, all to get closer to the history of the Elden Ring.
+
+So thank you so much for testing my mod!
+
+<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2958557932&searchtext=">Steam workshop page</a>
