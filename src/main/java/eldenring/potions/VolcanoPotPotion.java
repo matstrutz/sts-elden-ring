@@ -6,15 +6,18 @@ import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
+import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.ExplosionSmallEffect;
 import eldenring.EldenRingSTS;
 
 public class VolcanoPotPotion extends BasePotion {
-    private static final String NAME = "Volcano Pot";
     public static final String ID = EldenRingSTS.makeID("VolcanoPot");
+    private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(ID);
+    private static final String NAME = potionStrings.NAME;
     private static final PotionRarity RARITY = PotionRarity.COMMON;
     private static final PotionSize SIZE = PotionSize.SPHERE;
     private static final PotionColor COLOR = PotionColor.FIRE;
@@ -45,7 +48,7 @@ public class VolcanoPotPotion extends BasePotion {
     @Override
     public void initializeData() {
         this.potency = calcPotencyWithRelic(POTENCY);
-        this.description = "Deal #" + POTENCY + " Damage to ALL enemies.";
+        this.description = potionStrings.DESCRIPTIONS[0] + POTENCY + potionStrings.DESCRIPTIONS[1];
         this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
     }

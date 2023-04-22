@@ -3,18 +3,14 @@ package eldenring.relics;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import eldenring.EldenRingSTS;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class CarianFiligreedCrestRelic extends BaseRelic {
     private static final String NAME = "CarianFiligreedCrest";
     public static final String ID = EldenRingSTS.makeID(NAME);
-    private static final RelicTier RARITY = RelicTier.UNCOMMON;
+    private static final RelicTier RARITY = RelicTier.RARE;
     private static final LandingSound SOUND = LandingSound.SOLID;
     private static final int COST = 0;
 
     private boolean costReduced = false;
-    List<AbstractCard> cardList = new ArrayList<>();
 
     public CarianFiligreedCrestRelic() {
         super(ID, NAME, RARITY, SOUND);

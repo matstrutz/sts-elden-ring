@@ -2,14 +2,17 @@ package eldenring.potions;
 
 import com.megacrit.cardcrawl.actions.unique.RemoveDebuffsAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
+import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import eldenring.EldenRingSTS;
 
 public class NeutralizingBolusesPotion extends BasePotion {
-    private static final String NAME = "Neutralizing Boluses";
     public static final String ID = EldenRingSTS.makeID("NeutralizingBoluses");
+    private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(ID);
+    private static final String NAME = potionStrings.NAME;
     private static final PotionRarity RARITY = PotionRarity.COMMON;
     private static final PotionSize SIZE = PotionSize.HEART;
     private static final PotionColor COLOR = PotionColor.FRUIT;
@@ -33,7 +36,7 @@ public class NeutralizingBolusesPotion extends BasePotion {
 
     @Override
     public void initializeData() {
-        this.description = "Remove ALL #yDebuff on use.";
+        this.description = potionStrings.DESCRIPTIONS[0];
         this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
     }

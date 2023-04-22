@@ -1,0 +1,226 @@
+{
+  "${modID}:GreatJarsArsenal": {
+    "NAME": "Great-Jar's Arsenal",
+    "FLAVOR": "Um amuleto que se assemelha a uma grande jarra transbordando de armas.",
+    "DESCRIPTIONS": [
+      "No inicio de cada batalha, se houver 15 ou menos cartas no seu baralho, ganhe #b",
+      " #yForça"
+    ]
+  },
+  "${modID}:ArsenalCharm": {
+    "NAME": "Arsenal Charm",
+    "FLAVOR": "Um amuleto de ferro que se assemelha a uma massa de armas.",
+    "DESCRIPTIONS": [
+      "No inicio de cada batalha, se houver 15 ou menos cartas no seu baralho, ganhe #b",
+      "de #yForça"
+    ]
+  },
+  "${modID}:CrimsonSeedTalisman": {
+    "NAME": "Crimson Seed Talisman",
+    "FLAVOR": "Um talismã de cor carmesim modelado após uma semente de Erdtree.",
+    "DESCRIPTIONS": [
+      "Toda vez que você se curar, cure #b",
+      " a mais."
+    ]
+  },
+  "${modID}:BlessedDewTalisman": {
+    "NAME": "Blessed Dew Talisman",
+    "FLAVOR": "Talismã retratando uma gota da seiva de Erdtree, uma dádiva abençoada.",
+    "DESCRIPTIONS": [
+      "No inicio de cada batalha, cure #b",
+      " de Vida."
+    ]
+  },
+  "${modID}:AxeTalisman": {
+    "NAME": "Axe Talisman",
+    "FLAVOR": "Um talismã representando um machado e um guerreiro.",
+    "DESCRIPTIONS": [
+      "Ataques que custam 3 ou mais causam #b",
+      "% mais dano."
+    ]
+  },
+  "${modID}:RedFeatheredBranchsword": {
+    "NAME": "Red-Feathered Branchsword",
+    "FLAVOR": "Um talismã adornado com penas azuis, outrora usado em antigos rituais de morte.",
+    "DESCRIPTIONS": [
+      "Enquanto sua vida estiver abaixo de #b50%, você tem #b",
+      " de #yForça."
+    ]
+  },
+  "${modID}:BlueFeatheredBranchsword": {
+    "NAME": "Blue-Feathered Branchsword",
+    "FLAVOR": "Um talismã adornado com penas vermelhas, outrora usado em antigos rituais de morte.",
+    "DESCRIPTIONS": [
+      "Enquanto sua vida estiver abaixo de #b50%, você tem #b",
+      " de #yDestreza."
+    ]
+  },
+  "${modID}:BullGoatsTalisman": {
+    "NAME": "Bull-Goat's Talisman",
+    "FLAVOR": "Um talismã representando os chifres de um touro-bode.",
+    "DESCRIPTIONS": [
+      "Você não fica mais #yEnfraquecido."
+    ]
+  },
+  "${modID}:CurvedSwordTalisman": {
+    "NAME": "Curved Sword Talisman",
+    "FLAVOR": "Um talismã representando uma espada curva e um espadachim.",
+    "DESCRIPTIONS": [
+      "Quando você perder #yProteção, cause metade do dano em excesso de volta ao inimigo."
+    ]
+  },
+  "${modID}:DaedicarsWoe": {
+    "NAME": "Daedicar's Woe",
+    "FLAVOR": "A perturbadora semelhança de uma mulher cuja pele foi esfolada.",
+    "DESCRIPTIONS": [
+      "TODOS os inimigos iniciam a batalha com #b",
+      " de #yForça."
+    ]
+  },
+  "${modID}:ErdtreesFavor": {
+    "NAME": "Erdtree's Favor",
+    "FLAVOR": "Um talismã representando uma bênção especial do Erdtree.",
+    "DESCRIPTIONS": [
+      "Ao pegar essa reliquia, aprimore #b1 carta aleatoria.",
+      " NL Aumente sua vida maxima em #b",
+      ". NL E comece cada batalha com ",
+      "[E] "
+    ]
+  },
+  "${modID}:GoldScarabDeprecated": {
+    "NAME": "Gold Scarab",
+    "FLAVOR": "Um talismã de um escaravelho, portador de tesouros e coisas preciosas.",
+    "DESCRIPTIONS": [
+      "Inimigos deixam #b25% mais #yOuro."
+    ]
+  },
+  "${modID}:GreatshieldTalisman": {
+    "NAME": "Greatshield Talisman",
+    "FLAVOR": "Talismã de ferro forjado representando um trio de dragões antigos.",
+    "DESCRIPTIONS": [
+      "Se você terminar seu turno com #yProteção, ganhe mais #b",
+      " da sua #yProteção."
+    ]
+  },
+  "${modID}:WarriorJarShard": {
+    "NAME": "Warrior Jar Shard",
+    "FLAVOR": "Fragmento de uma jarra de guerreiro quebrada.",
+    "DESCRIPTIONS": [
+      "Comece cada batalha com #b",
+      " de #yForça"
+    ]
+  },
+  "${modID}:ShardOfAlexander": {
+    "NAME": "Shard of Alexander",
+    "FLAVOR": "Fragmento do falecido Alexandre, um frasco de guerreiro quebrado.",
+    "DESCRIPTIONS": [
+      "Comece cada batalha com #b",
+      " de #yForça"
+    ]
+  },
+  "${modID}:WingedSwordInsignia": {
+    "NAME": "Winged Sword Insignia",
+    "FLAVOR": "Um talismã representando uma lâmina protética elevada.",
+    "DESCRIPTIONS": [
+      "Quando você usar uma carta que cause dano mais de uma vez, ganhe #b",
+      " de #yForça"
+    ]
+  },
+  "${modID}:DragoncrestGreatshieldTalisman": {
+    "NAME": "Dragoncrest Greatshield Talisman",
+    "FLAVOR": "Talismã representando um cavaleiro segurando um grande escudo.",
+    "DESCRIPTIONS": [
+      "Comece cada batalha com #b",
+      " de #yArmadura #yChapeada."
+    ]
+  },
+  "${modID}:RadagonsScarseal": {
+    "NAME": "Radagon's Scarseal",
+    "FLAVOR": "Um olho gravado com uma Runa Elden. Diz-se ser o selo do Rei Consorte Radagon.",
+    "DESCRIPTIONS": [
+      "Ao pegar essa reliquia, Aumente sua vida maxima em #b ",
+      ". NL Inicie cada batalha com, #b",
+      " #yForça",
+      ", #b",
+      " #yDestreza",
+      ", e",
+      " [E] ",
+      " NL mas os inimigos começam com um #b",
+      " #yForça"
+    ]
+  },
+  "${modID}:RadagonsSoreseal": {
+    "NAME": "Radagon's Soreseal",
+    "FLAVOR": "Este talismã lendário é um olho gravado com uma Runa Elden, considerada o selo do Rei Consorte Radagon.",
+    "DESCRIPTIONS": [
+      "Ao pegar essa reliquia, Aumente sua vida maxima em #b ",
+      ". NL Inicie cada batalha com, #b",
+      " de #yForça",
+      ", #b",
+      " de #yDestreza",
+      ", e",
+      " [E] ",
+      " NL mas os inimigos começam com um #b",
+      " #yForça"
+    ]
+  },
+  "${modID}:ProsthesisWearerHeirloom": {
+    "NAME": "Prosthesis Wearer Heirloom",
+    "FLAVOR": "Um talismã gravado com uma cena de um conto heróico.",
+    "DESCRIPTIONS": [
+      "Comece cada batalha com #b",
+      " de #yDestreza"
+    ]
+  },
+  "${modID}:StarscourgeHeirloom": {
+    "NAME": "Starscourge Heirloom",
+    "FLAVOR": "Um talismã gravado com uma cena de um conto heróico.",
+    "DESCRIPTIONS": [
+      "Comece cada batalha com #b",
+      " de #yForça"
+    ]
+  },
+  "${modID}:SilverScarab": {
+    "NAME": "Silver Scarab",
+    "FLAVOR": "Um talismã de um escaravelho, portador de tesouros e coisas preciosas.",
+    "DESCRIPTIONS": [
+      "Aumente suas chances de conseguir cartas melhores"
+    ]
+  },
+  "${modID}:RottenWingedSwordInsignia": {
+    "NAME": "Rotten Winged Sword Insignia",
+    "FLAVOR": "Um talismã representando uma lâmina protética elevada. Uma honra concedida às valquírias que servem à deusa da podridão.",
+    "DESCRIPTIONS": [
+      "Quando você usar uma carta que cause dano mais de uma vez, ganhe #b",
+      " de #yForça"
+    ]
+  },
+  "${modID}:MillicentsProsthesis": {
+    "NAME": "Millicent's Prosthesis",
+    "FLAVOR": "Parte da prótese de ouro usada por Millicent. A mão está fechada em um punho que uma vez levantou uma espada no alto.",
+    "DESCRIPTIONS": [
+      "Comece cada batalha com #b",
+      " de #yDestreza",
+      " NL Quando você usar uma carta que cause dano mais de uma vez, ganhe #b",
+      " de de #yForça"
+    ]
+  },
+  "${modID}:BlueDancerCharm": {
+    "NAME": "Blue Dancer Charm",
+    "FLAVOR": "Uma boneca de pano representando uma dançarina vestida de azul.",
+    "DESCRIPTIONS": [
+      "No começo de cada turno, se você não haver nenhuma #yPotion, ganhe um dos #b",
+      " #yForça",
+      ", #b",
+      " #yDestreza",
+      ", ou [E]"
+    ]
+  },
+  "${modID}:CarianFiligreedCrest": {
+    "NAME": "Carian Filigreed Crest",
+    "FLAVOR": "Um talismã adornado com o brasão real.",
+    "DESCRIPTIONS": [
+      "A primeira #yTécnica que você compra a cada turno, custa #b"
+    ]
+  }
+}

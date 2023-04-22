@@ -2,49 +2,49 @@
   "${modID}:AcademyMagicPot": {
     "NAME": "Academy Magic Pot",
     "DESCRIPTIONS": [
-      "Deal #b",
-      " Damage."
+      "Cause #b",
+      " de dano."
     ]
   },
   "${modID}:BloodboilAromatic": {
     "NAME": "Bloodboil Aromatic",
     "DESCRIPTIONS": [
-      "Gain #b",
-      " #yStrength."
+      "Ganhe #b",
+      " de #yForça."
     ]
   },
   "${modID}:MagicGrease": {
     "NAME": "Magic Grease",
     "DESCRIPTIONS": [
-      "Gain #b",
-      " #yStrength."
+      "Ganhe #b",
+      " de #yForça."
     ]
   },
   "${modID}:MagicPot": {
     "NAME": "Magic Pot",
     "DESCRIPTIONS": [
-      "Deal #b",
-      " Damage."
+      "Cause #b",
+      " de dano."
     ]
   },
   "${modID}:NeutralizingBoluses": {
     "NAME": "Neutralizing Boluses",
     "DESCRIPTIONS": [
-      "Remove ALL #yDebuff on use."
+      "Remova TODOS os #yDebuff ."
     ]
   },
   "${modID}:ShieldGrease": {
     "NAME": "Shield Grease",
     "DESCRIPTIONS": [
-      "Gain #b",
-      " #yDexterity."
+      "Ganhe #b",
+      " de #yDestreza."
     ]
   },
   "${modID}:VolcanoPot": {
     "NAME": "Volcano Pot",
     "DESCRIPTIONS": [
-      "Deal #b",
-      " Damage to ALL enemies."
+      "Cause #b",
+      " de dano a TODOS os inimigos."
     ]
   }
 }
