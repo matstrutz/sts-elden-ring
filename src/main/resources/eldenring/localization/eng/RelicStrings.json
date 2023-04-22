@@ -24,7 +24,7 @@
   },
   "${modID}:CrimsonSeedTalisman": {
     "NAME": "Crimson Seed Talisman",
-    "FLAVOR": "An iron charm that resembles a mass of weaponry.",
+    "FLAVOR": "A crimson-colored talisman patterned after an Erdtree seed.",
     "DESCRIPTIONS": [
       "Whenever you heal, heal #b",
       " more."
@@ -73,7 +73,7 @@
     "NAME": "Curved Sword Talisman",
     "FLAVOR": "A talisman depicting a curved sword and a swordsman.",
     "DESCRIPTIONS": [
-      "Upon losing block, deal half of excess damage back to enemy."
+      "Upon losing #yBlock, deal half of excess damage back to enemy."
     ]
   },
   "${modID}:DaedicarsWoe": {
@@ -88,7 +88,7 @@
     "NAME": "Erdtree's Favor",
     "FLAVOR": "A talisman depicting a special blessing of the Erdtree.",
     "DESCRIPTIONS": [
-      "Upon pickup, obtain #b1 potion slot.",
+      "Upon pickup, upgrade #b1 random card.",
       " NL Raise your Max HP by #b",
       ". NL And Start each combat with an additional ",
       "[E] "
@@ -113,7 +113,7 @@
     "NAME": "Warrior Jar Shard",
     "FLAVOR": "Shard of a shattered warrior jar.",
     "DESCRIPTIONS": [
-      "At the start of your turn, gain #b",
+      "At the start of each combat, gain #b",
       " #yStrength"
     ]
   },

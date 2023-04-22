@@ -4,13 +4,16 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
+import com.megacrit.cardcrawl.localization.PotionStrings;
 import eldenring.EldenRingSTS;
 
 public class MagicPotPotion extends BasePotion {
-    private static final String NAME = "Magic Pot";
     public static final String ID = EldenRingSTS.makeID("MagicPot");
+    private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(ID);
+    private static final String NAME = potionStrings.NAME;
     private static final PotionRarity RARITY = PotionRarity.COMMON;
     private static final PotionSize SIZE = PotionSize.SPHERE;
     private static final PotionColor COLOR = PotionColor.FIRE;
@@ -36,7 +39,7 @@ public class MagicPotPotion extends BasePotion {
     @Override
     public void initializeData() {
         this.potency = calcPotencyWithRelic(POTENCY);
-        this.description = "Deal " + POTENCY + " Damage.";
+        this.description = potionStrings.DESCRIPTIONS[0] + POTENCY + potionStrings.DESCRIPTIONS[1];
         this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
     }
