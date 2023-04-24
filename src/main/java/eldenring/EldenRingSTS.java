@@ -130,32 +130,32 @@ public class EldenRingSTS implements
                 new FootSoldierMonster(250.0F, -10.0F)
         }));
 
-        BaseMod.addMonster(makeID("GodrickSoldierGSS"), () -> new MonsterGroup(new AbstractMonster[]{
-                new GreatSwordGodrickSoldierMonster(0.0F, 10.0F),
-                new SwordGodrickSoldierMonster(250.0F, -10.0F)
+        BaseMod.addMonster(GreatSwordGodrickSoldierMonster.ID, () -> new MonsterGroup(new AbstractMonster[]{
+                new GreatSwordGodrickSoldierMonster(0.0F, 5.0F),
+                new SwordGodrickSoldierMonster(250.0F, -15.0F)
         }));
 
-        BaseMod.addMonster(makeID("GodrickSoldierGHS"), () -> new MonsterGroup(new AbstractMonster[]{
+        BaseMod.addMonster(SwordGodrickSoldierMonster.ID, () -> new MonsterGroup(new AbstractMonster[]{
                 new GreatShieldGodrickSoldierMonster(0.0F, 10.0F),
                 new SwordGodrickSoldierMonster(250.0F, -10.0F)
         }));
 
-        BaseMod.addMonster(makeID("GodrickSoldierGST"), () -> new MonsterGroup(new AbstractMonster[]{
-                new GreatSwordGodrickSoldierMonster(0.0F, 10.0F),
-                new TorchGodrickSoldierMonster(250.0F, -10.0F)
+        BaseMod.addMonster(TorchGodrickSoldierMonster.ID, () -> new MonsterGroup(new AbstractMonster[]{
+                new GreatSwordGodrickSoldierMonster(0.0F, 0.0F),
+                new TorchGodrickSoldierMonster(250.0F, -15.0F)
         }));
 
-        BaseMod.addMonster(makeID("GodrickSoldierGHSS"), () -> new MonsterGroup(new AbstractMonster[]{
+        BaseMod.addMonster(GreatShieldGodrickSoldierMonster.ID, () -> new MonsterGroup(new AbstractMonster[]{
                 new GreatSwordGodrickSoldierMonster(0.0F, 10.0F),
-                new GreatShieldGodrickSoldierMonster(250.0F, -10.0F)
+                new GreatShieldGodrickSoldierMonster(250.0F, -12.0F)
         }));
 
 
         BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo(FootSoldierMonster.ID, 3));
-        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo("GodrickSoldierGSS", 3));
-        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo("GodrickSoldierGHS", 3));
-        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo("GodrickSoldierGST", 3));
-        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo("GodrickSoldierGHSS", 3));
+        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(GreatSwordGodrickSoldierMonster.ID, 3));
+        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(SwordGodrickSoldierMonster.ID, 3));
+        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(TorchGodrickSoldierMonster.ID, 3));
+        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(GreatShieldGodrickSoldierMonster.ID, 3));
     }
 
     public void startPotionManual(){
