@@ -8,9 +8,9 @@
   "${modID}:OmenBairn": {
     "NAME": "Omen Bairn",
     "DESCRIPTIONS": [
-      "Whenever this enemy deals #yblocked damage, it gains #b",
-      " #yStrength.",
-      " Whenever this enemy receive #yblocked damage, remove all #yStrength."
+      "Toda vez que esse inimigo causar dano através de #yProteção , ele ganha #b",
+      " de #yForça.",
+      " Toda vez que esse inimigo sofrer dano através da sua #yProteção , perca toda #yForça."
     ]
   }
 }
