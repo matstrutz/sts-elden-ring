@@ -11,7 +11,6 @@ import eldenring.EldenRingSTS;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.Random;
 
 public class ErdtreesFavorRelic extends BaseRelic {
@@ -57,11 +56,9 @@ public class ErdtreesFavorRelic extends BaseRelic {
     }
 
     public void upgradeCardOnEquip(){
-        ArrayList<AbstractCard> upgradableCards = new ArrayList();
-        Iterator var2 = AbstractDungeon.player.masterDeck.group.iterator();
+        ArrayList<AbstractCard> upgradableCards = new ArrayList<>();
 
-        while(var2.hasNext()) {
-            AbstractCard c = (AbstractCard)var2.next();
+        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
             if (c.canUpgrade()) {
                 upgradableCards.add(c);
             }
