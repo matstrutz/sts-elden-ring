@@ -9,7 +9,7 @@ public class ProsthesisWearerHeirloomRelic extends BaseRelic {
     private static final String NAME = "ProsthesisWearerHeirloom";
     public static final String ID = EldenRingSTS.makeID(NAME);
     private static final RelicTier RARITY = RelicTier.COMMON;
-        private static final LandingSound SOUND = LandingSound.SOLID;
+    private static final LandingSound SOUND = LandingSound.SOLID;
     private static final int DEX = 1;
     private boolean firstTurn = true;
 

@@ -31,6 +31,7 @@ import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import eldenring.bosses.MorgottBoss;
+import eldenring.elites.OrdovisElite;
 import eldenring.monsters.FootSoldierMonster;
 import eldenring.monsters.GreatShieldGodrickSoldierMonster;
 import eldenring.monsters.GreatSwordGodrickSoldierMonster;
@@ -112,19 +113,32 @@ public class EldenRingSTS implements
         startPotionManual();
         startMonsterManual();
         startBossManual();
+        startEliteManual();
     }
 
     public void startManualPowers(){
         BaseMod.addPower(OmenBairnPower.class, OmenBairnPower.POWER_ID);
     }
 
-    public void startBossManual(){
+    public void addEliteManual(){
+        BaseMod.addMonster(OrdovisElite.ID, OrdovisElite::new);
+    }
+
+    public void startEliteManual(){
+        addEliteManual();
+        BaseMod.addEliteEncounter(TheCity.ID, new MonsterInfo(OrdovisElite.ID, 3));
+    }
+
+    public void addBossManual() {
         BaseMod.addMonster(MorgottBoss.ID, MorgottBoss::new);
+    }
+
+    public void startBossManual(){
+        addBossManual();
         BaseMod.addBoss(TheCity.ID, MorgottBoss.ID, bossIconPath(MorgottBoss.FAKE_ID), bossIconPath(MorgottBoss.FAKE_ID));
     }
 
-    public void startMonsterManual(){
-//        BaseMod.addMonster(FootSoldierMonster.ID, () -> new FootSoldierMonster(0.0F, 0.0F));
+    public void addMonsterManual(){
         BaseMod.addMonster(FootSoldierMonster.ID, () -> new MonsterGroup(new AbstractMonster[]{
                 new FootSoldierMonster(0.0F, 10.0F),
                 new FootSoldierMonster(250.0F, -10.0F)
@@ -149,7 +163,10 @@ public class EldenRingSTS implements
                 new GreatSwordGodrickSoldierMonster(0.0F, 10.0F),
                 new GreatShieldGodrickSoldierMonster(250.0F, -12.0F)
         }));
+    }
 
+    public void startMonsterManual(){
+        addMonsterManual();
 
         BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo(FootSoldierMonster.ID, 3));
         BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(GreatSwordGodrickSoldierMonster.ID, 3));
