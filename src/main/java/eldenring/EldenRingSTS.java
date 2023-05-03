@@ -32,9 +32,11 @@ import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import eldenring.bosses.MorgottBoss;
 import eldenring.elites.OrdovisElite;
+import eldenring.elites.SiluriaElite;
 import eldenring.monsters.FootSoldierMonster;
 import eldenring.monsters.GreatShieldGodrickSoldierMonster;
 import eldenring.monsters.GreatSwordGodrickSoldierMonster;
+import eldenring.monsters.HighwaymanMonster;
 import eldenring.monsters.SwordGodrickSoldierMonster;
 import eldenring.monsters.TorchGodrickSoldierMonster;
 import eldenring.potions.AcademyMagicPotPotion;
@@ -122,11 +124,13 @@ public class EldenRingSTS implements
 
     public void addEliteManual(){
         BaseMod.addMonster(OrdovisElite.ID, OrdovisElite::new);
+        BaseMod.addMonster(SiluriaElite.ID, SiluriaElite::new);
     }
 
     public void startEliteManual(){
         addEliteManual();
         BaseMod.addEliteEncounter(TheCity.ID, new MonsterInfo(OrdovisElite.ID, 3));
+        BaseMod.addEliteEncounter(TheCity.ID, new MonsterInfo(SiluriaElite.ID, 3));
     }
 
     public void addBossManual() {
@@ -142,6 +146,13 @@ public class EldenRingSTS implements
         BaseMod.addMonster(FootSoldierMonster.ID, () -> new MonsterGroup(new AbstractMonster[]{
                 new FootSoldierMonster(0.0F, 10.0F),
                 new FootSoldierMonster(250.0F, -10.0F)
+        }));
+
+        BaseMod.addMonster(HighwaymanMonster.ID, () -> new MonsterGroup(new AbstractMonster[]{
+                new HighwaymanMonster(20.0F, 10.0F),
+                new HighwaymanMonster(140.0F, -30.0F),
+                new HighwaymanMonster(290.0F, 20.0F),
+                new HighwaymanMonster(440.0F, -10.0F)
         }));
 
         BaseMod.addMonster(GreatSwordGodrickSoldierMonster.ID, () -> new MonsterGroup(new AbstractMonster[]{
@@ -173,6 +184,7 @@ public class EldenRingSTS implements
         BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(SwordGodrickSoldierMonster.ID, 3));
         BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(TorchGodrickSoldierMonster.ID, 3));
         BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(GreatShieldGodrickSoldierMonster.ID, 3));
+        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(HighwaymanMonster.ID, 1));
     }
 
     public void startPotionManual(){
