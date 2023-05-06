@@ -1,0 +1,50 @@
+{
+  "${modID}:AcademyMagicPot": {
+    "NAME": "学院魔力壶",
+    "DESCRIPTIONS": [
+      "造成 #b",
+      " 点伤害。"
+    ]
+  },
+  "${modID}:BloodboilAromatic": {
+    "NAME": "狂热香药",
+    "DESCRIPTIONS": [
+      "获得 #b",
+      " 点 #y力量 。"
+    ]
+  },
+  "${modID}:MagicGrease": {
+    "NAME": "魔力油脂",
+    "DESCRIPTIONS": [
+      "获得 #b",
+      " 点 #y力量 。"
+    ]
+  },
+  "${modID}:MagicPot": {
+    "NAME": "魔力壶",
+    "DESCRIPTIONS": [
+      "造成 #b",
+      " 点伤害。"
+    ]
+  },
+  "${modID}:NeutralizingBoluses": {
+    "NAME": "中毒苔药",
+    "DESCRIPTIONS": [
+      "使用时移除所有 #y负面效果 。"
+    ]
+  },
+  "${modID}:ShieldGrease": {
+    "NAME": "坚盾油脂",
+    "DESCRIPTIONS": [
+      "获得 #b",
+      " 点 #y敏捷 。"
+    ]
+  },
+  "${modID}:VolcanoPot": {
+    "NAME": "火山壶",
+    "DESCRIPTIONS": [
+      "对所有敌人造成 #b",
+      " 点伤害。"
+    ]
+  }
+}
