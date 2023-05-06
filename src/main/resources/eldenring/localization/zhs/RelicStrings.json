@@ -1,0 +1,233 @@
+{
+  "${modID}:CrimsonAmberMedallion": {
+    "NAME": "红琥珀链坠",
+    "FLAVOR": "镶有红色琥珀的链坠。",
+    "DESCRIPTIONS": [
+      "拾起时，将你的最大生命值提升 #b 。"
+    ]
+  },
+  "${modID}:GreatJarsArsenal": {
+    "NAME": "大壶众武护符",
+    "FLAVOR": "众多武器涌出大壶的护符。",
+    "DESCRIPTIONS": [
+      "在每场战斗开始时，如果你牌组中的牌小于等于15张，你获得 #b",
+      " 点 #y力量 。"
+    ]
+  },
+  "${modID}:ArsenalCharm": {
+    "NAME": "众武护符",
+    "FLAVOR": "众多武器聚集成块的铁制护符。",
+    "DESCRIPTIONS": [
+      "在每场战斗开始时，如果你牌组中的牌小于等于20张，你获得 #b",
+      " 点 #y力量 。"
+    ]
+  },
+  "${modID}:CrimsonSeedTalisman": {
+    "NAME": "红种子护符",
+    "FLAVOR": "参考黄金树种子的模样制成的红色护符。",
+    "DESCRIPTIONS": [
+      "在回复生命时，额外回复 #b",
+      " 点生命。"
+    ]
+  },
+  "${modID}:BlessedDewTalisman": {
+    "NAME": "恩惠露滴护符",
+    "FLAVOR": "承接黄金树的恩惠──参考承接露滴的模样制成的护符。",
+    "DESCRIPTIONS": [
+      "在每场战斗开始时，回复 #b",
+      " 点生命。"
+    ]
+  },
+  "${modID}:AxeTalisman": {
+    "NAME": "斧护符",
+    "FLAVOR": "以斧与战士的形象制成的护符。",
+    "DESCRIPTIONS": [
+      "耗能大于等于3的攻击会额外造成 #b",
+      "% 伤害。"
+    ]
+  },
+  "${modID}:RedFeatheredBranchsword": {
+    "NAME": "红羽七刃剑",
+    "FLAVOR": "蓝色羽毛的护符，源自古代死亡仪式的护符。",
+    "DESCRIPTIONS": [
+      "当你的生命值等于或低于 #b50% 时，你获得额外 #b",
+      " 点 #y力量 。"
+    ]
+  },
+  "${modID}:BlueFeatheredBranchsword": {
+    "NAME": "蓝羽七刃剑",
+    "FLAVOR": "红色羽毛的护符，源自古代死亡仪式的护符。",
+    "DESCRIPTIONS": [
+      "当你的生命值等于或低于 #b50% 时，你获得额外 #b 点",
+      " #敏捷 。"
+    ]
+  },
+  "${modID}:BullGoatsTalisman": {
+    "NAME": "大山羊护符",
+    "FLAVOR": "参考大山羊的角制成的护符。",
+    "DESCRIPTIONS": [
+      "你不会再被 #y脆弱 。"
+    ]
+  },
+  "${modID}:CurvedSwordTalisman": {
+    "NAME": "曲剑护符",
+    "FLAVOR": "以曲剑与剑士的形象制成的护符.",
+    "DESCRIPTIONS": [
+      "当你失去 #y格挡 时，将未被格挡的伤害的一半反弹给攻击者。"
+    ]
+  },
+  "${modID}:DaedicarsWoe": {
+    "NAME": "狄蒂卡之祸",
+    "FLAVOR": "皮肤剥落的疯狂肖像。",
+    "DESCRIPTIONS": [
+      "所有敌人在战斗开始时获得 #b",
+      " 点 #y力量 。"
+    ]
+  },
+  "${modID}:ErdtreesFavor": {
+    "NAME": "黄金树的恩惠",
+    "FLAVOR": "黄金树特殊恩惠的象征。",
+    "DESCRIPTIONS": [
+      "拾起时，随机升级 #b1 张牌。",
+      " NL 将你的最大生命值提升 #b",
+      " 。 NL 并在每场战斗的第一回合获得 ",
+      "[E] "
+    ]
+  },
+  "${modID}:GoldScarabDeprecated": {
+    "NAME": "金色粪金龟",
+    "FLAVOR": "各种宝藏、贵重物品的搬运工──以粪金龟的形象制成的护符。",
+    "DESCRIPTIONS": [
+      "敌人掉落的 #y金币 增加 #b25% 。"
+    ]
+  },
+  "${modID}:GreatshieldTalisman": {
+    "NAME": "大盾护符",
+    "FLAVOR": "以大盾与骑士的形象制成的护符。",
+    "DESCRIPTIONS": [
+      "在你的回合结束时，",
+      "你获得当前 #y格挡 的 #b 格挡。"
+    ]
+  },
+  "${modID}:WarriorJarShard": {
+    "NAME": "战士壶碎片",
+    "FLAVOR": "破裂死亡的战士壶碎片。",
+    "DESCRIPTIONS": [
+      "在每场战斗开始时，获得 #b",
+      " 点 #y力量 。"
+    ]
+  },
+  "${modID}:ShardOfAlexander": {
+    "NAME": "亚历山大的碎片",
+    "FLAVOR": "破裂死亡的“战士壶”亚历山大的碎片。",
+    "DESCRIPTIONS": [
+      "在每场战斗开始时，获得 #b",
+      " 点 #y力量 。"
+    ]
+  },
+  "${modID}:WingedSwordInsignia": {
+    "NAME": "带翼剑徽章",
+    "FLAVOR": "参考高举的义手刀制成的护符。",
+    "DESCRIPTIONS": [
+      "当你使用一张能够造成多次伤害的牌时，你获得 #b",
+      " 点 #y力量 。"
+    ]
+  },
+  "${modID}:DragoncrestGreatshieldTalisman": {
+    "NAME": "龙徽大盾护符",
+    "FLAVOR": "有着巨大古龙浮雕的熟铁制护符。",
+    "DESCRIPTIONS": [
+      "在每场战斗开始时，获得 #b",
+      " 层 #y多层护甲 。"
+    ]
+  },
+  "${modID}:RadagonsScarseal": {
+    "NAME": "拉达冈的烙印",
+    "FLAVOR": "受艾尔登卢恩雕琢的眼珠。据说是王夫拉达冈的烙印。",
+    "DESCRIPTIONS": [
+      "拾起时，将你的最大生命值提升 #b ",
+      "。 NL 在每场战斗开始时，获得 #b",
+      " 点 #y力量",
+      " 、 #b",
+      " 点 #y敏捷",
+      " 和",
+      " [E] ",
+      " NL 但所有敌人在战斗开始时获得 #b",
+      " 点 #y力量 。"
+    ]
+  },
+  "${modID}:RadagonsSoreseal": {
+    "NAME": "拉达冈的糜烂烙印",
+    "FLAVOR": "受艾尔登卢恩雕琢的眼珠。“传说中的护符”之一。据说是王夫拉达冈的烙印。",
+    "DESCRIPTIONS": [
+      "拾起时，将你的最大生命值提升 #b ",
+      "。 NL 在每场战斗开始时，获得 #b",
+      " 点 #y力量",
+      " 、 #b",
+      " 点 #y敏捷",
+      " 和",
+      " [E] ",
+      " NL 但所有敌人在战斗开始时获得 #b",
+      " 点 #y力量 。"
+    ]
+  },
+  "${modID}:ProsthesisWearerHeirloom": {
+    "NAME": "义手剑士的传说",
+    "FLAVOR": "雕制关于英雄传说的护符。",
+    "DESCRIPTIONS": [
+      "在每场战斗开始时，获得 #b",
+      " 点 #y敏捷 。"
+    ]
+  },
+  "${modID}:StarscourgeHeirloom": {
+    "NAME": "碎星的传说",
+    "FLAVOR": "雕制关于英雄传说的护符。",
+    "DESCRIPTIONS": [
+      "在每场战斗开始时，获得 #b",
+      " 点 #y力量 。"
+    ]
+  },
+  "${modID}:SilverScarab": {
+    "NAME": "银色粪金龟",
+    "FLAVOR": "各种宝藏、贵重物品的搬运工──以粪金龟的形象制成的护符。",
+    "DESCRIPTIONS": [
+      "增加你发现更好的牌的几率"
+    ]
+  },
+  "${modID}:RottenWingedSwordInsignia": {
+    "NAME": "腐败翼剑徽章",
+    "FLAVOR": "A参考高举的义手刀制成的护符。侍奉腐败女神的女武神们拥有的徽章。",
+    "DESCRIPTIONS": [
+      "当你使用一张能够造成多次伤害的牌时，你获得 #b",
+      " 点 #y力量 。"
+    ]
+  },
+  "${modID}:MillicentsProsthesis": {
+    "NAME": "米莉森的义手",
+    "FLAVOR": "米莉森使用的黄金义手的一部分。手掌动作固定在高举剑的姿势。",
+    "DESCRIPTIONS": [
+      "在每场战斗开始时，获得 #b",
+      " 点 #y敏捷",
+      " NL 当你使用一张能够造成多次伤害的牌时，你获得 #b",
+      " 点 #y力量 。"
+    ]
+  },
+  "${modID}:BlueDancerCharm": {
+    "NAME": "蓝色舞娘",
+    "FLAVOR": "以蓝衣舞娘的形象制成的布质人偶。",
+    "DESCRIPTIONS": [
+      "在你的回合开始时，如果你没有任何 #y药水 ，你获得 #b",
+      " 点 #y力量",
+      " 、 #b",
+      " 点 #y敏捷",
+      " 或 [E]"
+    ]
+  },
+  "${modID}:CarianFiligreedCrest": {
+    "NAME": "卡利亚徽章",
+    "FLAVOR": "在盾面有着王室徽章的护符。",
+    "DESCRIPTIONS": [
+      "你每回合抽到的第一张 #y技能牌 的耗能为 #b 。"
+    ]
+  }
+}
