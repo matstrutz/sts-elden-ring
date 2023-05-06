@@ -25,9 +25,13 @@ public class CurvedSwordTalismanRelic extends BaseRelic implements OnLoseBlockRe
 
     @Override
     public int onLoseBlock(DamageInfo damageInfo, int i) {
-        int returnDamage = (i - AbstractDungeon.player.currentBlock) / 2;
-        this.flash();
-        this.addToBot(new DamageAction(damageInfo.owner, new DamageInfo(AbstractDungeon.player, returnDamage, DamageInfo.DamageType.NORMAL)));
+        if(!damageInfo.owner.isPlayer){
+            if(i > AbstractDungeon.player.currentBlock){
+                int returnDamage = (int) (double) ((i - AbstractDungeon.player.currentBlock) / 2);
+                this.flash();
+                this.addToBot(new DamageAction(damageInfo.owner, new DamageInfo(AbstractDungeon.player, returnDamage, DamageInfo.DamageType.NORMAL)));
+            }
+        }
         return i;
     }
 }

@@ -31,9 +31,12 @@ import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import eldenring.bosses.MorgottBoss;
+import eldenring.elites.OrdovisElite;
+import eldenring.elites.SiluriaElite;
 import eldenring.monsters.FootSoldierMonster;
 import eldenring.monsters.GreatShieldGodrickSoldierMonster;
 import eldenring.monsters.GreatSwordGodrickSoldierMonster;
+import eldenring.monsters.HighwaymanMonster;
 import eldenring.monsters.SwordGodrickSoldierMonster;
 import eldenring.monsters.TorchGodrickSoldierMonster;
 import eldenring.potions.AcademyMagicPotPotion;
@@ -112,50 +115,76 @@ public class EldenRingSTS implements
         startPotionManual();
         startMonsterManual();
         startBossManual();
+        startEliteManual();
     }
 
     public void startManualPowers(){
         BaseMod.addPower(OmenBairnPower.class, OmenBairnPower.POWER_ID);
     }
 
-    public void startBossManual(){
+    public void addEliteManual(){
+        BaseMod.addMonster(OrdovisElite.ID, OrdovisElite::new);
+        BaseMod.addMonster(SiluriaElite.ID, SiluriaElite::new);
+    }
+
+    public void startEliteManual(){
+        addEliteManual();
+        BaseMod.addEliteEncounter(TheCity.ID, new MonsterInfo(OrdovisElite.ID, 3));
+        BaseMod.addEliteEncounter(TheCity.ID, new MonsterInfo(SiluriaElite.ID, 3));
+    }
+
+    public void addBossManual() {
         BaseMod.addMonster(MorgottBoss.ID, MorgottBoss::new);
+    }
+
+    public void startBossManual(){
+        addBossManual();
         BaseMod.addBoss(TheCity.ID, MorgottBoss.ID, bossIconPath(MorgottBoss.FAKE_ID), bossIconPath(MorgottBoss.FAKE_ID));
     }
 
-    public void startMonsterManual(){
-//        BaseMod.addMonster(FootSoldierMonster.ID, () -> new FootSoldierMonster(0.0F, 0.0F));
+    public void addMonsterManual(){
         BaseMod.addMonster(FootSoldierMonster.ID, () -> new MonsterGroup(new AbstractMonster[]{
                 new FootSoldierMonster(0.0F, 10.0F),
                 new FootSoldierMonster(250.0F, -10.0F)
         }));
 
-        BaseMod.addMonster(makeID("GodrickSoldierGSS"), () -> new MonsterGroup(new AbstractMonster[]{
-                new GreatSwordGodrickSoldierMonster(0.0F, 10.0F),
-                new SwordGodrickSoldierMonster(250.0F, -10.0F)
+        BaseMod.addMonster(HighwaymanMonster.ID, () -> new MonsterGroup(new AbstractMonster[]{
+                new HighwaymanMonster(20.0F, 10.0F),
+                new HighwaymanMonster(140.0F, -30.0F),
+                new HighwaymanMonster(290.0F, 20.0F),
+                new HighwaymanMonster(440.0F, -10.0F)
         }));
 
-        BaseMod.addMonster(makeID("GodrickSoldierGHS"), () -> new MonsterGroup(new AbstractMonster[]{
+        BaseMod.addMonster(GreatSwordGodrickSoldierMonster.ID, () -> new MonsterGroup(new AbstractMonster[]{
+                new GreatSwordGodrickSoldierMonster(0.0F, 5.0F),
+                new SwordGodrickSoldierMonster(250.0F, -15.0F)
+        }));
+
+        BaseMod.addMonster(SwordGodrickSoldierMonster.ID, () -> new MonsterGroup(new AbstractMonster[]{
                 new GreatShieldGodrickSoldierMonster(0.0F, 10.0F),
                 new SwordGodrickSoldierMonster(250.0F, -10.0F)
         }));
 
-        BaseMod.addMonster(makeID("GodrickSoldierGST"), () -> new MonsterGroup(new AbstractMonster[]{
-                new GreatSwordGodrickSoldierMonster(0.0F, 10.0F),
-                new TorchGodrickSoldierMonster(250.0F, -10.0F)
+        BaseMod.addMonster(TorchGodrickSoldierMonster.ID, () -> new MonsterGroup(new AbstractMonster[]{
+                new GreatSwordGodrickSoldierMonster(0.0F, 0.0F),
+                new TorchGodrickSoldierMonster(250.0F, -15.0F)
         }));
 
-        BaseMod.addMonster(makeID("GodrickSoldierGHSS"), () -> new MonsterGroup(new AbstractMonster[]{
+        BaseMod.addMonster(GreatShieldGodrickSoldierMonster.ID, () -> new MonsterGroup(new AbstractMonster[]{
                 new GreatSwordGodrickSoldierMonster(0.0F, 10.0F),
-                new GreatShieldGodrickSoldierMonster(250.0F, -10.0F)
+                new GreatShieldGodrickSoldierMonster(250.0F, -12.0F)
         }));
+    }
 
+    public void startMonsterManual(){
+        addMonsterManual();
 
         BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo(FootSoldierMonster.ID, 3));
-        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo("GodrickSoldierGSS", 3));
-        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo("GodrickSoldierGHS", 3));
-        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo("GodrickSoldierGST", 3));
-        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo("GodrickSoldierGHSS", 3));
+        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(GreatSwordGodrickSoldierMonster.ID, 3));
+        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(SwordGodrickSoldierMonster.ID, 3));
+        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(TorchGodrickSoldierMonster.ID, 3));
+        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(GreatShieldGodrickSoldierMonster.ID, 3));
+        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(HighwaymanMonster.ID, 1));
     }
 
     public void startPotionManual(){

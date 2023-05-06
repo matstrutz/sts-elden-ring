@@ -30,6 +30,7 @@ public class DragoncrestGreatshieldTalismanRelic extends BaseRelic {
             this.flash();
             this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new PlatedArmorPower(AbstractDungeon.player, PLATE_GAIN), PLATE_GAIN));
             this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+            this.firstTurn = false;
         }
     }
 
