@@ -48,7 +48,7 @@
   },
   "${modID}:RedFeatheredBranchsword": {
     "NAME": "红羽七刃剑",
-    "FLAVOR": "蓝色羽毛的护符，源自古代死亡仪式的护符。",
+    "FLAVOR": "红色羽毛的护符，源自古代死亡仪式的护符。",
     "DESCRIPTIONS": [
       "当你的生命值等于或低于 #b50% 时，你获得额外 #b",
       " 点 #y力量 。"
@@ -56,7 +56,7 @@
   },
   "${modID}:BlueFeatheredBranchsword": {
     "NAME": "蓝羽七刃剑",
-    "FLAVOR": "红色羽毛的护符，源自古代死亡仪式的护符。",
+    "FLAVOR": "蓝色羽毛的护符，源自古代死亡仪式的护符。",
     "DESCRIPTIONS": [
       "当你的生命值等于或低于 #b50% 时，你获得额外 #b",
       " 点 #敏捷 。"

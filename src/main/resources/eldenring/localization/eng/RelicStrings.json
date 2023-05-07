@@ -48,7 +48,7 @@
   },
   "${modID}:RedFeatheredBranchsword": {
     "NAME": "Red-Feathered Branchsword",
-    "FLAVOR": "A talisman adorned with blue feathers, once used in ancient death rituals.",
+    "FLAVOR": "A talisman adorned with red feathers, once used in ancient death rituals.",
     "DESCRIPTIONS": [
       "While your HP is at or below #b50%, you have #b",
       " additional #yStrength."
@@ -56,7 +56,7 @@
   },
   "${modID}:BlueFeatheredBranchsword": {
     "NAME": "Blue-Feathered Branchsword",
-    "FLAVOR": "A talisman adorned with red feathers, once used in ancient death rituals.",
+    "FLAVOR": "A talisman adorned with blue feathers, once used in ancient death rituals.",
     "DESCRIPTIONS": [
       "While your HP is at or below #b50%, you have #b",
       " additional #yDexterity."

@@ -41,7 +41,7 @@
   },
   "${modID}:RedFeatheredBranchsword": {
     "NAME": "Red-Feathered Branchsword",
-    "FLAVOR": "Um talismã adornado com penas azuis, outrora usado em antigos rituais de morte.",
+    "FLAVOR": "Um talismã adornado com penas vermelhas, outrora usado em antigos rituais de morte.",
     "DESCRIPTIONS": [
       "Enquanto sua vida estiver abaixo de #b50%, você tem #b",
       " de #yForça."
@@ -49,7 +49,7 @@
   },
   "${modID}:BlueFeatheredBranchsword": {
     "NAME": "Blue-Feathered Branchsword",
-    "FLAVOR": "Um talismã adornado com penas vermelhas, outrora usado em antigos rituais de morte.",
+    "FLAVOR": "Um talismã adornado com penas azuis, outrora usado em antigos rituais de morte.",
     "DESCRIPTIONS": [
       "Enquanto sua vida estiver abaixo de #b50%, você tem #b",
       " de #yDestreza."
