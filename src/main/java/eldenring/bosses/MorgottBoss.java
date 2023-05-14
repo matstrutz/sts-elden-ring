@@ -36,8 +36,6 @@ public class MorgottBoss extends BaseMonster {
     private int cursedBloodSliceDmg = 60;
     private boolean curseTrigger = true;
     private boolean curseFirstMove = true;
-    private boolean triggerCurseFirstMove = false;
-    private boolean triggerCurse = false;
     private int turnMove = 0;
     private boolean encounterStart = true;
     public MorgottBoss() {
@@ -51,7 +49,36 @@ public class MorgottBoss extends BaseMonster {
             holySpearDmg += 5;
             cursedBloodSliceDmg += 10;
         }
+
+        if (AbstractDungeon.ascensionLevel >= 9) {
+            defPreCurse += 10;
+            tailSwipeDef += 5;
+        }
+
+        if (AbstractDungeon.ascensionLevel >= 19) {
+            holyBladeRainDmg += 3;
+            tailSwipeDmg += 3;
+            holySpearThrowDmg += 3;
+            holyDaggerDmg += 3;
+            holyHammerDmg += 3;
+            holySpearDmg += 3;
+            cursedBloodSliceDmg += 15;
+        }
+
+        setDmg();
     }
+
+    private void setDmg(){
+        this.damage.add(new DamageInfo(this, this.holyBladeRainDmg));
+        this.damage.add(new DamageInfo(this, this.tailSwipeDmg));
+        this.damage.add(new DamageInfo(this, this.holySpearThrowDmg));
+        this.damage.add(new DamageInfo(this, this.holyDaggerDmg));
+        this.damage.add(new DamageInfo(this, this.holyHammerDmg));
+        this.damage.add(new DamageInfo(this, this.holySpearDmg));
+        this.damage.add(new DamageInfo(this, this.holySwordDmg));
+        this.damage.add(new DamageInfo(this, this.cursedBloodSliceDmg));
+    }
+
 
     @Override
     public void takeTurn() {
@@ -87,12 +114,10 @@ public class MorgottBoss extends BaseMonster {
             case 7:
                 AbstractDungeon.actionManager.addToBottom(new TalkAction(this, "AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"));
                 cursedBloodSlice();
-                this.triggerCurse = false;
                 calcNextMove();
                 break;
             case 8:
                 preCurseBlock();
-                this.triggerCurseFirstMove = false;
                 calcNextMove();
                 break;
             case 10:
@@ -124,7 +149,7 @@ public class MorgottBoss extends BaseMonster {
     private void holyBladeRain(){
         AbstractDungeon.actionManager.addToBottom(new AnimateFastAttackAction(this));
         for (int i = 0; i < holyBladeRainCount - 1; i++) {
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, holyBladeRainDmg), AbstractGameAction.AttackEffect.SLASH_HEAVY));
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.SLASH_HEAVY));
         }
     }
 
@@ -132,40 +157,40 @@ public class MorgottBoss extends BaseMonster {
         AbstractDungeon.actionManager.addToBottom(new AnimateJumpAction(this));
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, tailSwipeDef));
         AbstractDungeon.actionManager.addToBottom(new AnimateSlowAttackAction(this));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, tailSwipeDmg), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
     }
 
     private void holySpearThrow(){
         AbstractDungeon.actionManager.addToBottom(new AnimateJumpAction(this));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, holySpearThrowDmg), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(2), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
     }
 
     private void holyDagger(){
         AbstractDungeon.actionManager.addToBottom(new AnimateFastAttackAction(this));
         for (int i = 0; i < holyDaggerCount - 1; i++) {
             if((i % 2) == 0){
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, holyDaggerDmg), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(3), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
             } else {
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, holyDaggerDmg), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(3), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
             }
         }
     }
 
     private void holyHammer(){
         AbstractDungeon.actionManager.addToBottom(new AnimateSlowAttackAction(this));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, holyHammerDmg), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(4), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
     }
 
     private void holySword(){
         AbstractDungeon.actionManager.addToBottom(new AnimateSlowAttackAction(this));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, holySwordDmg), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(6), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, holySwordDmg));
     }
 
     private void holySpear(){
         AbstractDungeon.actionManager.addToBottom(new AnimateFastAttackAction(this));
         for (int i = 0; i < holySpearCount - 1; i++) {
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, holySpearDmg), AbstractGameAction.AttackEffect.LIGHTNING));
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(5), AbstractGameAction.AttackEffect.LIGHTNING));
         }
     }
 
@@ -174,9 +199,10 @@ public class MorgottBoss extends BaseMonster {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, defPreCurse));
         this.addToBot(new ApplyPowerAction(this, this, new DexterityPower(this, 3), 3));
     }
+
     private void cursedBloodSlice(){
         AbstractDungeon.actionManager.addToBottom(new AnimateShakeAction(this, 1F,1F));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, cursedBloodSliceDmg), AbstractGameAction.AttackEffect.LIGHTNING));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(7), AbstractGameAction.AttackEffect.LIGHTNING));
     }
 
     private void calcNextMove(){
@@ -188,7 +214,6 @@ public class MorgottBoss extends BaseMonster {
                 this.turnMove = 8;
             } else {
                 this.curseTrigger = false;
-                this.triggerCurse = true;
                 this.setMove((byte)9, Intent.ATTACK, cursedBloodSliceDmg/6, 6, true);
                 this.turnMove = 7;
                 this.holySwordDmg += 10;

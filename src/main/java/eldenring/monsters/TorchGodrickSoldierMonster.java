@@ -28,6 +28,22 @@ public class TorchGodrickSoldierMonster extends BaseMonster {
             this.torchAttack += 2;
             this.slash += 2;
         }
+
+        if (AbstractDungeon.ascensionLevel >= 7) {
+            this.block += 2;
+        }
+
+        if (AbstractDungeon.ascensionLevel >= 17) {
+            this.torchAttack += 1;
+            this.slash += 2;
+        }
+
+        setDmg();
+    }
+
+    private void setDmg(){
+        this.damage.add(new DamageInfo(this, this.slash));
+        this.damage.add(new DamageInfo(this, this.torchAttack));
     }
 
     @Override
@@ -64,7 +80,7 @@ public class TorchGodrickSoldierMonster extends BaseMonster {
 
     private void burn(){
         AbstractDungeon.actionManager.addToBottom(new AnimateFastAttackAction(this));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, this.torchAttack), AbstractGameAction.AttackEffect.SLASH_HEAVY));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.SLASH_HEAVY));
         Burn b = new Burn();
 
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(b, 1));
@@ -72,7 +88,7 @@ public class TorchGodrickSoldierMonster extends BaseMonster {
 
     private void stocShield(){
         AbstractDungeon.actionManager.addToBottom(new AnimateSlowAttackAction(this));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, this.slash), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
     }
 
     private void defense(){

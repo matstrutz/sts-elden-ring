@@ -27,6 +27,22 @@ public class GreatShieldGodrickSoldierMonster extends BaseMonster {
             this.stock += 2;
             this.impale += 3;
         }
+
+        if (AbstractDungeon.ascensionLevel >= 7) {
+            this.greatShieldBlock += 4;
+        }
+
+        if (AbstractDungeon.ascensionLevel >= 17) {
+            this.stock += 2;
+            this.impale += 2;
+        }
+
+        setDmg();
+    }
+
+    private void setDmg(){
+        this.damage.add(new DamageInfo(this, this.stock));
+        this.damage.add(new DamageInfo(this, this.impale));
     }
 
     @Override
@@ -67,14 +83,14 @@ public class GreatShieldGodrickSoldierMonster extends BaseMonster {
 
     private void stoc(){
         AbstractDungeon.actionManager.addToBottom(new AnimateFastAttackAction(this));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, this.stock), AbstractGameAction.AttackEffect.SLASH_HEAVY));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.SLASH_HEAVY));
     }
 
     private void stocShield(){
         AbstractDungeon.actionManager.addToBottom(new AnimateJumpAction(this));
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, stock));
         AbstractDungeon.actionManager.addToBottom(new AnimateSlowAttackAction(this));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, this.stock), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
     }
 
     private void defense(){
@@ -84,7 +100,7 @@ public class GreatShieldGodrickSoldierMonster extends BaseMonster {
 
     private void impale(){
         AbstractDungeon.actionManager.addToBottom(new AnimateSlowAttackAction(this));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, this.impale), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
     }
 
     private void calcNextMove(){
