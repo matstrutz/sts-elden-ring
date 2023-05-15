@@ -229,5 +229,12 @@
     "DESCRIPTIONS": [
       "The first #ySkill you draw each turn, cost #b"
     ]
+  },
+  "${modID}:GreenTurtleTalisman": {
+    "NAME": "Green Turtle Talisman",
+    "FLAVOR": "A talisman in the shape of a green turtle.",
+    "DESCRIPTIONS": [
+      "The first card you discard each turn, cost #b"
+    ]
   }
 }
