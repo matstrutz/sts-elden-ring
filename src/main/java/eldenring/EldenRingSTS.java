@@ -34,6 +34,7 @@ import eldenring.bosses.MorgottBoss;
 import eldenring.elites.OrdovisElite;
 import eldenring.elites.SiluriaElite;
 import eldenring.monsters.FootSoldierMonster;
+import eldenring.monsters.GiantLandOctopusMonster;
 import eldenring.monsters.GreatShieldGodrickSoldierMonster;
 import eldenring.monsters.GreatSwordGodrickSoldierMonster;
 import eldenring.monsters.HighwaymanMonster;
@@ -173,6 +174,11 @@ public class EldenRingSTS implements
         BaseMod.addMonster(GreatShieldGodrickSoldierMonster.ID, () -> new MonsterGroup(new AbstractMonster[]{
                 new GreatSwordGodrickSoldierMonster(0.0F, 10.0F),
                 new GreatShieldGodrickSoldierMonster(250.0F, -12.0F)
+        }));
+
+        BaseMod.addMonster(GiantLandOctopusMonster.ID, () -> new MonsterGroup(new AbstractMonster[]{
+                new GiantLandOctopusMonster(0.0F, 0.0F),
+//                new GiantLandOctopusMonster(250.0F, -12.0F)
         }));
     }
 
