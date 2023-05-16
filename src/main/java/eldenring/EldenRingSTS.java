@@ -178,7 +178,6 @@ public class EldenRingSTS implements
 
         BaseMod.addMonster(GiantLandOctopusMonster.ID, () -> new MonsterGroup(new AbstractMonster[]{
                 new GiantLandOctopusMonster(0.0F, 0.0F),
-//                new GiantLandOctopusMonster(250.0F, -12.0F)
         }));
     }
 
@@ -191,6 +190,7 @@ public class EldenRingSTS implements
         BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(TorchGodrickSoldierMonster.ID, 3));
         BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(GreatShieldGodrickSoldierMonster.ID, 3));
         BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(HighwaymanMonster.ID, 1));
+        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(GiantLandOctopusMonster.ID, 2));
     }
 
     public void startPotionManual(){

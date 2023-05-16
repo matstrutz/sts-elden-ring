@@ -2,11 +2,15 @@ package eldenring.monsters;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.AnimateFastAttackAction;
+import com.megacrit.cardcrawl.actions.animations.AnimateShakeAction;
 import com.megacrit.cardcrawl.actions.animations.AnimateSlowAttackAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.SetMoveAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.WeakPower;
 import eldenring.EldenRingSTS;
 
 import java.util.Arrays;
@@ -24,6 +28,7 @@ public class GiantLandOctopusMonster extends BaseMonster {
     private int slash = 4;
     private List<Integer> turnPattern = Arrays.asList(0,1,2);
     private int countTurnPattern = 0;
+    private int healCount = 0;
 
     public GiantLandOctopusMonster(float offX, float offY) {
         super(NAME, ID, 56, 0.0F, 0.0F, 500.0F, 282.0F, EldenRingSTS.monsterPath(FAKE_ID), offX, offY);
@@ -52,6 +57,17 @@ public class GiantLandOctopusMonster extends BaseMonster {
 
     @Override
     public void takeTurn() {
+        if((this.currentHealth < (this.maxHealth/2) && healCount == 1)){
+            firstHeal();
+            calcNextMove();
+            return;
+        }
+        if((this.currentHealth < (this.maxHealth/2) && healCount == 2)){
+            secondHeal();
+            healCount += 1;
+            calcNextMove();
+            return;
+        }
         switch (turnPattern.get(countTurnPattern)) {
             case 0 :
                 patternA();
@@ -78,7 +94,7 @@ public class GiantLandOctopusMonster extends BaseMonster {
                 this.setMove((byte)1, Intent.ATTACK, bounce, 1, false);
                 break;
             case 1:
-                this.setMove((byte)2, Intent.ATTACK, tentacle, 1, false);
+                this.setMove((byte)2, Intent.ATTACK, tentacle, tentacleCount, true);
                 break;
             case 2:
                 this.setMove((byte)3, Intent.ATTACK, slash);
@@ -103,7 +119,28 @@ public class GiantLandOctopusMonster extends BaseMonster {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(2), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
     }
 
+    private void firstHeal(){
+        AbstractDungeon.actionManager.addToBottom(new AnimateShakeAction(this, 0.3F,0.5F));
+        AbstractDungeon.actionManager.addToBottom(new HealAction(this, this, this.maxHealth/5, 0.0F));
+    }
+
+    private void secondHeal(){
+        AbstractDungeon.actionManager.addToBottom(new AnimateShakeAction(this, 0.3F,0.5F));
+        AbstractDungeon.actionManager.addToBottom(new HealAction(this, this, this.maxHealth/5, 0.0F));
+        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this, this, new WeakPower(this, 2, true), 2));
+    }
+
     private void calcNextMove(){
+        if((this.currentHealth < (this.maxHealth/2) && healCount == 0)){
+            this.setMove((byte)4, Intent.UNKNOWN);
+            healCount += 1;
+            return;
+        }
+        if((this.currentHealth < (this.maxHealth/2) && healCount == 1)){
+            this.setMove((byte)5, Intent.UNKNOWN);
+            healCount += 1;
+            return;
+        }
         if(countTurnPattern > (turnPattern.size() - 1)){
             Collections.shuffle(turnPattern);
             countTurnPattern = 0;
