@@ -222,5 +222,24 @@
     "DESCRIPTIONS": [
       "A primeira #yTécnica que você compra a cada turno, custa #b"
     ]
+  },
+  "${modID}:GreenTurtleTalisman": {
+    "NAME": "Green Turtle Talisman",
+    "FLAVOR": "Um talismã em forma de tartaruga verde.",
+    "DESCRIPTIONS": [
+      "Quando você #yExaurir sua primeira carta em cada turno, ganhe ",
+      "[E] ",
+      "e perca #b",
+      " de HP"
+    ]
+  },
+  "${modID}:SpearTalisman": {
+    "NAME": "Spear Talisman",
+    "FLAVOR": "Um talismã representando uma lança e um soldado.",
+    "DESCRIPTIONS": [
+      "Quando não houver ",
+      "[E] ",
+      ", aumente o dano de ataque em #b"
+    ]
   }
 }
