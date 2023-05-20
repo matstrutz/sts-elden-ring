@@ -229,5 +229,24 @@
     "DESCRIPTIONS": [
       "The first #ySkill you draw each turn, cost #b"
     ]
+  },
+  "${modID}:GreenTurtleTalisman": {
+    "NAME": "Green Turtle Talisman",
+    "FLAVOR": "A talisman in the shape of a green turtle.",
+    "DESCRIPTIONS": [
+      "When you #yExhaust your first card each turn, gain ",
+      "[E] ",
+      "and lose #b",
+      " HP"
+    ]
+  },
+  "${modID}:SpearTalisman": {
+    "NAME": "Spear Talisman",
+    "FLAVOR": "A talisman depicting a spear and a soldier.",
+    "DESCRIPTIONS": [
+      "When you don't have ",
+      "[E] ",
+      ", increase attack damage by #b"
+    ]
   }
 }

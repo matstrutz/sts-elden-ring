@@ -25,6 +25,22 @@ public class GreatSwordGodrickSoldierMonster extends BaseMonster {
             this.stomp += 3;
             this.slash += 2;
         }
+
+        if (AbstractDungeon.ascensionLevel >= 7) {
+            this.block += 3;
+        }
+
+        if (AbstractDungeon.ascensionLevel >= 17) {
+            this.slash += 2;
+            this.stomp += 2;
+        }
+
+        setDmg();
+    }
+
+    private void setDmg(){
+        this.damage.add(new DamageInfo(this, this.stomp));
+        this.damage.add(new DamageInfo(this, this.slash));
     }
 
     @Override
@@ -63,12 +79,12 @@ public class GreatSwordGodrickSoldierMonster extends BaseMonster {
         AbstractDungeon.actionManager.addToBottom(new AnimateJumpAction(this));
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, block));
         AbstractDungeon.actionManager.addToBottom(new AnimateSlowAttackAction(this));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, this.stomp), AbstractGameAction.AttackEffect.SLASH_HEAVY));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.SLASH_HEAVY));
     }
 
     private void slash(){
         AbstractDungeon.actionManager.addToBottom(new AnimateSlowAttackAction(this));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, this.slash), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
     }
 
     private void defense(){

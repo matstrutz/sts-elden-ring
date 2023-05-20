@@ -42,8 +42,19 @@ public class HighwaymanMonster extends BaseMonster {
 
         if (AbstractDungeon.ascensionLevel >= 7) {
             def += 2;
-            this.maxHealth += 3;
         }
+
+        if (AbstractDungeon.ascensionLevel >= 2) {
+            stab += 2;
+            stabB += 3;
+        }
+
+        setDmg();
+    }
+
+    private void setDmg(){
+        this.damage.add(new DamageInfo(this, this.stab));
+        this.damage.add(new DamageInfo(this, this.stabB));
     }
 
     @Override
@@ -84,12 +95,12 @@ public class HighwaymanMonster extends BaseMonster {
 
     private void patternA(){
         AbstractDungeon.actionManager.addToBottom(new AnimateSlowAttackAction(this));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, stab), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
     }
 
     private void patternB(){
         AbstractDungeon.actionManager.addToBottom(new AnimateSlowAttackAction(this));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, stabB), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
     }
 
     private void patternC(){

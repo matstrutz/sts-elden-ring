@@ -41,6 +41,29 @@ public class SiluriaElite extends BaseMonster {
             tailB += 4;
             dive += 4;
         }
+
+        if (AbstractDungeon.ascensionLevel >= 7) {
+            defend += 6;
+        }
+
+        if (AbstractDungeon.ascensionLevel >= 18) {
+            stomp += 3;
+            spearSpecial += 4;
+            dive += 4;
+        }
+
+        setDmg();
+    }
+
+    private void setDmg(){
+        this.damage.add(new DamageInfo(this, this.stomp));
+        this.damage.add(new DamageInfo(this, this.swingA));
+        this.damage.add(new DamageInfo(this, this.swingB));
+        this.damage.add(new DamageInfo(this, this.stab));
+        this.damage.add(new DamageInfo(this, this.spearSpecial));
+        this.damage.add(new DamageInfo(this, this.tailA));
+        this.damage.add(new DamageInfo(this, this.tailB));
+        this.damage.add(new DamageInfo(this, this.dive));
     }
 
     @Override
@@ -107,17 +130,17 @@ public class SiluriaElite extends BaseMonster {
 
     private void swingAAction(){
         AbstractDungeon.actionManager.addToBottom(new AnimateFastAttackAction(this));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, this.swingA), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
     }
 
     private void swingBAction(){
         AbstractDungeon.actionManager.addToBottom(new AnimateFastAttackAction(this));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, this.swingB), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(2), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
     }
 
     private void stompAction(){
         AbstractDungeon.actionManager.addToBottom(new AnimateSlowAttackAction(this));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, this.stomp), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
     }
 
     private void defendAction(){
@@ -129,28 +152,28 @@ public class SiluriaElite extends BaseMonster {
     private void siluriaTreeSpecial(){
         AbstractDungeon.actionManager.addToBottom(new AnimateFastAttackAction(this));
         for (int i = 0; i < spearAtkCount; i++) {
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, this.spearSpecial), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(4), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
         }
     }
 
     private void diveAction(){
         AbstractDungeon.actionManager.addToBottom(new AnimateFastAttackAction(this));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, this.dive), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(7), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
     }
 
     private void tailAAction(){
         AbstractDungeon.actionManager.addToBottom(new AnimateSlowAttackAction(this));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, this.tailA), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(5), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
     }
 
     private void tailBAction(){
         AbstractDungeon.actionManager.addToBottom(new AnimateSlowAttackAction(this));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, this.tailB), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(6), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
     }
 
     private void stabAction(){
         AbstractDungeon.actionManager.addToBottom(new AnimateFastAttackAction(this));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(this, this.tailB), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(3), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
     }
 
     private void calcNextMove(){
