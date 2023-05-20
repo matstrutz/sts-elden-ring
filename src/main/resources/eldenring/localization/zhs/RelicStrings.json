@@ -229,5 +229,24 @@
     "DESCRIPTIONS": [
       "你每回合抽到的第一张 #y技能牌 的耗能为 #b 。"
     ]
+  },
+  "${modID}:GreenTurtleTalisman": {
+    "NAME": "绿龟护符",
+    "FLAVOR": "参考绿乌龟的模样制成的护符。",
+    "DESCRIPTIONS": [
+      "当你在每回合首次 #y消耗 你的牌时，获得 ",
+      "[E] ",
+      "并失去 #b",
+      " 点生命值。"
+    ]
+  },
+  "${modID}:SpearTalisman": {
+    "NAME": "矛护符",
+    "FLAVOR": "以矛与士兵的形象制成的护符。",
+    "DESCRIPTIONS": [
+      "当你未拥有 ",
+      "[E] ",
+      "时，增加 #b 攻击伤害"
+    ]
   }
 }
