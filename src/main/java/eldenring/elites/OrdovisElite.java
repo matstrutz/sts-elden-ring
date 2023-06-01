@@ -30,7 +30,7 @@ public class OrdovisElite extends BaseMonster {
     private int dive = 22;
 
     public OrdovisElite() {
-        super(NAME, ID, 136, 0.0F, 0.0F, 140.0F, 267.0F, EldenRingSTS.monsterPath(FAKE_ID), 0.0F, 0.0F);
+        super(NAME, ID, 136, 0.0F, 0.0F, 150.0F, 286.0F, EldenRingSTS.monsterPath(FAKE_ID), 0.0F, 0.0F);
         if (AbstractDungeon.ascensionLevel >= 3) {
             stomp += 3;
             swingA += 3;
