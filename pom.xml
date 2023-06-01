@@ -6,7 +6,7 @@
         <author>OLendari0</author>
 
         <!-- Change this to match your Steam installation. -->
-        <Steam.path>E:\Steam\steamapps\</Steam.path>
+        <Steam.path>C:/Program Files (x86)/Steam/steamapps</Steam.path>
 
         <!-- These don't have to be up to date, it's just nice if they are. -->
         <SlayTheSpire.version>03-07-2022</SlayTheSpire.version>
