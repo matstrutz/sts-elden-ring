@@ -11,36 +11,30 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import eldenring.EldenRingSTS;
 import eldenring.monsters.BaseMonster;
 
-public class SiluriaElite extends BaseMonster {
-    public final static String NAME = "Crucible Knight Siluria";
-    public final static String FAKE_ID = "Siluria";
+public class OlegElite extends BaseMonster {
+    public final static String NAME = "Banished Knight Oleg";
+    public final static String FAKE_ID = "Oleg";
     public final static String ID = EldenRingSTS.makeID(FAKE_ID);
 
     private int turnMove = -1;
-    private boolean comboStart = true;
     private int defend = 12;
-    private int stomp = 10;
-    private int swingA = 16;
-    private int swingB = 18;
-    private int stab = 19;
-    private int spearSpecial = 4;
-    private int spearAtkCount = 6;
-    private int tailA = 18;
-    private int tailB = 28;
-    private int dive = 22;
+    private int defendB = 15;
+    private int stomp = 9;
+    private int swingA = 12;
+    private int swingB = 13;
+    private int stab = 15;
+    private int fireBreath = 20;
 
-    public SiluriaElite() {
-        super(NAME, ID, 136, 0.0F, 0.0F, 150.0F, 286.0F, EldenRingSTS.monsterPath(FAKE_ID), 0.0F, 0.0F);
+    public OlegElite() {
+        super(NAME, ID, 72, 0.0F, 0.0F, 150.0F, 286.0F, EldenRingSTS.monsterPath("BanishedKnight"), 0.0F, 0.0F);
         if (AbstractDungeon.ascensionLevel >= 3) {
             stomp += 3;
             swingA += 3;
             swingB += 3;
             stab += 4;
-            spearSpecial += 5;
-            tailA += 5;
-            tailB += 4;
-            dive += 4;
+            fireBreath += 5;
         }
+
 
         if (AbstractDungeon.ascensionLevel >= 7) {
             defend += 6;
@@ -48,8 +42,7 @@ public class SiluriaElite extends BaseMonster {
 
         if (AbstractDungeon.ascensionLevel >= 18) {
             stomp += 3;
-            spearSpecial += 4;
-            dive += 4;
+            fireBreath += 4;
         }
 
         setDmg();
@@ -60,10 +53,7 @@ public class SiluriaElite extends BaseMonster {
         this.damage.add(new DamageInfo(this, this.swingA));
         this.damage.add(new DamageInfo(this, this.swingB));
         this.damage.add(new DamageInfo(this, this.stab));
-        this.damage.add(new DamageInfo(this, this.spearSpecial));
-        this.damage.add(new DamageInfo(this, this.tailA));
-        this.damage.add(new DamageInfo(this, this.tailB));
-        this.damage.add(new DamageInfo(this, this.dive));
+        this.damage.add(new DamageInfo(this, this.fireBreath));
     }
 
     @Override
@@ -90,19 +80,11 @@ public class SiluriaElite extends BaseMonster {
                 calcNextMove();
                 break;
             case 5:
-                siluriaTreeSpecial();
+                fireBreathAction();
                 calcNextMove();
                 break;
             case 6:
-                diveAction();
-                calcNextMove();
-                break;
-            case 7:
-                tailAAction();
-                calcNextMove();
-                break;
-            case 8:
-                tailBAction();
+                defendBAction();
                 calcNextMove();
                 break;
         }
@@ -114,18 +96,7 @@ public class SiluriaElite extends BaseMonster {
     }
 
     private void calcTurn(){
-        if(this.currentHealth < (this.maxHealth / 2)){
-            this.turnMove = ((int) (Math.random() * 5)) + 4;
-            this.comboStart = false;
-        }
-        if (this.comboStart) {
-            ++this.turnMove;
-            if(this.turnMove > 4){
-                this.comboStart = false;
-            }
-        } else {
-            this.turnMove = (int) (Math.random() * 5);
-        }
+        this.turnMove = (int) (Math.random() * 7);
     }
 
     private void swingAAction(){
@@ -148,27 +119,14 @@ public class SiluriaElite extends BaseMonster {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this.defend));
     }
 
+    private void defendBAction(){
+        AbstractDungeon.actionManager.addToBottom(new AnimateJumpAction(this));
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this.defend));
+    }
 
-    private void siluriaTreeSpecial(){
+    private void fireBreathAction(){
         AbstractDungeon.actionManager.addToBottom(new AnimateFastAttackAction(this));
-        for (int i = 0; i < spearAtkCount; i++) {
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(4), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-        }
-    }
-
-    private void diveAction(){
-        AbstractDungeon.actionManager.addToBottom(new AnimateFastAttackAction(this));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(7), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-    }
-
-    private void tailAAction(){
-        AbstractDungeon.actionManager.addToBottom(new AnimateSlowAttackAction(this));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(5), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-    }
-
-    private void tailBAction(){
-        AbstractDungeon.actionManager.addToBottom(new AnimateSlowAttackAction(this));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(6), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(4), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
     }
 
     private void stabAction(){
@@ -195,16 +153,10 @@ public class SiluriaElite extends BaseMonster {
                 this.setMove((byte)5, Intent.ATTACK, stab);
                 break;
             case 5:
-                this.setMove((byte)6, Intent.ATTACK, spearSpecial, spearAtkCount, true);
+                this.setMove((byte)6, Intent.ATTACK, fireBreath);
                 break;
             case 6:
-                this.setMove((byte)7, Intent.ATTACK, dive);
-                break;
-            case 7:
-                this.setMove((byte)8, Intent.ATTACK, tailA);
-                break;
-            case 8:
-                this.setMove((byte)9, Intent.ATTACK, tailB);
+                this.setMove((byte)10, Intent.DEFEND, defendB);
                 break;
         }
     }
