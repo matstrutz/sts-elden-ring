@@ -31,6 +31,7 @@ import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import eldenring.bosses.MorgottBoss;
+import eldenring.elites.EngvallElite;
 import eldenring.elites.OlegElite;
 import eldenring.elites.OrdovisElite;
 import eldenring.elites.SiluriaElite;
@@ -128,6 +129,7 @@ public class EldenRingSTS implements
         BaseMod.addMonster(OrdovisElite.ID, OrdovisElite::new);
         BaseMod.addMonster(SiluriaElite.ID, SiluriaElite::new);
         BaseMod.addMonster(OlegElite.ID, OlegElite::new);
+        BaseMod.addMonster(EngvallElite.ID, EngvallElite::new);
     }
 
     public void startEliteManual(){
@@ -135,6 +137,7 @@ public class EldenRingSTS implements
         BaseMod.addEliteEncounter(TheCity.ID, new MonsterInfo(OrdovisElite.ID, 3));
         BaseMod.addEliteEncounter(TheCity.ID, new MonsterInfo(SiluriaElite.ID, 3));
         BaseMod.addEliteEncounter(Exordium.ID, new MonsterInfo(OlegElite.ID, 3));
+        BaseMod.addEliteEncounter(Exordium.ID, new MonsterInfo(EngvallElite.ID, 3));
     }
 
     public void addBossManual() {
