@@ -17,7 +17,7 @@ public class AlexanderEvent extends AbstractImageEvent {
     private static final String NAME = eventStrings.NAME;
 
     public AlexanderEvent(){
-        super(NAME, StringUtils.join(DESCRIPTIONS), "eldenring/event/Alexander01.png");
+        super(NAME, StringUtils.join(DESCRIPTIONS), "eldenring/event/AlexanderStuck.png");
 
         this.imageEventText.setDialogOption(OPTIONS[0]);
         this.imageEventText.setDialogOption(OPTIONS[1]);
