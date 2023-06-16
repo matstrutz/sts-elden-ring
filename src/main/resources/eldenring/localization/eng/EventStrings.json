@@ -17,5 +17,20 @@
       "[Leave]",
       "Select card to remove. (You can also stick extra text like this in here.)"
     ]
-  }
+  },
+  "${modID}:AlexanderStuck": {
+  "NAME": "Iron Fist Alexander",
+  "DESCRIPTIONS": [
+    "Hello-o? Can you hear me?.",
+    "NL Help me! I'm stuck.",
+    "NL Hello? Hellooo! Anyone!",
+    "NL Oh my stars I'm so happy to see you!",
+    "NL I am Alexander, also known as the Iron Fist. And as you can see, I'm stock here.",
+    "NL Please, can you help me out of this?"
+  ],
+  "OPTIONS": [
+    "#r[Help] Loses 10 HP to help Alexander.",
+    "Leave."
+  ]
+}
 }

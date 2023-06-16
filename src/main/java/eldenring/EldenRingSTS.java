@@ -35,6 +35,7 @@ import eldenring.elites.EngvallElite;
 import eldenring.elites.OlegElite;
 import eldenring.elites.OrdovisElite;
 import eldenring.elites.SiluriaElite;
+import eldenring.events.AlexanderEvent;
 import eldenring.monsters.FootSoldierMonster;
 import eldenring.monsters.GiantLandOctopusMonster;
 import eldenring.monsters.GreatShieldGodrickSoldierMonster;
@@ -119,6 +120,7 @@ public class EldenRingSTS implements
         startMonsterManual();
         startBossManual();
         startEliteManual();
+        startEventManual();
     }
 
     public void startManualPowers(){
@@ -208,6 +210,11 @@ public class EldenRingSTS implements
         BaseMod.addPotion(MagicGreasePotion.class, Color.BLUE, Color.WHITE, Color.GRAY, MagicGreasePotion.ID);
         BaseMod.addPotion(ShieldGreasePotion.class, Color.BLUE, Color.WHITE, Color.GRAY, ShieldGreasePotion.ID);
     }
+
+    public void startEventManual(){
+        BaseMod.addEvent(AlexanderEvent.ID, AlexanderEvent.class, Exordium.ID);
+    }
+
     /*----------Localization----------*/
 
     //This is used to load the appropriate localization files based on language.
