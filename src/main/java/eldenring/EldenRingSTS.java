@@ -2,6 +2,9 @@ package eldenring;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
+import basemod.eventUtil.AddEventParams;
+import basemod.eventUtil.util.Condition;
+import basemod.eventUtil.util.ConditionalEvent;
 import basemod.interfaces.EditKeywordsSubscriber;
 import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
@@ -16,8 +19,10 @@ import com.evacipated.cardcrawl.modthespire.Patcher;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.dungeons.TheCity;
+import com.megacrit.cardcrawl.events.AbstractEvent;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.EventStrings;
@@ -35,7 +40,8 @@ import eldenring.elites.EngvallElite;
 import eldenring.elites.OlegElite;
 import eldenring.elites.OrdovisElite;
 import eldenring.elites.SiluriaElite;
-import eldenring.events.AlexanderEvent;
+import eldenring.events.AlexanderBossEvent;
+import eldenring.events.AlexanderStuckEvent;
 import eldenring.monsters.FootSoldierMonster;
 import eldenring.monsters.GiantLandOctopusMonster;
 import eldenring.monsters.GreatShieldGodrickSoldierMonster;
@@ -57,8 +63,10 @@ import eldenring.util.KeywordInfo;
 import eldenring.util.TextureLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.lwjgl.Sys;
 import org.scannotation.AnnotationDB;
 
+import java.io.Console;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Collections;
@@ -212,7 +220,7 @@ public class EldenRingSTS implements
     }
 
     public void startEventManual(){
-        BaseMod.addEvent(AlexanderEvent.ID, AlexanderEvent.class, Exordium.ID);
+        BaseMod.addEvent(AlexanderStuckEvent.ID, AlexanderStuckEvent.class, Exordium.ID);
     }
 
     /*----------Localization----------*/

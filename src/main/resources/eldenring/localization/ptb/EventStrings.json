@@ -17,5 +17,39 @@
       "[Leave]",
       "Select card to remove. (You can also stick extra text like this in here.)"
     ]
+  },
+  "${modID}:AlexanderStuck": {
+    "NAME": "Iron Fist Alexander",
+    "DESCRIPTIONS": [
+      "#r@Olá?@ Você pode me ouvir?",
+      " NL Me ajude! Estou preso.",
+      " NL #r@Olá?@ #r@Alô@ Qualquer um!",
+      " NL Oh minhas estrelas, estou tão feliz em vê-lo!",
+      " NL Eu sou Alexander, também conhecido como Punho de Ferro. E como você pode ver, eu sou estoque aqui.",
+      " NL Por favor, você pode me ajudar com isso?",
+      "Ahh! Bem feito bom senhor. Bem feito. Embora aquele seu poderoso golpe quase tenha significado o meu fim!",
+      " NL Ha ha ha ha! Bem, estou fora agora, e é isso que importa.",
+      " NL Agradeço e, como sinal de minha gratidão, gostaria que você ficasse com isso"
+    ],
+    "OPTIONS": [
+      "#g[Help] Perca #b",
+      " HP para ajudar Alexander.",
+      "Sair."
+    ]
+  },
+  "${modID}:AlexanderBoss": {
+    "NAME": "Iron Fist Alexander (Unused for Now)",
+    "DESCRIPTIONS": [
+      "Hello-o? Can you hear me?.",
+      "NL Help me! I'm stuck.",
+      "NL Hello? Hellooo! Anyone!",
+      "NL Oh my stars I'm so happy to see you!",
+      "NL I am Alexander, also known as the Iron Fist. And as you can see, I'm stock here.",
+      "NL Please, can you help me out of this?"
+    ],
+    "OPTIONS": [
+      "#r[Help] Loses 10 HP to help Alexander.",
+      "Leave."
+    ]
   }
 }

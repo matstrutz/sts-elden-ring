@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.localization.EventStrings;
 import eldenring.EldenRingSTS;
 import org.apache.commons.lang3.StringUtils;
 
-public class AlexanderEvent extends AbstractImageEvent {
+public class AlexanderBossEvent extends AbstractImageEvent {
 
     public static final String ID = EldenRingSTS.makeID("AlexanderStuck");
     private static final EventStrings eventStrings = CardCrawlGame.languagePack.getEventString(ID);
@@ -16,7 +16,7 @@ public class AlexanderEvent extends AbstractImageEvent {
     private static final String[] OPTIONS = eventStrings.OPTIONS;
     private static final String NAME = eventStrings.NAME;
 
-    public AlexanderEvent(){
+    public AlexanderBossEvent(){
         super(NAME, StringUtils.join(DESCRIPTIONS), "eldenring/event/AlexanderStuck.png");
 
         this.imageEventText.setDialogOption(OPTIONS[0]);
