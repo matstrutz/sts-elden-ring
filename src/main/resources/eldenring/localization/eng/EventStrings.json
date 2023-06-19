@@ -17,5 +17,39 @@
       "[Leave]",
       "Select card to remove. (You can also stick extra text like this in here.)"
     ]
+  },
+  "${modID}:AlexanderStuck": {
+    "NAME": "Iron Fist Alexander",
+    "DESCRIPTIONS": [
+      "Hello-o? Can you hear me?.",
+      " NL Help me! I'm stuck.",
+      " NL Hello? Hellooo! Anyone!",
+      " NL Oh my stars I'm so happy to see you!",
+      " NL I am Alexander, also known as the Iron Fist. And as you can see, I'm stock here.",
+      " NL Please, can you help me out of this?",
+      "Ahh! Well played good sir. Well Played. Though that mighty wallop of yours almost spelt the end of me!",
+      " NL Ha ha ha ha! Well, I'm out now, and that's what counts.",
+      " NL I thank you, and as a token of my appreciation, I'd like you to have this"
+    ],
+    "OPTIONS": [
+      "#r[Help] Loses #b",
+      " HP to help Alexander.",
+      "Leave."
+    ]
+  },
+  "${modID}:AlexanderBoss": {
+    "NAME": "Iron Fist Alexander (Unused for Now)",
+    "DESCRIPTIONS": [
+      "#r@Hello-o?@ Can you hear me?.",
+      "NL Help me! I'm stuck.",
+      "NL #r@Hello?@ #r@Hellooo!@ Anyone!",
+      "NL Oh my stars I'm so happy to see you!",
+      "NL I am Alexander, also known as the Iron Fist. And as you can see, I'm stock here.",
+      "NL Please, can you help me out of this?"
+    ],
+    "OPTIONS": [
+      "#r[Help] Loses 10 HP to help Alexander.",
+      "Leave."
+    ]
   }
 }

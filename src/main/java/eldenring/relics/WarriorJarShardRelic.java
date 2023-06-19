@@ -9,8 +9,7 @@ import eldenring.EldenRingSTS;
 public class WarriorJarShardRelic extends BaseRelic {
     private static final String NAME = "WarriorJarShard";
     public static final String ID = EldenRingSTS.makeID(NAME);
-    //TODO Move do special um event is done
-    private static final RelicTier RARITY = RelicTier.SHOP;
+    private static final RelicTier RARITY = RelicTier.SPECIAL;
     private static final LandingSound SOUND = LandingSound.HEAVY;
     private static final int POWER = 1;
     private boolean firstTurn = true;

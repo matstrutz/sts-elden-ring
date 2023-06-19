@@ -2,6 +2,9 @@ package eldenring;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
+import basemod.eventUtil.AddEventParams;
+import basemod.eventUtil.util.Condition;
+import basemod.eventUtil.util.ConditionalEvent;
 import basemod.interfaces.EditKeywordsSubscriber;
 import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
@@ -16,8 +19,10 @@ import com.evacipated.cardcrawl.modthespire.Patcher;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.dungeons.TheCity;
+import com.megacrit.cardcrawl.events.AbstractEvent;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.EventStrings;
@@ -31,9 +36,12 @@ import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import eldenring.bosses.MorgottBoss;
+import eldenring.elites.EngvallElite;
 import eldenring.elites.OlegElite;
 import eldenring.elites.OrdovisElite;
 import eldenring.elites.SiluriaElite;
+import eldenring.events.AlexanderBossEvent;
+import eldenring.events.AlexanderStuckEvent;
 import eldenring.monsters.FootSoldierMonster;
 import eldenring.monsters.GiantLandOctopusMonster;
 import eldenring.monsters.GreatShieldGodrickSoldierMonster;
@@ -55,8 +63,10 @@ import eldenring.util.KeywordInfo;
 import eldenring.util.TextureLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.lwjgl.Sys;
 import org.scannotation.AnnotationDB;
 
+import java.io.Console;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Collections;
@@ -118,6 +128,7 @@ public class EldenRingSTS implements
         startMonsterManual();
         startBossManual();
         startEliteManual();
+        startEventManual();
     }
 
     public void startManualPowers(){
@@ -128,6 +139,7 @@ public class EldenRingSTS implements
         BaseMod.addMonster(OrdovisElite.ID, OrdovisElite::new);
         BaseMod.addMonster(SiluriaElite.ID, SiluriaElite::new);
         BaseMod.addMonster(OlegElite.ID, OlegElite::new);
+        BaseMod.addMonster(EngvallElite.ID, EngvallElite::new);
     }
 
     public void startEliteManual(){
@@ -135,6 +147,7 @@ public class EldenRingSTS implements
         BaseMod.addEliteEncounter(TheCity.ID, new MonsterInfo(OrdovisElite.ID, 3));
         BaseMod.addEliteEncounter(TheCity.ID, new MonsterInfo(SiluriaElite.ID, 3));
         BaseMod.addEliteEncounter(Exordium.ID, new MonsterInfo(OlegElite.ID, 3));
+        BaseMod.addEliteEncounter(Exordium.ID, new MonsterInfo(EngvallElite.ID, 3));
     }
 
     public void addBossManual() {
@@ -205,6 +218,11 @@ public class EldenRingSTS implements
         BaseMod.addPotion(MagicGreasePotion.class, Color.BLUE, Color.WHITE, Color.GRAY, MagicGreasePotion.ID);
         BaseMod.addPotion(ShieldGreasePotion.class, Color.BLUE, Color.WHITE, Color.GRAY, ShieldGreasePotion.ID);
     }
+
+    public void startEventManual(){
+        BaseMod.addEvent(AlexanderStuckEvent.ID, AlexanderStuckEvent.class, Exordium.ID);
+    }
+
     /*----------Localization----------*/
 
     //This is used to load the appropriate localization files based on language.
