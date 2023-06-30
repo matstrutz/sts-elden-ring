@@ -17,26 +17,25 @@ public class EngvallElite extends BaseMonster {
     public final static String ID = EldenRingSTS.makeID(FAKE_ID);
 
     private int turnMove = -1;
-    private int stomp = 10;
-    private int swingA = 11;
-    private int swingB = 15;
-    private int stab = 16;
-    private int stormWave = 5;
+    private int stomp = 6;
+    private int swingA = 7;
+    private int swingB = 10;
+    private int stab = 14;
+    private int stormWave = 4;
     private int stormWaveCount = 4;
 
     public EngvallElite() {
         super(NAME, ID, 72, 0.0F, 0.0F, 150.0F, 286.0F, EldenRingSTS.monsterPath("BanishedKnight"), 0.0F, 0.0F);
         if (AbstractDungeon.ascensionLevel >= 3) {
-            stomp += 3;
-            swingA += 3;
-            swingB += 3;
-            stab += 4;
+            stomp += 2;
+            swingA += 2;
+            swingB += 2;
+            stab += 3;
             stormWave += 1;
         }
 
         if (AbstractDungeon.ascensionLevel >= 18) {
-            stomp += 3;
-            stormWave += 4;
+            stomp += 2;
             stormWaveCount += 1;
         }
 

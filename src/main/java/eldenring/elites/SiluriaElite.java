@@ -19,10 +19,10 @@ public class SiluriaElite extends BaseMonster {
     private int turnMove = -1;
     private boolean comboStart = true;
     private int defend = 12;
-    private int stomp = 10;
-    private int swingA = 16;
-    private int swingB = 18;
-    private int stab = 19;
+    private int stomp = 9;
+    private int swingA = 14;
+    private int swingB = 15;
+    private int stab = 16;
     private int spearSpecial = 4;
     private int spearAtkCount = 6;
     private int tailA = 18;
@@ -32,14 +32,14 @@ public class SiluriaElite extends BaseMonster {
     public SiluriaElite() {
         super(NAME, ID, 136, 0.0F, 0.0F, 150.0F, 286.0F, EldenRingSTS.monsterPath(FAKE_ID), 0.0F, 0.0F);
         if (AbstractDungeon.ascensionLevel >= 3) {
-            stomp += 3;
-            swingA += 3;
-            swingB += 3;
-            stab += 4;
-            spearSpecial += 5;
-            tailA += 5;
-            tailB += 4;
-            dive += 4;
+            stomp += 2;
+            swingA += 2;
+            swingB += 2;
+            stab += 3;
+            spearSpecial += 1;
+            tailA += 3;
+            tailB += 2;
+            dive += 3;
         }
 
         if (AbstractDungeon.ascensionLevel >= 7) {
@@ -47,9 +47,10 @@ public class SiluriaElite extends BaseMonster {
         }
 
         if (AbstractDungeon.ascensionLevel >= 18) {
-            stomp += 3;
-            spearSpecial += 4;
-            dive += 4;
+            stomp += 1;
+            spearSpecial += 1;
+            spearAtkCount += 1;
+            dive += 2;
         }
 
         setDmg();

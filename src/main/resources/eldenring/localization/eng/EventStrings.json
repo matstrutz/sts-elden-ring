@@ -37,18 +37,17 @@
       "Leave."
     ]
   },
-  "${modID}:AlexanderBoss": {
-    "NAME": "Iron Fist Alexander (Unused for Now)",
+  "${modID}:AlexanderLava": {
+    "NAME": "Iron Fist Alexander",
     "DESCRIPTIONS": [
-      "#r@Hello-o?@ Can you hear me?.",
-      "NL Help me! I'm stuck.",
-      "NL #r@Hello?@ #r@Hellooo!@ Anyone!",
-      "NL Oh my stars I'm so happy to see you!",
-      "NL I am Alexander, also known as the Iron Fist. And as you can see, I'm stock here.",
-      "NL Please, can you help me out of this?"
+      "Ngh! Rnnngh! O mountain of fire! Bake me in your flames!",
+      "NL Nnngh! Ah, good sir, what business might you have in such a place as this?",
+      "NL I hardly think you're here to temper yourself with flame, considering that flesh form of yours.",
+      "NL Your timing though, is impeccable as ever! I've been making just the thing for you on my journey here.",
+      "NL Take it, I'm sure it'll suit you to a tee."
     ],
     "OPTIONS": [
-      "#r[Help] Loses 10 HP to help Alexander.",
+      "#g[Get] Souvenir from Alexander.",
       "Leave."
     ]
   }

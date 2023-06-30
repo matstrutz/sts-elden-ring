@@ -18,31 +18,32 @@ public class OlegElite extends BaseMonster {
 
     private int turnMove = -1;
     private int defend = 12;
-    private int defendB = 15;
-    private int stomp = 9;
-    private int swingA = 12;
-    private int swingB = 13;
-    private int stab = 15;
-    private int fireBreath = 20;
+    private int defendB = 16;
+    private int stomp = 7;
+    private int swingA = 10;
+    private int swingB = 11;
+    private int stab = 11;
+    private int fireBreath = 16;
 
     public OlegElite() {
         super(NAME, ID, 72, 0.0F, 0.0F, 150.0F, 286.0F, EldenRingSTS.monsterPath("BanishedKnight"), 0.0F, 0.0F);
         if (AbstractDungeon.ascensionLevel >= 3) {
-            stomp += 3;
-            swingA += 3;
-            swingB += 3;
-            stab += 4;
-            fireBreath += 5;
+            stomp += 2;
+            swingA += 2;
+            swingB += 2;
+            stab += 3;
+            fireBreath += 4;
         }
 
 
         if (AbstractDungeon.ascensionLevel >= 7) {
             defend += 6;
+            defendB += 4;
         }
 
         if (AbstractDungeon.ascensionLevel >= 18) {
-            stomp += 3;
-            fireBreath += 4;
+            stomp += 2;
+            fireBreath += 2;
         }
 
         setDmg();
