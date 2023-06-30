@@ -19,8 +19,8 @@ public class HighwaymanMonster extends BaseMonster {
     public final static String FAKE_ID = "Highwayman";
     public final static String ID = EldenRingSTS.makeID(FAKE_ID);
 
-    private int stab = 6;
-    private int stabB = 5;
+    private int stab = 5;
+    private int stabB = 4;
     private int def = 4;
     private List<Integer> turnPattern = Arrays.asList(0,1,2);
     private int countTurnPattern = 0;

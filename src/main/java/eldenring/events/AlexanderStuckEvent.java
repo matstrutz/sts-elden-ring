@@ -17,12 +17,12 @@ public class AlexanderStuckEvent extends AbstractImageEvent {
     private static final String[] DESCRIPTIONS = eventStrings.DESCRIPTIONS;
     private static final String[] OPTIONS = eventStrings.OPTIONS;
     private static final String NAME = eventStrings.NAME;
-    private int dmg_take = 20;
+    private int dmg_take = 10;
 
     public AlexanderStuckEvent(){
         super(NAME, DESCRIPTIONS[0] + DESCRIPTIONS[1] + DESCRIPTIONS[2] + DESCRIPTIONS[3] + DESCRIPTIONS[4] + DESCRIPTIONS[5], "eldenring/event/AlexanderStuck.png");
 
-        dmg_take += calcDmgTake();
+        dmg_take += Math.ceil((double) AbstractDungeon.ascensionLevel / 2);
 
         this.imageEventText.setDialogOption(OPTIONS[0] + dmg_take + OPTIONS[1]);
         this.imageEventText.setDialogOption(OPTIONS[2]);
@@ -45,15 +45,5 @@ public class AlexanderStuckEvent extends AbstractImageEvent {
         } else {
             openMap();
         }
-    }
-
-    private int calcDmgTake(){
-        int dmg = 0;
-
-        for (int i = 0; i < AbstractDungeon.ascensionLevel; i++) {
-            dmg++;
-        }
-
-        return dmg;
     }
 }

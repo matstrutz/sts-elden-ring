@@ -2,9 +2,6 @@ package eldenring;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
-import basemod.eventUtil.AddEventParams;
-import basemod.eventUtil.util.Condition;
-import basemod.eventUtil.util.ConditionalEvent;
 import basemod.interfaces.EditKeywordsSubscriber;
 import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
@@ -19,10 +16,8 @@ import com.evacipated.cardcrawl.modthespire.Patcher;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.dungeons.TheCity;
-import com.megacrit.cardcrawl.events.AbstractEvent;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.EventStrings;
@@ -40,15 +35,8 @@ import eldenring.elites.EngvallElite;
 import eldenring.elites.OlegElite;
 import eldenring.elites.OrdovisElite;
 import eldenring.elites.SiluriaElite;
-import eldenring.events.AlexanderBossEvent;
 import eldenring.events.AlexanderStuckEvent;
-import eldenring.monsters.FootSoldierMonster;
-import eldenring.monsters.GiantLandOctopusMonster;
-import eldenring.monsters.GreatShieldGodrickSoldierMonster;
-import eldenring.monsters.GreatSwordGodrickSoldierMonster;
-import eldenring.monsters.HighwaymanMonster;
-import eldenring.monsters.SwordGodrickSoldierMonster;
-import eldenring.monsters.TorchGodrickSoldierMonster;
+import eldenring.monsters.*;
 import eldenring.potions.AcademyMagicPotPotion;
 import eldenring.potions.BloodboilAromaticPotion;
 import eldenring.potions.MagicGreasePotion;
@@ -63,10 +51,8 @@ import eldenring.util.KeywordInfo;
 import eldenring.util.TextureLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.lwjgl.Sys;
 import org.scannotation.AnnotationDB;
 
-import java.io.Console;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Collections;
@@ -166,10 +152,10 @@ public class EldenRingSTS implements
         }));
 
         BaseMod.addMonster(HighwaymanMonster.ID, () -> new MonsterGroup(new AbstractMonster[]{
-                new HighwaymanMonster(20.0F, 10.0F),
-                new HighwaymanMonster(140.0F, -30.0F),
-                new HighwaymanMonster(290.0F, 20.0F),
-                new HighwaymanMonster(440.0F, -10.0F)
+                new HighwaymanMonster(-40.0F, 10.0F),
+                new HighwaymanMonster(120.0F, -30.0F),
+                new HighwaymanMonster(250.0F, 20.0F),
+                new HighwaymanMonster(400.0F, -10.0F)
         }));
 
         BaseMod.addMonster(GreatSwordGodrickSoldierMonster.ID, () -> new MonsterGroup(new AbstractMonster[]{
@@ -195,6 +181,12 @@ public class EldenRingSTS implements
         BaseMod.addMonster(GiantLandOctopusMonster.ID, () -> new MonsterGroup(new AbstractMonster[]{
                 new GiantLandOctopusMonster(0.0F, 0.0F),
         }));
+
+        BaseMod.addMonster(ExileSoldierMonster.ID, () -> new MonsterGroup(new AbstractMonster[]{
+                new ExileSoldierMonster(-60.0F, 0.0F),
+                new ExileSoldierMonster(100.0F, -30.0F),
+                new ExileSoldierMonster(300.0F, 20.0F)
+        }));
     }
 
     public void startMonsterManual(){
@@ -207,6 +199,7 @@ public class EldenRingSTS implements
         BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(GreatShieldGodrickSoldierMonster.ID, 3));
         BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(HighwaymanMonster.ID, 1));
         BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(GiantLandOctopusMonster.ID, 2));
+        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(ExileSoldierMonster.ID, 2));
     }
 
     public void startPotionManual(){
