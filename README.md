@@ -1,4 +1,5 @@
 [WIP] Mod based on the elden ring game!
+!!!!!!Description in github is not being updated!!!!!!
 
 Apart from the fact that it's my first mod, it's in a very new phase of development, so maybe it's possible to find wrong texts, bugs, crashes, and many other problems.
 This version is not even close to the version I want to release in the future, but it's a version to show that I'm making the mod, and in case anyone wants to help me test it, because unfortunately testing everything alone is very difficult, so stay tuned willingness to report bugs and improvements you think the mod needs!
