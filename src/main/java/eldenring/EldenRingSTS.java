@@ -31,8 +31,10 @@ import eldenring.elites.OrdovisElite;
 import eldenring.elites.SiluriaElite;
 import eldenring.events.AlexanderLavaEvent;
 import eldenring.events.AlexanderStuckEvent;
+import eldenring.events.RyaSnakeEvent;
 import eldenring.events.conditions.AlexanderLavaCondition;
 import eldenring.events.conditions.AlexanderStuckCondition;
+import eldenring.events.conditions.RyaSnakeCondition;
 import eldenring.monsters.*;
 import eldenring.potions.*;
 import eldenring.powers.OmenBairnPower;
@@ -106,6 +108,8 @@ public class EldenRingSTS implements
         startBossManual();
         startEliteManual();
         startEventManual();
+
+        startAudioManual();
     }
 
     public void startManualPowers(){
@@ -206,6 +210,11 @@ public class EldenRingSTS implements
     public void startEventManual(){
         BaseMod.addEvent(new AddEventParams.Builder(AlexanderStuckEvent.ID, AlexanderStuckEvent.class).dungeonID(Exordium.ID).bonusCondition(new AlexanderStuckCondition()).create());
         BaseMod.addEvent(new AddEventParams.Builder(AlexanderLavaEvent.ID, AlexanderLavaEvent.class).dungeonID(TheCity.ID).bonusCondition(new AlexanderLavaCondition()).create());
+        BaseMod.addEvent(new AddEventParams.Builder(RyaSnakeEvent.ID, RyaSnakeEvent.class).bonusCondition(new RyaSnakeCondition()).create());
+    }
+
+    public void startAudioManual(){
+        BaseMod.addAudio(MorgottBoss.ID, audioPath(MorgottBoss.FAKE_ID));
     }
 
     /*----------Localization----------*/
@@ -311,6 +320,9 @@ public class EldenRingSTS implements
 
     public static String bossIconPath(String file) {
         return resourcesFolder + "/monsters/map/" + file + "Icon.png";
+    }
+    public static String audioPath(String file) {
+        return resourcesFolder + "/audio/" + file + ".mp3";
     }
 
 

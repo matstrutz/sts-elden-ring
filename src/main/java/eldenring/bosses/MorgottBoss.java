@@ -10,6 +10,8 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import eldenring.EldenRingSTS;
@@ -21,18 +23,18 @@ public class MorgottBoss extends BaseMonster {
     public final static String FAKE_ID = "Morgott";
     public final static String ID = EldenRingSTS.makeID(FAKE_ID);
 
-    private int holyBladeRainDmg = 4;
-    private int holyBladeRainCount = 6;
-    private int tailSwipeDmg = 12;
-    private int tailSwipeDef = 15;
-    private int holySpearThrowDmg = 16;
-    private int holyDaggerDmg = 4;
+    private int holyBladeRainDmg = 3;
+    private int holyBladeRainCount = 4;
+    private int tailSwipeDmg = 10;
+    private int tailSwipeDef = 13;
+    private int holySpearThrowDmg = 14;
+    private int holyDaggerDmg = 1;
     private int holyDaggerCount = 5;
-    private int holyHammerDmg = 20;
-    private int holySwordDmg = 10;
-    private int holySpearDmg = 10;
-    private int holySpearCount = 10;
-    private int defPreCurse = 40;
+    private int holyHammerDmg = 18;
+    private int holySwordDmg = 8;
+    private int holySpearDmg = 8;
+    private int holySpearCount = 8;
+    private int defPreCurse = 35;
     private int cursedBloodSliceDmg = 60;
     private boolean curseTrigger = true;
     private boolean curseFirstMove = true;
@@ -41,13 +43,13 @@ public class MorgottBoss extends BaseMonster {
     public MorgottBoss() {
         super(NAME, ID, 303, 0.0F, 0.0F, 550.0F, 486.0F, EldenRingSTS.monsterPath("Morgott_001"), 5.0F, 0.0F);
         if (AbstractDungeon.ascensionLevel >= 4) {
-            holyBladeRainDmg += 5;
-            tailSwipeDmg += 5;
-            holySpearThrowDmg += 5;
-            holyDaggerDmg += 5;
-            holyHammerDmg += 5;
-            holySpearDmg += 5;
-            cursedBloodSliceDmg += 10;
+            holyBladeRainDmg += 1;
+            tailSwipeDmg += 3;
+            holySpearThrowDmg += 3;
+            holyDaggerDmg += 1;
+            holyHammerDmg += 3;
+            holySpearDmg += 3;
+            cursedBloodSliceDmg += 8;
         }
 
         if (AbstractDungeon.ascensionLevel >= 9) {
@@ -56,16 +58,13 @@ public class MorgottBoss extends BaseMonster {
         }
 
         if (AbstractDungeon.ascensionLevel >= 19) {
-            holyBladeRainDmg += 3;
-            tailSwipeDmg += 3;
-            holySpearThrowDmg += 3;
-            holyDaggerDmg += 3;
-            holyHammerDmg += 3;
-            holySpearDmg += 3;
-            cursedBloodSliceDmg += 15;
         }
 
         setDmg();
+
+        if (Settings.AMBIANCE_ON) {
+            CardCrawlGame.sound.play(MorgottBoss.ID);
+        }
     }
 
     private void setDmg(){
@@ -214,9 +213,9 @@ public class MorgottBoss extends BaseMonster {
                 this.turnMove = 8;
             } else {
                 this.curseTrigger = false;
-                this.setMove((byte)9, Intent.ATTACK, cursedBloodSliceDmg/6, 6, true);
+                this.setMove((byte)9, Intent.ATTACK, cursedBloodSliceDmg);
                 this.turnMove = 7;
-                this.holySwordDmg += 10;
+                this.holySwordDmg += 2;
             }
         }
         switch (this.turnMove) {
