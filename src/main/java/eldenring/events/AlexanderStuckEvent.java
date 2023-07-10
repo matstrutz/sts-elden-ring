@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.events.AbstractImageEvent;
 import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import eldenring.EldenRingSTS;
+import eldenring.events.conditions.AlexanderStuckCondition;
 import eldenring.relics.WarriorJarShardRelic;
 import org.apache.commons.lang3.StringUtils;
 

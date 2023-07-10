@@ -41,13 +41,30 @@
     "NAME": "Iron Fist Alexander",
     "DESCRIPTIONS": [
       "Ngh! Rnnngh! O mountain of fire! Bake me in your flames!",
-      "NL Nnngh! Ah, good sir, what business might you have in such a place as this?",
-      "NL I hardly think you're here to temper yourself with flame, considering that flesh form of yours.",
-      "NL Your timing though, is impeccable as ever! I've been making just the thing for you on my journey here.",
-      "NL Take it, I'm sure it'll suit you to a tee."
+      " NL Nnngh! Ah, good sir, what business might you have in such a place as this?",
+      " NL I hardly think you're here to temper yourself with flame, considering that flesh form of yours.",
+      " NL Your timing though, is impeccable as ever! I've been making just the thing for you on my journey here.",
+      " NL Take it, I'm sure it'll suit you to a tee."
     ],
     "OPTIONS": [
       "#g[Get] Souvenir from Alexander.",
+      "Leave."
+    ]
+  },
+  "${modID}:RyaSnake": {
+    "NAME": "Rya",
+    "DESCRIPTIONS": [
+      "Um, oh, it's you. Forgive me. My mind never ceases to churn of late. Hmm, well... I know I can trust you...",
+      " NL I saw something, slithering in the pitch black of night. It entered the room next to this one, and never came out.",
+      " NL If I'm not mistaken, it took the form of a serpent, just like me...",
+      " NL I realise that I shouldn't impose but, if you discover anything, would you please share?",
+      "Really... Oh, so there was a secret after all... Oh my...",
+      " NL Lady Tanith, my own mother, has deceived me...",
+      " NL Was I not... born by the grace of a king?",
+      "Select a Card to Share."
+    ],
+    "OPTIONS": [
+      "#g[Share] Receive a reward based on the share.",
       "Leave."
     ]
   }

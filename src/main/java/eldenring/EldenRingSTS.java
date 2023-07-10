@@ -2,6 +2,7 @@ package eldenring;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
+import basemod.eventUtil.AddEventParams;
 import basemod.interfaces.EditKeywordsSubscriber;
 import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
@@ -18,14 +19,7 @@ import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.dungeons.TheCity;
-import com.megacrit.cardcrawl.localization.CardStrings;
-import com.megacrit.cardcrawl.localization.CharacterStrings;
-import com.megacrit.cardcrawl.localization.EventStrings;
-import com.megacrit.cardcrawl.localization.OrbStrings;
-import com.megacrit.cardcrawl.localization.PotionStrings;
-import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.localization.RelicStrings;
-import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.monsters.MonsterInfo;
@@ -35,15 +29,14 @@ import eldenring.elites.EngvallElite;
 import eldenring.elites.OlegElite;
 import eldenring.elites.OrdovisElite;
 import eldenring.elites.SiluriaElite;
+import eldenring.events.AlexanderLavaEvent;
 import eldenring.events.AlexanderStuckEvent;
+import eldenring.events.RyaSnakeEvent;
+import eldenring.events.conditions.AlexanderLavaCondition;
+import eldenring.events.conditions.AlexanderStuckCondition;
+import eldenring.events.conditions.RyaSnakeCondition;
 import eldenring.monsters.*;
-import eldenring.potions.AcademyMagicPotPotion;
-import eldenring.potions.BloodboilAromaticPotion;
-import eldenring.potions.MagicGreasePotion;
-import eldenring.potions.MagicPotPotion;
-import eldenring.potions.NeutralizingBolusesPotion;
-import eldenring.potions.ShieldGreasePotion;
-import eldenring.potions.VolcanoPotPotion;
+import eldenring.potions.*;
 import eldenring.powers.OmenBairnPower;
 import eldenring.relics.BaseRelic;
 import eldenring.util.GeneralUtils;
@@ -115,6 +108,8 @@ public class EldenRingSTS implements
         startBossManual();
         startEliteManual();
         startEventManual();
+
+        startAudioManual();
     }
 
     public void startManualPowers(){
@@ -213,7 +208,13 @@ public class EldenRingSTS implements
     }
 
     public void startEventManual(){
-        BaseMod.addEvent(AlexanderStuckEvent.ID, AlexanderStuckEvent.class, Exordium.ID);
+        BaseMod.addEvent(new AddEventParams.Builder(AlexanderStuckEvent.ID, AlexanderStuckEvent.class).dungeonID(Exordium.ID).bonusCondition(new AlexanderStuckCondition()).create());
+        BaseMod.addEvent(new AddEventParams.Builder(AlexanderLavaEvent.ID, AlexanderLavaEvent.class).dungeonID(TheCity.ID).bonusCondition(new AlexanderLavaCondition()).create());
+        BaseMod.addEvent(new AddEventParams.Builder(RyaSnakeEvent.ID, RyaSnakeEvent.class).bonusCondition(new RyaSnakeCondition()).create());
+    }
+
+    public void startAudioManual(){
+        BaseMod.addAudio(MorgottBoss.ID, audioPath(MorgottBoss.FAKE_ID));
     }
 
     /*----------Localization----------*/
@@ -320,6 +321,9 @@ public class EldenRingSTS implements
     public static String bossIconPath(String file) {
         return resourcesFolder + "/monsters/map/" + file + "Icon.png";
     }
+    public static String audioPath(String file) {
+        return resourcesFolder + "/audio/" + file + ".mp3";
+    }
 
 
     //This determines the mod's ID based on information stored by ModTheSpire.
@@ -339,4 +343,7 @@ public class EldenRingSTS implements
             throw new RuntimeException("Failed to determine mod info/ID based on initializer.");
         }
     }
+
+    //STATIC EVENT VARIABLES
+
 }
