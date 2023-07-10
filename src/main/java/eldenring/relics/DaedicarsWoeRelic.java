@@ -11,7 +11,7 @@ public class DaedicarsWoeRelic extends BaseRelic {
     public static final String ID = EldenRingSTS.makeID(NAME);
     private static final RelicTier RARITY = RelicTier.SPECIAL;
     private static final LandingSound SOUND = LandingSound.SOLID;
-    private static final int STR_GAIN = 2;
+    private static final int STR_GAIN = 1;
 
     public DaedicarsWoeRelic() {
         super(ID, NAME, RARITY, SOUND);
