@@ -3,13 +3,16 @@ package eldenring.events;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.AbstractImageEvent;
 import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.vfx.cardManip.PurgeCardEffect;
 import eldenring.EldenRingSTS;
+import eldenring.enumeration.EventChooseEnum;
 import eldenring.relics.DaedicarsWoeRelic;
-import org.apache.commons.lang3.StringUtils;
+import eldenring.relics.TakersCameoRelic;
 
 public class RyaSnakeEvent extends AbstractImageEvent {
 
@@ -20,6 +23,7 @@ public class RyaSnakeEvent extends AbstractImageEvent {
     private static final String NAME = eventStrings.NAME;
     private Boolean cardSelect;
     private AbstractCard offeredCard;
+    private EventChooseEnum screen;
 
     public RyaSnakeEvent(){
         super(NAME, DESCRIPTIONS[0] + DESCRIPTIONS[1] + DESCRIPTIONS[2] + DESCRIPTIONS[3], "eldenring/event/RyaSnake.png");
@@ -27,21 +31,32 @@ public class RyaSnakeEvent extends AbstractImageEvent {
         this.imageEventText.setDialogOption(OPTIONS[0]);
         this.imageEventText.setDialogOption(OPTIONS[1]);
         this.cardSelect = Boolean.FALSE;
+        screen = EventChooseEnum.INTRO;
     }
 
     @Override
     protected void buttonEffect(int optionChosen) {
-        if (optionChosen == 0) {
-            if (CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck.getPurgeableCards()).size() > 0) {
-                AbstractDungeon.gridSelectScreen.open(CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck.getPurgeableCards()), 1, DESCRIPTIONS[7], false, false, false, true);
-                this.imageEventText.updateBodyText(DESCRIPTIONS[4] + DESCRIPTIONS[5] + DESCRIPTIONS[6]);
-            }
-
-            this.imageEventText.updateDialogOption(0, OPTIONS[1]);
-            this.imageEventText.clearRemainingOptions();
-            openMap();
-        } else {
-            openMap();
+        if(optionChosen == 1){
+            this.screen = EventChooseEnum.COMPLETE;
+        }
+        switch (this.screen) {
+            case INTRO:
+                this.screen = EventChooseEnum.CHOOSE;
+                break;
+            case CHOOSE:
+                if (CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck.getPurgeableCards()).size() > 0) {
+                    AbstractDungeon.gridSelectScreen.open(CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck.getPurgeableCards()), 1, DESCRIPTIONS[7], false, false, false, true);
+                    this.imageEventText.updateBodyText(DESCRIPTIONS[4] + DESCRIPTIONS[5] + DESCRIPTIONS[6]);
+                    this.cardSelect = true;
+                } else {
+                    this.screen = EventChooseEnum.COMPLETE;
+                }
+                break;
+            case COMPLETE:
+                this.imageEventText.updateDialogOption(0, OPTIONS[1]);
+                this.imageEventText.clearRemainingOptions();
+                this.openMap();
+                break;
         }
     }
 
@@ -77,19 +92,23 @@ public class RyaSnakeEvent extends AbstractImageEvent {
                     getGoodOrBadRelic(4);
                     break;
             }
+            AbstractDungeon.topLevelEffects.add(new PurgeCardEffect(this.offeredCard, (float)(Settings.WIDTH / 2), (float)(Settings.HEIGHT / 2)));
+            AbstractDungeon.player.masterDeck.removeCard(this.offeredCard);
+            this.imageEventText.updateDialogOption(0, OPTIONS[1]);
+            this.imageEventText.clearRemainingOptions();
+            this.screen = EventChooseEnum.COMPLETE;
         }
     }
 
     private void getGoodOrBadRelic(int calcValue){
         AbstractRelic badRelic = new DaedicarsWoeRelic();
-        AbstractRelic goodRelic = new DaedicarsWoeRelic();
-
+        AbstractRelic goodRelic = new TakersCameoRelic();
         if(((int) (Math.random() * 5)) < calcValue){
-            badRelic.instantObtain();
-            badRelic.playLandingSFX();
-        } else {
             goodRelic.instantObtain();
             goodRelic.playLandingSFX();
+        } else {
+            badRelic.instantObtain();
+            badRelic.playLandingSFX();
         }
     }
 

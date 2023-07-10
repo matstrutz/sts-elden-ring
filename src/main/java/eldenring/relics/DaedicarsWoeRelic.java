@@ -9,8 +9,7 @@ import eldenring.EldenRingSTS;
 public class DaedicarsWoeRelic extends BaseRelic {
     private static final String NAME = "DaedicarsWoe";
     public static final String ID = EldenRingSTS.makeID(NAME);
-    //TODO Move do special um event is done
-    private static final RelicTier RARITY = RelicTier.SHOP;
+    private static final RelicTier RARITY = RelicTier.SPECIAL;
     private static final LandingSound SOUND = LandingSound.SOLID;
     private static final int STR_GAIN = 2;
 
