@@ -16,9 +16,11 @@ public class OmenBairnPower extends BasePower implements OnMyBlockBrokenPower {
     private static final boolean TURN_BASED = false;
     private boolean checkBlockEnemy = false;
     private static final int STR_GAIN = 2;
+
     public OmenBairnPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
     }
+
     @Override
     public void atStartOfTurn() {
         if(AbstractDungeon.player.currentBlock > 0){

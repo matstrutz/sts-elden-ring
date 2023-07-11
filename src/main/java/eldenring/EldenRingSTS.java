@@ -38,6 +38,7 @@ import eldenring.events.conditions.RyaSnakeCondition;
 import eldenring.monsters.*;
 import eldenring.potions.*;
 import eldenring.powers.OmenBairnPower;
+import eldenring.powers.ScarletRotPower;
 import eldenring.relics.BaseRelic;
 import eldenring.util.GeneralUtils;
 import eldenring.util.KeywordInfo;
@@ -114,6 +115,7 @@ public class EldenRingSTS implements
 
     public void startManualPowers(){
         BaseMod.addPower(OmenBairnPower.class, OmenBairnPower.POWER_ID);
+        BaseMod.addPower(ScarletRotPower.class, ScarletRotPower.POWER_ID);
     }
 
     public void addEliteManual(){
