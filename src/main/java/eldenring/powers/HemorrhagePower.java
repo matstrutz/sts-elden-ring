@@ -30,7 +30,7 @@ public class HemorrhagePower extends BasePower implements PostPowerApplySubscrib
     public void receivePostPowerApplySubscriber(AbstractPower abstractPower, AbstractCreature abstractCreature, AbstractCreature abstractCreature1) {
         if(POWER_ID.equals(abstractPower.ID)){
             if((this.owner.maxHealth / 10) < this.amount){
-                this.addToBot(new DamageAction(this.owner, new DamageInfo(AbstractDungeon.player, (this.owner.maxHealth / 5) + 3, DamageInfo.DamageType.NORMAL)));
+                this.addToBot(new DamageAction(this.owner, new DamageInfo(AbstractDungeon.player, (this.owner.maxHealth / 6) + 3, DamageInfo.DamageType.NORMAL)));
                 this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this));
             }
         }
