@@ -23,7 +23,7 @@ public class HemorrhagePower extends BasePower implements PostPowerApplySubscrib
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + ((this.owner.maxHealth / 10) - 1)  + DESCRIPTIONS[1] + ((this.owner.maxHealth / 10) + 2) + DESCRIPTIONS[2];
+        this.description = DESCRIPTIONS[0] + ((this.owner.maxHealth / 10) - 1)  + DESCRIPTIONS[1] + ((this.owner.maxHealth / 6) + 3) + DESCRIPTIONS[2];
     }
 
     @Override
