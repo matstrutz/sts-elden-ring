@@ -37,6 +37,7 @@ import eldenring.events.conditions.AlexanderStuckCondition;
 import eldenring.events.conditions.RyaSnakeCondition;
 import eldenring.monsters.*;
 import eldenring.potions.*;
+import eldenring.powers.HemorrhagePower;
 import eldenring.powers.OmenBairnPower;
 import eldenring.powers.ScarletRotPower;
 import eldenring.relics.BaseRelic;
@@ -116,6 +117,7 @@ public class EldenRingSTS implements
     public void startManualPowers(){
         BaseMod.addPower(OmenBairnPower.class, OmenBairnPower.POWER_ID);
         BaseMod.addPower(ScarletRotPower.class, ScarletRotPower.POWER_ID);
+        BaseMod.addPower(HemorrhagePower.class, HemorrhagePower.POWER_ID);
     }
 
     public void addEliteManual(){

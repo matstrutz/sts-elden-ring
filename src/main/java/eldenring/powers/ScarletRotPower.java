@@ -1,5 +1,6 @@
 package eldenring.powers;
 
+import basemod.interfaces.MaxHPChangeSubscriber;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnMyBlockBrokenPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -10,7 +11,7 @@ import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import eldenring.EldenRingSTS;
 
-public class ScarletRotPower extends BasePower {
+public class ScarletRotPower extends BasePower implements MaxHPChangeSubscriber {
     public static final String POWER_ID = EldenRingSTS.makeID("ScarletRot");
     private static final PowerType TYPE = PowerType.DEBUFF;
     private static final boolean TURN_BASED = true;
@@ -28,5 +29,11 @@ public class ScarletRotPower extends BasePower {
 
     public void updateDescription() {
         this.description = DESCRIPTIONS[0] + ((this.owner.maxHealth / 10) - 1)  + DESCRIPTIONS[1] + ((this.owner.maxHealth / 10) + 2) + DESCRIPTIONS[2];
+    }
+
+    @Override
+    public int receiveMaxHPChange(int amount) {
+        this.description = DESCRIPTIONS[0] + ((this.owner.maxHealth / 10) - 1)  + DESCRIPTIONS[1] + ((this.owner.maxHealth / 10) + 2) + DESCRIPTIONS[2];
+        return amount;
     }
 }

@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import eldenring.EldenRingSTS;
 import eldenring.monsters.BaseMonster;
+import eldenring.powers.HemorrhagePower;
 import eldenring.powers.OmenBairnPower;
 
 public class MorgottBoss extends BaseMonster {
@@ -24,18 +25,18 @@ public class MorgottBoss extends BaseMonster {
     public final static String ID = EldenRingSTS.makeID(FAKE_ID);
 
     private int holyBladeRainDmg = 3;
-    private int holyBladeRainCount = 4;
+    private int holyBladeRainCount = 3;
     private int tailSwipeDmg = 10;
     private int tailSwipeDef = 13;
     private int holySpearThrowDmg = 14;
     private int holyDaggerDmg = 1;
-    private int holyDaggerCount = 5;
+    private int holyDaggerCount = 4;
     private int holyHammerDmg = 18;
     private int holySwordDmg = 8;
     private int holySpearDmg = 8;
-    private int holySpearCount = 8;
-    private int defPreCurse = 35;
-    private int cursedBloodSliceDmg = 60;
+    private int holySpearCount = 2;
+    private int defPreCurse = 30;
+    private int cursedBloodSliceDmg = 40;
     private boolean curseTrigger = true;
     private boolean curseFirstMove = true;
     private int turnMove = 0;
@@ -145,10 +146,12 @@ public class MorgottBoss extends BaseMonster {
         }
         this.turnMove = nextMov;
     }
+
     private void holyBladeRain(){
         AbstractDungeon.actionManager.addToBottom(new AnimateFastAttackAction(this));
-        for (int i = 0; i < holyBladeRainCount - 1; i++) {
+        for (int i = 0; i < holyBladeRainCount; i++) {
             AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.SLASH_HEAVY));
+            this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new HemorrhagePower(AbstractDungeon.player, 1)));
         }
     }
 
@@ -166,7 +169,7 @@ public class MorgottBoss extends BaseMonster {
 
     private void holyDagger(){
         AbstractDungeon.actionManager.addToBottom(new AnimateFastAttackAction(this));
-        for (int i = 0; i < holyDaggerCount - 1; i++) {
+        for (int i = 0; i < holyDaggerCount; i++) {
             if((i % 2) == 0){
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(3), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
             } else {
@@ -184,11 +187,12 @@ public class MorgottBoss extends BaseMonster {
         AbstractDungeon.actionManager.addToBottom(new AnimateSlowAttackAction(this));
         AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(6), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, holySwordDmg));
+        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new HemorrhagePower(AbstractDungeon.player, 2)));
     }
 
     private void holySpear(){
         AbstractDungeon.actionManager.addToBottom(new AnimateFastAttackAction(this));
-        for (int i = 0; i < holySpearCount - 1; i++) {
+        for (int i = 0; i < holySpearCount; i++) {
             AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(5), AbstractGameAction.AttackEffect.LIGHTNING));
         }
     }
@@ -202,6 +206,7 @@ public class MorgottBoss extends BaseMonster {
     private void cursedBloodSlice(){
         AbstractDungeon.actionManager.addToBottom(new AnimateShakeAction(this, 1F,1F));
         AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(7), AbstractGameAction.AttackEffect.LIGHTNING));
+        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new HemorrhagePower(AbstractDungeon.player, 4)));
     }
 
     private void calcNextMove(){
