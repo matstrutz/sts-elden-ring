@@ -21,8 +21,8 @@
       " damage"
     ]
   },
-  "${modID}:HemorrhagePower": {
-    "NAME": "HemorrhagePower",
+  "${modID}:Hemorrhage": {
+    "NAME": "Hemorrhage",
     "DESCRIPTIONS": [
       "When owner has #b",
       " or more stacks, it takes #b",

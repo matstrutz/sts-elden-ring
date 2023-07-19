@@ -21,8 +21,8 @@
       " de dano"
     ]
   },
-  "${modID}:HemorrhagePower": {
-    "NAME": "HemorrhagePower",
+  "${modID}:Hemorrhage": {
+    "NAME": "Hemorrhage",
     "DESCRIPTIONS": [
       "Quando o controlador houver #b",
       " ou mais marcadores, ele recebe #b",
