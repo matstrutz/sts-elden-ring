@@ -25,10 +25,7 @@ import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import eldenring.bosses.MorgottBoss;
-import eldenring.elites.EngvallElite;
-import eldenring.elites.OlegElite;
-import eldenring.elites.OrdovisElite;
-import eldenring.elites.SiluriaElite;
+import eldenring.elites.*;
 import eldenring.events.AlexanderLavaEvent;
 import eldenring.events.AlexanderStuckEvent;
 import eldenring.events.RyaSnakeEvent;
@@ -125,6 +122,8 @@ public class EldenRingSTS implements
         BaseMod.addMonster(SiluriaElite.ID, SiluriaElite::new);
         BaseMod.addMonster(OlegElite.ID, OlegElite::new);
         BaseMod.addMonster(EngvallElite.ID, EngvallElite::new);
+        BaseMod.addMonster(NightCavalryLiurnyaElite.ID, NightCavalryLiurnyaElite::new);
+        BaseMod.addMonster(NightCavalryAltusElite.ID, NightCavalryAltusElite::new);
     }
 
     public void startEliteManual(){
@@ -133,6 +132,8 @@ public class EldenRingSTS implements
         BaseMod.addEliteEncounter(TheCity.ID, new MonsterInfo(SiluriaElite.ID, 3));
         BaseMod.addEliteEncounter(Exordium.ID, new MonsterInfo(OlegElite.ID, 3));
         BaseMod.addEliteEncounter(Exordium.ID, new MonsterInfo(EngvallElite.ID, 3));
+        BaseMod.addEliteEncounter(TheCity.ID, new MonsterInfo(NightCavalryAltusElite.ID, 2));
+        BaseMod.addEliteEncounter(Exordium.ID, new MonsterInfo(NightCavalryLiurnyaElite.ID, 2));
     }
 
     public void addBossManual() {
