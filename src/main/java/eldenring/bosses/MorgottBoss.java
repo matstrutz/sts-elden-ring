@@ -62,10 +62,6 @@ public class MorgottBoss extends BaseMonster {
         }
 
         setDmg();
-
-        if (Settings.AMBIANCE_ON) {
-            CardCrawlGame.sound.play(MorgottBoss.ID);
-        }
     }
 
     private void setDmg(){
@@ -79,6 +75,11 @@ public class MorgottBoss extends BaseMonster {
         this.damage.add(new DamageInfo(this, this.cursedBloodSliceDmg));
     }
 
+    @Override
+    public void usePreBattleAction() {
+        AbstractDungeon.scene.fadeOutAmbiance();
+        CardCrawlGame.music.playTempBgmInstantly("BOSS_MORGOTT", true);
+    }
 
     @Override
     public void takeTurn() {

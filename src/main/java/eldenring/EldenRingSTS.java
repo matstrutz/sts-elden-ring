@@ -108,7 +108,7 @@ public class EldenRingSTS implements
         startEliteManual();
         startEventManual();
 
-        startAudioManual();
+//        startAudioManual();
     }
 
     public void startManualPowers(){
@@ -305,7 +305,6 @@ public class EldenRingSTS implements
     public static String localizationPath(String lang, String file) {
         return resourcesFolder + "/localization/" + lang + "/" + file;
     }
-
     public static String resourcePath(String file) {
         return resourcesFolder + "/" + file;
     }
@@ -318,16 +317,14 @@ public class EldenRingSTS implements
     public static String relicPath(String file) {
         return resourcesFolder + "/relics/" + file;
     }
-
     public static String monsterPath(String file) {
         return resourcesFolder + "/monsters/" + file + ".png";
     }
-
     public static String bossIconPath(String file) {
         return resourcesFolder + "/monsters/map/" + file + "Icon.png";
     }
     public static String audioPath(String file) {
-        return resourcesFolder + "/audio/" + file + ".mp3";
+        return resourcesFolder + "/audio/" + file + ".ogg";
     }
 
 
