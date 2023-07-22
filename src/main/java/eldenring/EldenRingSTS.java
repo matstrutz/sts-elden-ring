@@ -187,6 +187,12 @@ public class EldenRingSTS implements
                 new ExileSoldierMonster(100.0F, -30.0F),
                 new ExileSoldierMonster(300.0F, 20.0F)
         }));
+
+        BaseMod.addMonster(NobleSorcererMonster.ID, () -> new MonsterGroup(new AbstractMonster[]{
+                new NobleSorcererMonster(-60.0F, 0.0F),
+                new NobleSorcererMonster(100.0F, -30.0F),
+                new NobleSorcererMonster(300.0F, 20.0F)
+        }));
     }
 
     public void startMonsterManual(){
@@ -219,7 +225,6 @@ public class EldenRingSTS implements
     }
 
     public void startAudioManual(){
-        BaseMod.addAudio(MorgottBoss.ID, audioPath(MorgottBoss.FAKE_ID));
     }
 
     /*----------Localization----------*/
