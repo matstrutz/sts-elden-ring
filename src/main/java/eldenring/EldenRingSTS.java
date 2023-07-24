@@ -3,10 +3,7 @@ package eldenring;
 import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.eventUtil.AddEventParams;
-import basemod.interfaces.EditKeywordsSubscriber;
-import basemod.interfaces.EditRelicsSubscriber;
-import basemod.interfaces.EditStringsSubscriber;
-import basemod.interfaces.PostInitializeSubscriber;
+import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -56,7 +53,8 @@ public class EldenRingSTS implements
         EditRelicsSubscriber,
         EditStringsSubscriber,
         EditKeywordsSubscriber,
-        PostInitializeSubscriber {
+        PostInitializeSubscriber,
+        AddAudioSubscriber {
     public static ModInfo info;
     public static String modID;
     static { loadModInfo(); }
@@ -107,8 +105,6 @@ public class EldenRingSTS implements
         startBossManual();
         startEliteManual();
         startEventManual();
-
-//        startAudioManual();
     }
 
     public void startManualPowers(){
@@ -199,6 +195,7 @@ public class EldenRingSTS implements
         addMonsterManual();
 
         BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo(FootSoldierMonster.ID, 3));
+        BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo(NobleSorcererMonster.ID, 3));
         BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(GreatSwordGodrickSoldierMonster.ID, 3));
         BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(SwordGodrickSoldierMonster.ID, 3));
         BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(TorchGodrickSoldierMonster.ID, 3));
@@ -222,9 +219,6 @@ public class EldenRingSTS implements
         BaseMod.addEvent(new AddEventParams.Builder(AlexanderStuckEvent.ID, AlexanderStuckEvent.class).dungeonID(Exordium.ID).bonusCondition(new AlexanderStuckCondition()).create());
         BaseMod.addEvent(new AddEventParams.Builder(AlexanderLavaEvent.ID, AlexanderLavaEvent.class).dungeonID(TheCity.ID).bonusCondition(new AlexanderLavaCondition()).create());
         BaseMod.addEvent(new AddEventParams.Builder(RyaSnakeEvent.ID, RyaSnakeEvent.class).bonusCondition(new RyaSnakeCondition()).create());
-    }
-
-    public void startAudioManual(){
     }
 
     /*----------Localization----------*/
@@ -253,6 +247,11 @@ public class EldenRingSTS implements
                 e.printStackTrace();
             }
         }
+    }
+
+    @Override
+    public void receiveAddAudio() {
+        BaseMod.addAudio(makeID("GLINT_PEBBLE"), audioPath("GlintstonePebble"));
     }
 
     private void loadLocalization(String lang) {
