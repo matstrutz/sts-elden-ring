@@ -20,9 +20,13 @@ public class NobleSorcererMonster extends BaseMonster {
     private int glintstone = 3;
 
     public NobleSorcererMonster(float offX, float offY) {
-        super(NAME, ID, 9, 0.0F, 0.0F, 110.0F, 210.0F, EldenRingSTS.monsterPath("NobleSorcerer"), offX, offY);
+        super(NAME, ID, 11, 0.0F, 0.0F, 110.0F, 210.0F, EldenRingSTS.monsterPath("NobleSorcerer"), offX, offY);
         if (AbstractDungeon.ascensionLevel >= 2) {
             this.glintstone += 1;
+        }
+
+        if (AbstractDungeon.ascensionLevel >= 7) {
+            this.setHp(12, 14);
         }
 
         setDmg();
