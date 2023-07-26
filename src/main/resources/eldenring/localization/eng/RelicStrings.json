@@ -256,5 +256,13 @@
       "Whenever an enemy dies, gain #b",
       " HP."
     ]
+  },
+  "${modID}:TwinbladeTalisman": {
+    "NAME": "Twinblade Talisman",
+    "FLAVOR": "A talisman depicting a twinblade and a confessor.",
+    "DESCRIPTIONS": [
+      "Every time you play the same Card 3 times in row and in a single turn, deal #b",
+      " damage to ALL enemies."
+    ]
   }
 }
