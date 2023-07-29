@@ -23,7 +23,7 @@ public class ScarletRotPower extends BasePower implements MaxHPChangeSubscriber 
     @Override
     public void atStartOfTurn() {
         if((this.owner.maxHealth / 10) < this.amount){
-            this.addToBot(new DamageAction(this.owner, new DamageInfo(AbstractDungeon.player, (this.owner.maxHealth / 10) + 2, DamageInfo.DamageType.NORMAL)));
+            this.addToBot(new DamageAction(this.owner, new DamageInfo(this.owner, (this.owner.maxHealth / 10) + 2, DamageInfo.DamageType.HP_LOSS)));
         }
     }
 

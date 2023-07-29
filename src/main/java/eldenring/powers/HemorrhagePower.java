@@ -34,7 +34,7 @@ public class HemorrhagePower extends BasePower implements MaxHPChangeSubscriber 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
         if(((this.owner.maxHealth / 10) - 1) < this.amount){
-            this.addToBot(new DamageAction(this.owner, new DamageInfo(this.owner, (this.owner.maxHealth / 7) + 3, DamageInfo.DamageType.NORMAL)));
+            this.addToBot(new DamageAction(this.owner, new DamageInfo(this.owner, (this.owner.maxHealth / 7) + 3, DamageInfo.DamageType.HP_LOSS)));
             this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, this));
         }
     }

@@ -1,18 +1,15 @@
 package eldenring.vfx;
 
 import basemod.helpers.VfxBuilder;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import eldenring.EldenRingSTS;
 import eldenring.util.TextureLoader;
 
 import java.util.function.BiFunction;
 
-import static basemod.helpers.VfxBuilder.Interpolations.*;
+import static basemod.helpers.VfxBuilder.Interpolations.BOUNCE;
 
 public class GlintstonePebbleVFX {
 

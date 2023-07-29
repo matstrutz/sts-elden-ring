@@ -120,6 +120,7 @@ public class EldenRingSTS implements
         BaseMod.addMonster(EngvallElite.ID, EngvallElite::new);
         BaseMod.addMonster(NightCavalryLiurnyaElite.ID, NightCavalryLiurnyaElite::new);
         BaseMod.addMonster(NightCavalryAltusElite.ID, NightCavalryAltusElite::new);
+        BaseMod.addMonster(FinlayElite.ID, FinlayElite::new);
     }
 
     public void startEliteManual(){
@@ -130,6 +131,7 @@ public class EldenRingSTS implements
         BaseMod.addEliteEncounter(Exordium.ID, new MonsterInfo(EngvallElite.ID, 3));
         BaseMod.addEliteEncounter(TheCity.ID, new MonsterInfo(NightCavalryAltusElite.ID, 2));
         BaseMod.addEliteEncounter(Exordium.ID, new MonsterInfo(NightCavalryLiurnyaElite.ID, 2));
+        BaseMod.addEliteEncounter(TheCity.ID, new MonsterInfo(FinlayElite.ID, 3));
     }
 
     public void addBossManual() {
