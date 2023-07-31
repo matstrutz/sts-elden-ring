@@ -1,10 +1,7 @@
 package eldenring.elites;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.AnimateFastAttackAction;
-import com.megacrit.cardcrawl.actions.animations.AnimateHopAction;
-import com.megacrit.cardcrawl.actions.animations.AnimateJumpAction;
-import com.megacrit.cardcrawl.actions.animations.AnimateSlowAttackAction;
+import com.megacrit.cardcrawl.actions.animations.*;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -14,6 +11,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import eldenring.EldenRingSTS;
 import eldenring.monsters.BaseMonster;
 import eldenring.powers.ScarletRotPower;
+import eldenring.vfx.GlintstonePebbleVFX;
+import eldenring.vfx.SacredPhalanxVFX;
 
 public class FinlayElite extends BaseMonster {
     public final static String NAME = "Cleanrot Knight Finlay";
@@ -156,10 +155,10 @@ public class FinlayElite extends BaseMonster {
     }
 
 
-    //TODO SET CUSTOM ANIMATION
     private void sacredPhalanxAction(){
         AbstractDungeon.actionManager.addToBottom(new AnimateFastAttackAction(this));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(6), AbstractGameAction.AttackEffect.LIGHTNING));
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new SacredPhalanxVFX().animation(AbstractDungeon.player)));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(6)));
     }
 
     //TODO SET CUSTOM ANIMATION
@@ -184,7 +183,7 @@ public class FinlayElite extends BaseMonster {
         calcTurn();
         switch (this.turnMove) {
             case 0:
-                this.setMove((byte)1, Intent.ATTACK, spearStab, spearStabCount, true);
+                this.setMove((byte)1, Intent.ATTACK_DEBUFF, spearStab, spearStabCount, true);
                 break;
             case 1:
                 this.setMove((byte)2, Intent.ATTACK, slashA);
@@ -202,10 +201,10 @@ public class FinlayElite extends BaseMonster {
                 this.setMove((byte)6, Intent.ATTACK_DEBUFF, impale);
                 break;
             case 6:
-                this.setMove((byte)7, Intent.ATTACK_DEBUFF, sacredPhalanx);
+                this.setMove((byte)7, Intent.ATTACK, sacredPhalanx);
                 break;
             case 7:
-                this.setMove((byte)8, Intent.ATTACK_DEBUFF, retreatPhalanx);
+                this.setMove((byte)8, Intent.ATTACK, retreatPhalanx);
                 break;
             case 8:
                 this.setMove((byte)9, Intent.UNKNOWN);

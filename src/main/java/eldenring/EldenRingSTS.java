@@ -254,6 +254,7 @@ public class EldenRingSTS implements
     @Override
     public void receiveAddAudio() {
         BaseMod.addAudio(makeID("GLINT_PEBBLE"), audioPath("GlintstonePebble"));
+        BaseMod.addAudio(makeID("CERULEAN_TEARS"), audioPath("CeruleanTears"));
     }
 
     private void loadLocalization(String lang) {
