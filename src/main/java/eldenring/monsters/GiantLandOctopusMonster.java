@@ -31,7 +31,7 @@ public class GiantLandOctopusMonster extends BaseMonster {
     private int healCount = 0;
 
     public GiantLandOctopusMonster(float offX, float offY) {
-        super(NAME, ID, 56, 0.0F, 0.0F, 500.0F, 282.0F, EldenRingSTS.monsterPath(FAKE_ID), offX, offY);
+        super(NAME, ID, 56, 0.0F, 0.0F, 400.0F, 282.0F, EldenRingSTS.monsterPath(FAKE_ID), offX, offY);
         Collections.shuffle(turnPattern);
         if (AbstractDungeon.ascensionLevel >= 2) {
             bounce += 2;

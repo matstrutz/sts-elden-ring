@@ -249,5 +249,13 @@
       "Sempre que um inimigo morrer, ganhe #b",
       " HP."
     ]
+  },
+  "${modID}:TwinbladeTalisman": {
+    "NAME": "Twinblade Talisman",
+    "FLAVOR": "Um talismã representando uma lâmina gêmea e um confessor.",
+    "DESCRIPTIONS": [
+      "toda vez que a mesma Carta for usada 3 vezes seguidas, e no mesmo turno, cause #b",
+      " de dano a TODOS os inimigos."
+    ]
   }
 }

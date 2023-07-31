@@ -12,5 +12,21 @@
       " de #yForça.",
       " Toda vez que esse inimigo sofrer dano através da sua #yProteção , perca toda #yForça."
     ]
+  },
+  "${modID}:ScarletRot": {
+    "NAME": "Scarlet Rot",
+    "DESCRIPTIONS": [
+      "No início do turno, se houver #b",
+      " ou mais marcadores, o controlador recebe #b",
+      " de dano"
+    ]
+  },
+  "${modID}:Hemorrhage": {
+    "NAME": "Hemorrhage",
+    "DESCRIPTIONS": [
+      "Quando o controlador houver #b",
+      " ou mais marcadores, ele recebe #b",
+      " de dano"
+    ]
   }
 }

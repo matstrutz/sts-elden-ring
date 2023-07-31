@@ -2,6 +2,7 @@ package eldenring.powers;
 
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnMyBlockBrokenPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -16,9 +17,11 @@ public class OmenBairnPower extends BasePower implements OnMyBlockBrokenPower {
     private static final boolean TURN_BASED = false;
     private boolean checkBlockEnemy = false;
     private static final int STR_GAIN = 2;
+
     public OmenBairnPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
     }
+
     @Override
     public void atStartOfTurn() {
         if(AbstractDungeon.player.currentBlock > 0){
@@ -40,7 +43,7 @@ public class OmenBairnPower extends BasePower implements OnMyBlockBrokenPower {
     @Override
     public void onMyBlockBroken() {
         if(this.owner.hasPower(StrengthPower.POWER_ID)){
-            this.addToBot(new ApplyPowerAction(this.owner, this.owner, new LoseStrengthPower(this.owner, this.owner.getPower(StrengthPower.POWER_ID).amount)));
+            this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, StrengthPower.POWER_ID));
         }
     }
 }

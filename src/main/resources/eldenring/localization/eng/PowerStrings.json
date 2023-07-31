@@ -12,5 +12,21 @@
       " #yStrength.",
       " Whenever this enemy receive #yblocked damage, remove all #yStrength."
     ]
+  },
+  "${modID}:ScarletRot": {
+    "NAME": "Scarlet Rot",
+    "DESCRIPTIONS": [
+      "At start of owner turn, if it has #b",
+      " or more stacks, it takes #b",
+      " damage"
+    ]
+  },
+  "${modID}:Hemorrhage": {
+    "NAME": "Hemorrhage",
+    "DESCRIPTIONS": [
+      "When owner has #b",
+      " or more stacks, it takes #b",
+      " damage"
+    ]
   }
 }

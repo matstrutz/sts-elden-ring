@@ -3,10 +3,7 @@ package eldenring;
 import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.eventUtil.AddEventParams;
-import basemod.interfaces.EditKeywordsSubscriber;
-import basemod.interfaces.EditRelicsSubscriber;
-import basemod.interfaces.EditStringsSubscriber;
-import basemod.interfaces.PostInitializeSubscriber;
+import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -25,10 +22,7 @@ import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import eldenring.bosses.MorgottBoss;
-import eldenring.elites.EngvallElite;
-import eldenring.elites.OlegElite;
-import eldenring.elites.OrdovisElite;
-import eldenring.elites.SiluriaElite;
+import eldenring.elites.*;
 import eldenring.events.AlexanderLavaEvent;
 import eldenring.events.AlexanderStuckEvent;
 import eldenring.events.RyaSnakeEvent;
@@ -37,7 +31,9 @@ import eldenring.events.conditions.AlexanderStuckCondition;
 import eldenring.events.conditions.RyaSnakeCondition;
 import eldenring.monsters.*;
 import eldenring.potions.*;
+import eldenring.powers.HemorrhagePower;
 import eldenring.powers.OmenBairnPower;
+import eldenring.powers.ScarletRotPower;
 import eldenring.relics.BaseRelic;
 import eldenring.util.GeneralUtils;
 import eldenring.util.KeywordInfo;
@@ -57,7 +53,8 @@ public class EldenRingSTS implements
         EditRelicsSubscriber,
         EditStringsSubscriber,
         EditKeywordsSubscriber,
-        PostInitializeSubscriber {
+        PostInitializeSubscriber,
+        AddAudioSubscriber {
     public static ModInfo info;
     public static String modID;
     static { loadModInfo(); }
@@ -108,12 +105,12 @@ public class EldenRingSTS implements
         startBossManual();
         startEliteManual();
         startEventManual();
-
-        startAudioManual();
     }
 
     public void startManualPowers(){
         BaseMod.addPower(OmenBairnPower.class, OmenBairnPower.POWER_ID);
+        BaseMod.addPower(ScarletRotPower.class, ScarletRotPower.POWER_ID);
+        BaseMod.addPower(HemorrhagePower.class, HemorrhagePower.POWER_ID);
     }
 
     public void addEliteManual(){
@@ -121,6 +118,9 @@ public class EldenRingSTS implements
         BaseMod.addMonster(SiluriaElite.ID, SiluriaElite::new);
         BaseMod.addMonster(OlegElite.ID, OlegElite::new);
         BaseMod.addMonster(EngvallElite.ID, EngvallElite::new);
+        BaseMod.addMonster(NightCavalryLiurnyaElite.ID, NightCavalryLiurnyaElite::new);
+        BaseMod.addMonster(NightCavalryAltusElite.ID, NightCavalryAltusElite::new);
+        BaseMod.addMonster(FinlayElite.ID, FinlayElite::new);
     }
 
     public void startEliteManual(){
@@ -129,6 +129,9 @@ public class EldenRingSTS implements
         BaseMod.addEliteEncounter(TheCity.ID, new MonsterInfo(SiluriaElite.ID, 3));
         BaseMod.addEliteEncounter(Exordium.ID, new MonsterInfo(OlegElite.ID, 3));
         BaseMod.addEliteEncounter(Exordium.ID, new MonsterInfo(EngvallElite.ID, 3));
+        BaseMod.addEliteEncounter(TheCity.ID, new MonsterInfo(NightCavalryAltusElite.ID, 2));
+        BaseMod.addEliteEncounter(Exordium.ID, new MonsterInfo(NightCavalryLiurnyaElite.ID, 2));
+        BaseMod.addEliteEncounter(TheCity.ID, new MonsterInfo(FinlayElite.ID, 3));
     }
 
     public void addBossManual() {
@@ -182,12 +185,19 @@ public class EldenRingSTS implements
                 new ExileSoldierMonster(100.0F, -30.0F),
                 new ExileSoldierMonster(300.0F, 20.0F)
         }));
+
+        BaseMod.addMonster(NobleSorcererMonster.ID, () -> new MonsterGroup(new AbstractMonster[]{
+                new NobleSorcererMonster(-60.0F, 0.0F),
+                new NobleSorcererMonster(100.0F, -30.0F),
+                new NobleSorcererMonster(300.0F, 20.0F)
+        }));
     }
 
     public void startMonsterManual(){
         addMonsterManual();
 
         BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo(FootSoldierMonster.ID, 3));
+        BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo(NobleSorcererMonster.ID, 3));
         BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(GreatSwordGodrickSoldierMonster.ID, 3));
         BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(SwordGodrickSoldierMonster.ID, 3));
         BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(TorchGodrickSoldierMonster.ID, 3));
@@ -211,10 +221,6 @@ public class EldenRingSTS implements
         BaseMod.addEvent(new AddEventParams.Builder(AlexanderStuckEvent.ID, AlexanderStuckEvent.class).dungeonID(Exordium.ID).bonusCondition(new AlexanderStuckCondition()).create());
         BaseMod.addEvent(new AddEventParams.Builder(AlexanderLavaEvent.ID, AlexanderLavaEvent.class).dungeonID(TheCity.ID).bonusCondition(new AlexanderLavaCondition()).create());
         BaseMod.addEvent(new AddEventParams.Builder(RyaSnakeEvent.ID, RyaSnakeEvent.class).bonusCondition(new RyaSnakeCondition()).create());
-    }
-
-    public void startAudioManual(){
-        BaseMod.addAudio(MorgottBoss.ID, audioPath(MorgottBoss.FAKE_ID));
     }
 
     /*----------Localization----------*/
@@ -243,6 +249,12 @@ public class EldenRingSTS implements
                 e.printStackTrace();
             }
         }
+    }
+
+    @Override
+    public void receiveAddAudio() {
+        BaseMod.addAudio(makeID("GLINT_PEBBLE"), audioPath("GlintstonePebble"));
+        BaseMod.addAudio(makeID("CERULEAN_TEARS"), audioPath("CeruleanTears"));
     }
 
     private void loadLocalization(String lang) {
@@ -300,7 +312,6 @@ public class EldenRingSTS implements
     public static String localizationPath(String lang, String file) {
         return resourcesFolder + "/localization/" + lang + "/" + file;
     }
-
     public static String resourcePath(String file) {
         return resourcesFolder + "/" + file;
     }
@@ -313,16 +324,14 @@ public class EldenRingSTS implements
     public static String relicPath(String file) {
         return resourcesFolder + "/relics/" + file;
     }
-
     public static String monsterPath(String file) {
         return resourcesFolder + "/monsters/" + file + ".png";
     }
-
     public static String bossIconPath(String file) {
         return resourcesFolder + "/monsters/map/" + file + "Icon.png";
     }
     public static String audioPath(String file) {
-        return resourcesFolder + "/audio/" + file + ".mp3";
+        return resourcesFolder + "/audio/" + file + ".ogg";
     }
 
 
