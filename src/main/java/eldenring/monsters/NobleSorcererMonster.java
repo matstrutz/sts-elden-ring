@@ -38,7 +38,7 @@ public class NobleSorcererMonster extends BaseMonster {
 
     @Override
     public void takeTurn() {
-        AbstractDungeon.actionManager.addToBottom(new VFXAction(new GlintstonePebbleVFX().animation(this, AbstractDungeon.player)));
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new GlintstonePebbleVFX().animation(this, AbstractDungeon.player), 1F));
         AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0)));
     }
 

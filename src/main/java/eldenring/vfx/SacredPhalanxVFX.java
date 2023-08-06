@@ -16,11 +16,11 @@ public class SacredPhalanxVFX {
     public final static String ID = EldenRingSTS.makeID("GLINT_PEBBLE");
     private static final Texture EFFECT = TextureLoader.getTexture("eldenring/vfx/SacredPhalanx.png");
 
-    //TODO ADD CUSTOM SOUND
+    //TODO ADD CORRECT CUSTOM SOUND
     public AbstractGameEffect animation(AbstractCreature position){
 
         return new VfxBuilder(EFFECT, 0.6F)
-                .scale(0.1F, 3F, LINEAR)
+                .fadeOut(0.5F)
                 .setX(position.hb.cX)
                 .setY(position.hb.cY - (position.hb.height / 2))
                 .playSoundAt(0.0F, EldenRingSTS.modID + ":CERULEAN_TEARS")
