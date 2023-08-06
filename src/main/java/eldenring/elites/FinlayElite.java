@@ -157,7 +157,7 @@ public class FinlayElite extends BaseMonster {
 
     private void sacredPhalanxAction(){
         AbstractDungeon.actionManager.addToBottom(new AnimateFastAttackAction(this));
-        AbstractDungeon.actionManager.addToBottom(new VFXAction(new SacredPhalanxVFX().animation(AbstractDungeon.player), 0.6F));
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new SacredPhalanxVFX().animation(AbstractDungeon.player), SacredPhalanxVFX.DURAT));
         AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(6)));
     }
 
