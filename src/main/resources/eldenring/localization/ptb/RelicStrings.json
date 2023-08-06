@@ -246,8 +246,8 @@
     "NAME": "Taker's Cameo",
     "FLAVOR": "Um talismã gravado com uma imagem severa do Praetor Rykard, mestre da Volcano Manor.",
     "DESCRIPTIONS": [
-      "Sempre que um inimigo morrer, ganhe #b",
-      " HP."
+      "Sempre que um inimigo morrer, cure #b",
+      " de HP."
     ]
   },
   "${modID}:TwinbladeTalisman": {

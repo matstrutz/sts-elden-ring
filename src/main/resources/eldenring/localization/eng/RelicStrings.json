@@ -253,7 +253,7 @@
     "NAME": "Taker's Cameo",
     "FLAVOR": "A talisman engraved with a stern likeness of Praetor Rykard, master of Volcano Manor.",
     "DESCRIPTIONS": [
-      "Whenever an enemy dies, gain #b",
+      "Whenever an enemy dies, heal #b",
       " HP."
     ]
   },
