@@ -6,7 +6,7 @@ import eldenring.EldenRingSTS;
 public class CarianFiligreedCrestRelic extends BaseRelic {
     private static final String NAME = "CarianFiligreedCrest";
     public static final String ID = EldenRingSTS.makeID(NAME);
-    private static final RelicTier RARITY = RelicTier.RARE;
+    private static final RelicTier RARITY = RelicTier.BOSS;
     private static final LandingSound SOUND = LandingSound.SOLID;
     private static final int COST = 0;
 
@@ -20,6 +20,7 @@ public class CarianFiligreedCrestRelic extends BaseRelic {
     public void atTurnStart(){
         costReduced = false;
     }
+
     @Override
     public void onCardDraw(AbstractCard drawnCard) {
         if(!costReduced){
