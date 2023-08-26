@@ -257,5 +257,13 @@
       "toda vez que a mesma Carta for usada 3 vezes seguidas, e no mesmo turno, cause #b",
       " de dano a TODOS os inimigos."
     ]
+  },
+  "${modID}:ViridianAmberMedallion": {
+    "NAME": "Viridian Amber Medallion",
+    "FLAVOR": "Um medalhão com âmbar viridiano incrustado.",
+    "DESCRIPTIONS": [
+      "Toda vez que você entrar em uma #y? sala, cure #b",
+      " de #yHP."
+    ]
   }
 }

@@ -37,19 +37,48 @@
       "Sair."
     ]
   },
-  "${modID}:AlexanderBoss": {
-    "NAME": "Iron Fist Alexander (Unused for Now)",
+  "${modID}:AlexanderLava": {
+    "NAME": "Iron Fist Alexander",
     "DESCRIPTIONS": [
-      "Hello-o? Can you hear me?.",
-      "NL Help me! I'm stuck.",
-      "NL Hello? Hellooo! Anyone!",
-      "NL Oh my stars I'm so happy to see you!",
-      "NL I am Alexander, also known as the Iron Fist. And as you can see, I'm stock here.",
-      "NL Please, can you help me out of this?"
+      "Nng! Rnngh! Ó montanha de fogo! Asse-me em suas chamas!",
+      " NL Nnngh! Ah, bom senhor, que negócios você poderia ter em um lugar como este?",
+      " NL Não acho que você esteja aqui para se temperar com chamas, considerando essa sua forma de carne.",
+      " NL Seu timing, porém, está impecável como sempre! Tenho feito exatamente o que você precisa em minha jornada até aqui.",
+      " NL Pegue, tenho certeza que vai ficar bem em você."
     ],
     "OPTIONS": [
-      "#r[Help] Loses 10 HP to help Alexander.",
-      "Leave."
+      "#g[Obter] Lembrança de Alexander.",
+      "Sair."
+    ]
+  },
+  "${modID}:RyaSnake": {
+    "NAME": "Rya",
+    "DESCRIPTIONS": [
+      "Hum, ah, é você. Me perdoe. Minha mente nunca para de se agitar ultimamente. Hmm, bem... eu sei que posso confiar em você...",
+      " NL Eu vi algo deslizando na escuridão da noite. Entrou na sala ao lado desta e nunca mais saiu.",
+      " NL Se não me engano, assumiu a forma de uma serpente, assim como eu...",
+      " NL Sei que não deveria impor, mas, se você descobrir alguma coisa, poderia compartilhar?",
+      "Sério... Ah, então havia um segredo, afinal... Nossa...",
+      " NL Lady Tanith, minha própria mãe, me enganou...",
+      " NL Eu não nasci... pela graça de um rei?",
+      "Selecione uma carta para compartilhar."
+    ],
+    "OPTIONS": [
+      "#g[Compartilhar] Receba uma recompensa com base no compartilhamento.",
+      "Sair."
+    ]
+  },
+  "${modID}:AlexanderDuel": {
+    "NAME": "Iron Fist Alexander",
+    "DESCRIPTIONS": [
+      "Só tenho uma coisa a pedir a você. Você poderia gentilmente aceitar minha provação?",
+      " NL Venha e me diga quando estiver pronto. Tenho desejado lutar contra um guerreiro tão talentoso quanto você."
+    ],
+    "OPTIONS": [
+      "#g[Lutar] Receba uma relíquia.",
+      "#r[Recusar] Perca uma relíquia.",
+      "#r[Sair] Receba 12 de dano.",
+      "Sair."
     ]
   }
 }
