@@ -10,7 +10,7 @@ public class ShardOfAlexanderRelic extends BaseRelic {
     private static final String NAME = "ShardOfAlexander";
     public static final String ID = EldenRingSTS.makeID(NAME);
     //TODO Move do special um event is done
-    private static final RelicTier RARITY = RelicTier.SHOP;
+    private static final RelicTier RARITY = RelicTier.SPECIAL;
     private static final LandingSound SOUND = LandingSound.HEAVY;
     private static final int POWER = 2;
     private boolean firstTurn = true;

@@ -15,6 +15,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.Exordium;
+import com.megacrit.cardcrawl.dungeons.TheBeyond;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -23,9 +24,11 @@ import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import eldenring.bosses.MorgottBoss;
 import eldenring.elites.*;
+import eldenring.events.AlexanderDuelEvent;
 import eldenring.events.AlexanderLavaEvent;
 import eldenring.events.AlexanderStuckEvent;
 import eldenring.events.RyaSnakeEvent;
+import eldenring.events.conditions.AlexanderDuelCondition;
 import eldenring.events.conditions.AlexanderLavaCondition;
 import eldenring.events.conditions.AlexanderStuckCondition;
 import eldenring.events.conditions.RyaSnakeCondition;
@@ -218,9 +221,16 @@ public class EldenRingSTS implements
     }
 
     public void startEventManual(){
+        startEventMonster();
+
         BaseMod.addEvent(new AddEventParams.Builder(AlexanderStuckEvent.ID, AlexanderStuckEvent.class).dungeonID(Exordium.ID).bonusCondition(new AlexanderStuckCondition()).create());
         BaseMod.addEvent(new AddEventParams.Builder(AlexanderLavaEvent.ID, AlexanderLavaEvent.class).dungeonID(TheCity.ID).bonusCondition(new AlexanderLavaCondition()).create());
         BaseMod.addEvent(new AddEventParams.Builder(RyaSnakeEvent.ID, RyaSnakeEvent.class).bonusCondition(new RyaSnakeCondition()).create());
+        BaseMod.addEvent(new AddEventParams.Builder(AlexanderDuelEvent.ID, AlexanderDuelEvent.class).dungeonID(TheBeyond.ID).bonusCondition(new AlexanderDuelCondition()).create());
+    }
+
+    public void startEventMonster(){
+        BaseMod.addMonster(AlexanderEventMonster.ID, AlexanderEventMonster::new);
     }
 
     /*----------Localization----------*/

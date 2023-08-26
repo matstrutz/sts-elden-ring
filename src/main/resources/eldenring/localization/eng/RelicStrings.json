@@ -253,7 +253,7 @@
     "NAME": "Taker's Cameo",
     "FLAVOR": "A talisman engraved with a stern likeness of Praetor Rykard, master of Volcano Manor.",
     "DESCRIPTIONS": [
-      "Whenever an enemy dies, gain #b",
+      "Whenever an enemy dies, heal #b",
       " HP."
     ]
   },
@@ -263,6 +263,14 @@
     "DESCRIPTIONS": [
       "Every time you play the same Card 3 times in row and in a single turn, deal #b",
       " damage to ALL enemies."
+    ]
+  },
+  "${modID}:ViridianAmberMedallion": {
+    "NAME": "Viridian Amber Medallion",
+    "FLAVOR": "A medallion with viridian amber inlaid.",
+    "DESCRIPTIONS": [
+      "Whenever you enter a #y? room, heal #b",
+      " #yHP."
     ]
   }
 }

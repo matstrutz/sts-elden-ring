@@ -81,7 +81,7 @@ public class RyaSnakeEvent extends AbstractImageEvent {
                     break;
                 case SPECIAL:
                     logMetricCardRemoval("Rya Snake", "Offered Special", this.offeredCard);
-                    getGoodOrBadRelic(6);
+                    getGoodOrBadRelic(4);
                     break;
                 case UNCOMMON:
                     logMetricCardRemoval("Rya Snake", "Offered Uncommon", this.offeredCard);
@@ -89,7 +89,7 @@ public class RyaSnakeEvent extends AbstractImageEvent {
                     break;
                 case RARE:
                     logMetricCardRemoval("Rya Snake", "Offered Rare", this.offeredCard);
-                    getGoodOrBadRelic(4);
+                    getGoodOrBadRelic(6);
                     break;
             }
             AbstractDungeon.topLevelEffects.add(new PurgeCardEffect(this.offeredCard, (float)(Settings.WIDTH / 2), (float)(Settings.HEIGHT / 2)));

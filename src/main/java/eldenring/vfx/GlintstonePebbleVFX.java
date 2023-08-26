@@ -13,6 +13,9 @@ import static basemod.helpers.VfxBuilder.Interpolations.BOUNCE;
 
 public class GlintstonePebbleVFX {
 
+    public static final float DUR_BALL = 0.4F;
+    public static final float DUR_TAIL = 0.6F;
+    public static final float DUR = DUR_BALL + DUR_TAIL;
     private static final Texture BALL = TextureLoader.getTexture("eldenring/vfx/BlueCircle.png");
 
     //TODO CORRECT ANIMATION WITH SOUND OF DAMAGE
@@ -23,12 +26,12 @@ public class GlintstonePebbleVFX {
                 .fadeOut(0.3F)
                 .build();
 
-        return new VfxBuilder(BALL, 0.6F)
+        return new VfxBuilder(BALL, DUR_BALL)
                 .scale(0.1F, 1F, BOUNCE)
                 .setX(from.hb.cX - (from.hb.width / 2))
                 .setY(from.hb.cY + (from.hb.height / 4))
                 .playSoundAt(0.0F, EldenRingSTS.modID + ":GLINT_PEBBLE")
-                .andThen(1F)
+                .andThen(DUR_TAIL)
                 .moveX(from.hb.cX - (from.hb.width / 2), to.hb.cX)
                 .moveY(from.hb.cY + (from.hb.height / 4) , to.hb.cY)
                 .emitEvery(tail, 0.1F)

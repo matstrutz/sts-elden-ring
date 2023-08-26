@@ -97,11 +97,11 @@ public class EngvallElite extends BaseMonster {
 
     private void stompAction(){
         AbstractDungeon.actionManager.addToBottom(new AnimateSlowAttackAction(this));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.SMASH));
     }
 
     private void stormWaveAction(){
-        AbstractDungeon.actionManager.addToBottom(new AnimateJumpAction(this));
+        AbstractDungeon.actionManager.addToBottom(new AnimateFastAttackAction(this));
         for (int i = 0; i < stormWaveCount; i++) {
             AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(4), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
         }
