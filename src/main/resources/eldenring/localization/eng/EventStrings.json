@@ -67,5 +67,18 @@
       "#g[Share] Receive a reward based on the share.",
       "Leave."
     ]
+  },
+  "${modID}:AlexanderDuel": {
+    "NAME": "Iron Fist Alexander",
+    "DESCRIPTIONS": [
+      "I've but one thing to ask of you. Would you kindly undertake my ordeal?",
+      " NL Come and tell me when you're ready. I've been longing to fight a warrior as accomplished as you."
+    ],
+    "OPTIONS": [
+      "#g[Fight] Receive a Relic.",
+      "#r[Refuse] Lose a Relic.",
+      "#r[Leave] Take 12 damage.",
+      "Leave."
+    ]
   }
 }
