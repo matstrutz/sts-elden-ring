@@ -248,5 +248,29 @@
       "[E] ",
       "时，增加 #b 攻击伤害"
     ]
+  },
+  "${modID}:TakersCameo": {
+    "NAME": "掠夺浮雕坠饰",
+    "FLAVOR": "火山官邸之主，拉卡德司法官──雕着他面容严肃的肖像护符。",
+    "DESCRIPTIONS": [
+      "当一名敌人死亡时，回复 #b",
+      " 点生命。"
+    ]
+  },
+  "${modID}:TwinbladeTalisman": {
+    "NAME": "双头剑护符",
+    "FLAVOR": "以双头剑与密使的形象制成的护符。",
+    "DESCRIPTIONS": [
+      "你每在同一回合内打出3张相同的牌，对所有敌人造成 #b",
+      " 点伤害。"
+    ]
+  },
+  "${modID}:ViridianAmberMedallion": {
+    "NAME": "绿琥珀链坠",
+    "FLAVOR": "镶有绿色琥珀的链坠。",
+    "DESCRIPTIONS": [
+      "每次进入 #y？ 房间时，回复 #b",
+      " 点 #y生命 。"
+    ]
   }
 }
