@@ -129,7 +129,8 @@
     "NAME": "Winged Sword Insignia",
     "FLAVOR": "A talisman depicting a raised prosthetic blade.",
     "DESCRIPTIONS": [
-      "When you use a card that deals damage more than one time, gain #b",
+      "When you use a Attack with the same cost #b",
+      " times in a row and in a single turn, gain #b",
       " #yStrength"
     ]
   },
@@ -198,7 +199,8 @@
     "NAME": "Rotten Winged Sword Insignia",
     "FLAVOR": "A talisman depicting a raised prosthetic blade. An honor bestowed upon the valkyries who serve the goddess of rot.",
     "DESCRIPTIONS": [
-      "When you use a card that deals damage more than one time, gain #b",
+      "When you use a Attack with the same cost #b",
+      " times in a row and in a single turn, gain #b",
       " #yStrength"
     ]
   },
@@ -208,7 +210,8 @@
     "DESCRIPTIONS": [
       "At the start of each combat, gain #b",
       " #yDexterity",
-      " NL When you use a card that deals damage more than one time, gain #b",
+      " NL When you use a Attack with the same cost #b",
+      " times in a row and in a single turn, gain #b",
       " #yStrength"
     ]
   },
