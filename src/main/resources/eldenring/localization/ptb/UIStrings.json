@@ -12,5 +12,40 @@
       "This": "Contains pairs of Strings, used to get values based on keys.",
       "This is a key": "This is a value."
     }
+  },
+  "${modID}:Restart": {
+    "TEXT": [
+      "As modificações só serão aplicadas após o jogo ser reiniciado!"
+    ]
+  },
+  "${modID}:DisableNormalMonsters": {
+    "TEXT": [
+      "Desativar encontros Normais"
+    ]
+  },
+  "${modID}:DisableEliteMonsters": {
+    "TEXT": [
+      "Desativar encontros com Elites"
+    ]
+  },
+  "${modID}:DisableBossMonsters": {
+    "TEXT": [
+      "Desativar encontros com Chefes"
+    ]
+  },
+  "${modID}:DisableRelics": {
+    "TEXT": [
+      "Desativar todas as reliquias"
+    ]
+  },
+  "${modID}:DisablePotions": {
+    "TEXT": [
+      "Desativar todas as poções"
+    ]
+  },
+  "${modID}:DisableEvents": {
+    "TEXT": [
+      "Desativar todos os eventos"
+    ]
   }
 }
