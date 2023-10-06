@@ -12,5 +12,40 @@
       "This": "Contains pairs of Strings, used to get values based on keys.",
       "This is a key": "This is a value."
     }
+  },
+  "${modID}:Restart": {
+    "TEXT": [
+      "Settings will only be applied after the game is restarted!"
+    ]
+  },
+  "${modID}:DisableNormalMonsters": {
+    "TEXT": [
+      "Disable Normal Encounters"
+    ]
+  },
+  "${modID}:DisableEliteMonsters": {
+    "TEXT": [
+      "Disable Elite Encounters"
+    ]
+  },
+  "${modID}:DisableBossMonsters": {
+    "TEXT": [
+      "Disable Boss Encounters"
+    ]
+  },
+  "${modID}:DisableRelics": {
+    "TEXT": [
+      "Disable All Relics"
+    ]
+  },
+  "${modID}:DisablePotions": {
+    "TEXT": [
+      "Disable All Potions"
+    ]
+  },
+  "${modID}:DisableEvents": {
+    "TEXT": [
+      "Disable All Events"
+    ]
   }
 }

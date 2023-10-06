@@ -1,7 +1,6 @@
 package eldenring;
 
-import basemod.AutoAdd;
-import basemod.BaseMod;
+import basemod.*;
 import basemod.eventUtil.AddEventParams;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
@@ -11,12 +10,15 @@ import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.ModInfo;
 import com.evacipated.cardcrawl.modthespire.Patcher;
+import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.dungeons.TheBeyond;
 import com.megacrit.cardcrawl.dungeons.TheCity;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
@@ -24,6 +26,7 @@ import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import eldenring.bosses.MorgottBoss;
 import eldenring.elites.*;
+import eldenring.enumeration.ConfigMenuEnum;
 import eldenring.events.AlexanderDuelEvent;
 import eldenring.events.AlexanderLavaEvent;
 import eldenring.events.AlexanderStuckEvent;
@@ -45,11 +48,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.scannotation.AnnotationDB;
 
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
 
 @SpireInitializer
 public class EldenRingSTS implements
@@ -64,6 +66,12 @@ public class EldenRingSTS implements
     public static final Logger logger = LogManager.getLogger(modID); //Used to output to the console.
     private static final String resourcesFolder = "eldenring";
 
+    private static Properties eldenRingProperties = new Properties();
+    public static final String ENABLE_PLACEHOLDER_SETTINGS = "enablePlaceholder";
+    public static boolean enablePlaceholder = true;
+
+    private static final String MOD_NAME = "EldenRing";
+    private static final String CONFIG_NAME = "EldenRingConfig";
     //This is used to prefix the IDs of various objects like cards and relics,
     //to avoid conflicts between different mods using the same name for things.
     public static String makeID(String id) {
@@ -73,6 +81,7 @@ public class EldenRingSTS implements
     //This will be called by ModTheSpire because of the @SpireInitializer annotation at the top of the class.
     public static void initialize() {
         new EldenRingSTS();
+        loadConfigFile();
     }
 
     public EldenRingSTS() {
@@ -82,32 +91,78 @@ public class EldenRingSTS implements
 
     @Override
     public void receiveEditRelics() {
-        new AutoAdd(modID)
-                .packageFilter(BaseRelic.class)
-                .any(BaseRelic.class, (info, relic) -> {
-                    if (relic.pool != null) {
-                        BaseMod.addRelicToCustomPool(relic, relic.pool);
-                    } else {
-                        BaseMod.addRelic(relic, relic.relicType);
-                    }
+        if(!ConfigMenuEnum.RELIC.getButton()){
+            new AutoAdd(modID)
+                    .packageFilter(BaseRelic.class)
+                    .any(BaseRelic.class, (info, relic) -> {
+                        if (relic.pool != null) {
+                            BaseMod.addRelicToCustomPool(relic, relic.pool);
+                        } else {
+                            BaseMod.addRelic(relic, relic.relicType);
+                        }
 
-                    if (info.seen) {
-                        UnlockTracker.markRelicAsSeen(relic.relicId);
-                    }
-                });
+                        if (info.seen) {
+                            UnlockTracker.markRelicAsSeen(relic.relicId);
+                        }
+                    });
+        }
     }
 
     @Override
     public void receivePostInitialize() {
-        Texture badgeTexture = TextureLoader.getTexture(resourcePath("badge.png"));
-        BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, null);
+        createConfigMenu();
 
         startManualPowers();
-        startPotionManual();
-        startMonsterManual();
-        startBossManual();
-        startEliteManual();
-        startEventManual();
+        if(!ConfigMenuEnum.POTION.getButton()){startPotionManual();}
+        if(!ConfigMenuEnum.NORMAL.getButton()){startMonsterManual();}
+        if(!ConfigMenuEnum.BOSS.getButton()){startBossManual();}
+        if(!ConfigMenuEnum.ELITE.getButton()){startEliteManual();}
+        if(!ConfigMenuEnum.EVENT.getButton()){startEventManual();}
+    }
+
+    public void createConfigMenu(){
+        logger.info("Creating Config Mod Panel!");
+        Texture badgeTexture = TextureLoader.getTexture(resourcePath("badge.png"));
+        ModPanel settingsPanel = new ModPanel();
+
+        UIStrings descriptionString = CardCrawlGame.languagePack.getUIString(makeID("Restart"));
+        settingsPanel.addUIElement(new ModLabel(descriptionString.TEXT[0], 350.0f, 750.0f, Color.GOLD, settingsPanel, label -> {}));
+
+        Arrays.stream(ConfigMenuEnum.values()).forEach(item -> {
+            UIStrings enumUiText = CardCrawlGame.languagePack.getUIString(makeID(item.getUiId()));
+            final ModLabeledToggleButton toggleMonsters = new ModLabeledToggleButton(enumUiText.TEXT[0], 350.0f, item.getyPos() ,
+                    Settings.CREAM_COLOR, FontHelper.charDescFont, item.getButton(), settingsPanel, label -> {}, button -> {
+                try {
+                    SpireConfig config = new SpireConfig(MOD_NAME, CONFIG_NAME, eldenRingProperties);
+                    item.setButton(button.enabled);
+                    config.setBool(item.getFileId(), button.enabled);
+                    config.save();
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+            settingsPanel.addUIElement(toggleMonsters);
+        });
+        BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, settingsPanel);
+    }
+
+    public static void loadConfigFile(){
+        logger.info("Loading Config File!");
+        try {
+            Arrays.stream(ConfigMenuEnum.values()).forEach(item -> {
+                eldenRingProperties.setProperty(item.getFileId(), "false");
+            });
+
+            SpireConfig config = new SpireConfig(MOD_NAME, CONFIG_NAME, eldenRingProperties);
+            config.load();
+
+            Arrays.stream(ConfigMenuEnum.values()).forEach(item -> {
+                item.setButton(config.getBool(item.getFileId()));
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void startManualPowers(){

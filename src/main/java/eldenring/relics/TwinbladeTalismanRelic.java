@@ -31,7 +31,7 @@ public class TwinbladeTalismanRelic extends BaseRelic {
         } else {
             if (card.cardID.equals(lastCard.cardID)) {
                 ++this.counter;
-                if (this.counter % 3 == 0) {
+                if (this.counter >= 3) {
                     this.flash();
                     this.counter = 0;
                     this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));

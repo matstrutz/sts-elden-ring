@@ -122,7 +122,8 @@
     "NAME": "Winged Sword Insignia",
     "FLAVOR": "Um talismã representando uma lâmina protética elevada.",
     "DESCRIPTIONS": [
-      "Quando você usar uma carta que cause dano mais de uma vez, ganhe #b",
+      "Quando você usar #b",
+      " ataques seguidos com o mesmo custo e no mesmo turno, ganhe #b",
       " de #yForça"
     ]
   },
@@ -191,7 +192,8 @@
     "NAME": "Rotten Winged Sword Insignia",
     "FLAVOR": "Um talismã representando uma lâmina protética elevada. Uma honra concedida às valquírias que servem à deusa da podridão.",
     "DESCRIPTIONS": [
-      "Quando você usar uma carta que cause dano mais de uma vez, ganhe #b",
+      "Quando você usar #b",
+      " ataques seguidos com o mesmo custo e no mesmo turno, ganhe #b",
       " de #yForça"
     ]
   },
@@ -201,8 +203,9 @@
     "DESCRIPTIONS": [
       "Comece cada batalha com #b",
       " de #yDestreza",
-      " NL Quando você usar uma carta que cause dano mais de uma vez, ganhe #b",
-      " de de #yForça"
+      " NL Quando você usar #b",
+      " ataques seguidos com o mesmo custo e no mesmo turno, ganhe #b",
+      " de #yForça"
     ]
   },
   "${modID}:BlueDancerCharm": {

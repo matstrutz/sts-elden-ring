@@ -14,12 +14,14 @@ import java.util.Objects;
 public class MillicentsProsthesisRelic extends BaseRelic {
     private static final String NAME = "MillicentsProsthesis";
     public static final String ID = EldenRingSTS.makeID(NAME);
-    //TODO Move do special um event is done
+    //TODO Move to special when event is done
     private static final RelicTier RARITY = RelicTier.SHOP;
     private static final LandingSound SOUND = LandingSound.CLINK;
     private static final int STR = 2;
-    private static final int DEX = 2;
+    private static final int DEX = 1;
     private boolean firstTurn = true;
+    private static AbstractCard lastCard;
+    private static final int ATTACK_COUNT = 3;
 
     public MillicentsProsthesisRelic() {
         super(ID, NAME, RARITY, SOUND);
@@ -32,6 +34,7 @@ public class MillicentsProsthesisRelic extends BaseRelic {
 
     @Override
     public void atTurnStart() {
+        this.counter = 0;
         if(AbstractDungeon.player.hasRelic(this.relicId)){
             if (this.firstTurn) {
                 this.flash();
@@ -43,17 +46,37 @@ public class MillicentsProsthesisRelic extends BaseRelic {
     }
 
     @Override
-    public void onUseCard(AbstractCard targetCard, UseCardAction useCardAction) {
-        if(AbstractDungeon.player.hasRelic(this.relicId)){
-            if(AbstractCard.CardType.ATTACK.equals(targetCard.type) && Objects.nonNull(targetCard.multiDamage) && targetCard.multiDamage.length > 0){
-                this.flash();
-                this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, STR), STR));
+    public void onUseCard(AbstractCard card, UseCardAction useCardAction) {
+        if (this.counter == 0) {
+            if(AbstractCard.CardType.ATTACK.equals(card.type)){
+                ++this.counter;
+                lastCard = card;
+            }
+        } else {
+            if (AbstractCard.CardType.ATTACK.equals(card.type)) {
+                if (card.cost == lastCard.cost) {
+                    ++this.counter;
+                    if (this.counter >= ATTACK_COUNT) {
+                        this.flash();
+                        this.counter = 0;
+                        this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+                        this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, STR), STR));
+                    }
+                } else {
+                    this.counter = 0;
+                    lastCard = null;
+                }
             }
         }
     }
 
     @Override
+    public void onVictory() {
+        this.counter = -1;
+    }
+
+    @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0] + STR + DESCRIPTIONS[1] + DESCRIPTIONS[2] + STR + DESCRIPTIONS[3];
+        return DESCRIPTIONS[0] + DEX + DESCRIPTIONS[1] + DESCRIPTIONS[2] + ATTACK_COUNT + DESCRIPTIONS[3] + STR + DESCRIPTIONS[4];
     }
 }
