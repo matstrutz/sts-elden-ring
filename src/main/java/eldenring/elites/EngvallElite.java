@@ -26,12 +26,17 @@ public class EngvallElite extends BaseMonster {
 
     public EngvallElite() {
         super(NAME, ID, 72, 0.0F, 0.0F, 150.0F, 286.0F, EldenRingSTS.monsterPath("BanishedKnight"), 0.0F, 0.0F);
+        this.type = EnemyType.ELITE;
         if (AbstractDungeon.ascensionLevel >= 3) {
             stomp += 2;
             swingA += 2;
             swingB += 2;
             stab += 3;
             stormWave += 1;
+        }
+
+        if(AbstractDungeon.ascensionLevel >= 8){
+            this.setHp(76, 80);
         }
 
         if (AbstractDungeon.ascensionLevel >= 18) {

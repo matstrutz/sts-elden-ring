@@ -34,6 +34,7 @@ public class FootSoldierMonster extends BaseMonster {
         }
 
         if (AbstractDungeon.ascensionLevel >= 7) {
+            this.setHp(22, 23);
             def += 2;
         }
 

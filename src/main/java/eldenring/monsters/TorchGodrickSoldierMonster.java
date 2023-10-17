@@ -31,6 +31,7 @@ public class TorchGodrickSoldierMonster extends BaseMonster {
 
         if (AbstractDungeon.ascensionLevel >= 7) {
             this.block += 2;
+            this.setHp(27, 29);
         }
 
         if (AbstractDungeon.ascensionLevel >= 17) {

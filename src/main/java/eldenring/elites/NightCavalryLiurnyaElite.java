@@ -24,11 +24,16 @@ public class NightCavalryLiurnyaElite extends BaseMonster {
 
     public NightCavalryLiurnyaElite() {
         super(NAME, ID, 76, 0.0F, 0.0F, 150.0F, 286.0F, EldenRingSTS.monsterPath("NightCavalry"), 0.0F, 0.0F);
+        this.type = EnemyType.ELITE;
         if (AbstractDungeon.ascensionLevel >= 3) {
             stomp += 2;
             flailA += 2;
             jump += 3;
             flailB += 2;
+        }
+
+        if(AbstractDungeon.ascensionLevel >= 8){
+            this.setHp(80, 82);
         }
 
         if (AbstractDungeon.ascensionLevel >= 18) {

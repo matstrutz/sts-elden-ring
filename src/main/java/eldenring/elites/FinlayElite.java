@@ -34,6 +34,7 @@ public class FinlayElite extends BaseMonster {
 
     public FinlayElite() {
         super(NAME, ID, 145, 0.0F, 0.0F, 150.0F, 286.0F, EldenRingSTS.monsterPath("CleanrotKnight"), 0.0F, 0.0F);
+        this.type = EnemyType.ELITE;
         if (AbstractDungeon.ascensionLevel >= 3) {
             slashA += 3;
             spearGuard += 2;
@@ -41,6 +42,10 @@ public class FinlayElite extends BaseMonster {
             slashB += 3;
             spearStab += 3;
             impale += 1;;
+        }
+
+        if(AbstractDungeon.ascensionLevel >= 8){
+            this.setHp(151, 155);
         }
 
         if (AbstractDungeon.ascensionLevel >= 18) {

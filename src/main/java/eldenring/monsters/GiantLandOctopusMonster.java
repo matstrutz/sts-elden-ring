@@ -40,6 +40,10 @@ public class GiantLandOctopusMonster extends BaseMonster {
             slash += 1;
         }
 
+        if(AbstractDungeon.ascensionLevel >= 7){
+            this.setHp(60, 64);
+        }
+
         if (AbstractDungeon.ascensionLevel >= 17) {
             bounce += 3;
             tentacleCount += 2;

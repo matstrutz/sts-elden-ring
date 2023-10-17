@@ -31,6 +31,7 @@ public class OrdovisElite extends BaseMonster {
 
     public OrdovisElite() {
         super(NAME, ID, 136, 0.0F, 0.0F, 150.0F, 286.0F, EldenRingSTS.monsterPath(FAKE_ID), 0.0F, 0.0F);
+        this.type = EnemyType.ELITE;
         if (AbstractDungeon.ascensionLevel >= 3) {
             stomp += 2;
             swingA += 2;
@@ -42,9 +43,9 @@ public class OrdovisElite extends BaseMonster {
             dive += 3;
         }
 
-
-        if (AbstractDungeon.ascensionLevel >= 7) {
+        if(AbstractDungeon.ascensionLevel >= 8){
             defend += 6;
+            this.setHp(138, 142);
         }
 
         if (AbstractDungeon.ascensionLevel >= 18) {

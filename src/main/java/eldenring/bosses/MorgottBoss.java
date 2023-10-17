@@ -43,6 +43,7 @@ public class MorgottBoss extends BaseMonster {
     private boolean encounterStart = true;
     public MorgottBoss() {
         super(NAME, ID, 303, 0.0F, 0.0F, 550.0F, 486.0F, EldenRingSTS.monsterPath("Morgott_001"), 5.0F, 0.0F);
+        this.type = EnemyType.BOSS;
         if (AbstractDungeon.ascensionLevel >= 4) {
             holyBladeRainDmg += 1;
             tailSwipeDmg += 3;
@@ -56,6 +57,7 @@ public class MorgottBoss extends BaseMonster {
         if (AbstractDungeon.ascensionLevel >= 9) {
             defPreCurse += 10;
             tailSwipeDef += 5;
+            this.setHp(312, 324);
         }
 
         if (AbstractDungeon.ascensionLevel >= 19) {

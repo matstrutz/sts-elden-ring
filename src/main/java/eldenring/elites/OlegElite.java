@@ -27,6 +27,7 @@ public class OlegElite extends BaseMonster {
 
     public OlegElite() {
         super(NAME, ID, 72, 0.0F, 0.0F, 150.0F, 286.0F, EldenRingSTS.monsterPath("BanishedKnight"), 0.0F, 0.0F);
+        this.type = EnemyType.ELITE;
         if (AbstractDungeon.ascensionLevel >= 3) {
             stomp += 2;
             swingA += 2;
@@ -35,10 +36,10 @@ public class OlegElite extends BaseMonster {
             fireBreath += 4;
         }
 
-
-        if (AbstractDungeon.ascensionLevel >= 7) {
+        if(AbstractDungeon.ascensionLevel >= 8){
             defend += 6;
             defendB += 4;
+            this.setHp(74, 77);
         }
 
         if (AbstractDungeon.ascensionLevel >= 18) {

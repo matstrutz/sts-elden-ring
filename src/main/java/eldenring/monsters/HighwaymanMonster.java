@@ -42,6 +42,7 @@ public class HighwaymanMonster extends BaseMonster {
 
         if (AbstractDungeon.ascensionLevel >= 7) {
             def += 2;
+            this.setHp(15, 16);
         }
 
         if (AbstractDungeon.ascensionLevel >= 2) {

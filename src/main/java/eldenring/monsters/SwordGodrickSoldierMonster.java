@@ -26,6 +26,7 @@ public class SwordGodrickSoldierMonster extends BaseMonster {
 
         if (AbstractDungeon.ascensionLevel >= 7) {
             this.block += 3;
+            this.setHp(30, 32);
         }
 
         if (AbstractDungeon.ascensionLevel >= 17) {
