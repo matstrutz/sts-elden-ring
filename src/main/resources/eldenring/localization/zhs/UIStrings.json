@@ -12,5 +12,40 @@
       "This": "Contains pairs of Strings, used to get values based on keys.",
       "This is a key": "This is a value."
     }
+  },
+  "${modID}:Restart": {
+    "TEXT": [
+      "设置只有在游戏重启后才会被应用！"
+    ]
+  },
+  "${modID}:DisableNormalMonsters": {
+    "TEXT": [
+      "禁用普通遭遇战"
+    ]
+  },
+  "${modID}:DisableEliteMonsters": {
+    "TEXT": [
+      "禁用精英遭遇战"
+    ]
+  },
+  "${modID}:DisableBossMonsters": {
+    "TEXT": [
+      "禁用Boss遭遇战"
+    ]
+  },
+  "${modID}:DisableRelics": {
+    "TEXT": [
+      "禁用所有遗物"
+    ]
+  },
+  "${modID}:DisablePotions": {
+    "TEXT": [
+      "禁用所有药水"
+    ]
+  },
+  "${modID}:DisableEvents": {
+    "TEXT": [
+      "禁用所有事件"
+    ]
   }
 }
