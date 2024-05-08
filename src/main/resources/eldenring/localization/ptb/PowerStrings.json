@@ -28,5 +28,13 @@
       " ou mais marcadores, ele recebe #b",
       " de dano"
     ]
+  },
+  "${modID}:DestinedDeath": {
+    "NAME": "Destined Death",
+    "DESCRIPTIONS": [
+      "No começo do turno perca [E] ",
+      ". No final do turno, perca toda sua #yProteção, e sofra 1 de dano para cada #yProteção perdida desta maneira. Toda vez que terminar seu turno sem #yProteção, aumente a perda de [E]",
+      " por este poder, neste combate."
+    ]
   }
 }

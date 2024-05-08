@@ -16,6 +16,12 @@ public class BossMusicPatch {
             case "BOSS_MORGOTT": {
                 return SpireReturn.Return(MainMusic.newMusic("eldenring/audio/Morgott.ogg"));
             }
+            case "BEAST_CLERGYMAN": {
+                return SpireReturn.Return(MainMusic.newMusic("eldenring/audio/BeastClergyman.ogg"));
+            }
+            case "MALIKETH": {
+                return SpireReturn.Return(MainMusic.newMusic("eldenring/audio/Maliketh.ogg"));
+            }
             default: {
                 return SpireReturn.Continue();
             }
