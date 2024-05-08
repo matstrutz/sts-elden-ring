@@ -1,17 +1,12 @@
 package eldenring.bosses;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.AnimateFastAttackAction;
-import com.megacrit.cardcrawl.actions.animations.AnimateJumpAction;
-import com.megacrit.cardcrawl.actions.animations.AnimateShakeAction;
-import com.megacrit.cardcrawl.actions.animations.AnimateSlowAttackAction;
-import com.megacrit.cardcrawl.actions.animations.TalkAction;
+import com.megacrit.cardcrawl.actions.animations.*;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import eldenring.EldenRingSTS;
@@ -43,6 +38,7 @@ public class MorgottBoss extends BaseMonster {
     private boolean encounterStart = true;
     public MorgottBoss() {
         super(NAME, ID, 303, 0.0F, 0.0F, 550.0F, 486.0F, EldenRingSTS.monsterPath("Morgott_001"), 5.0F, 0.0F);
+        this.type = EnemyType.BOSS;
         if (AbstractDungeon.ascensionLevel >= 4) {
             holyBladeRainDmg += 1;
             tailSwipeDmg += 3;
@@ -56,6 +52,7 @@ public class MorgottBoss extends BaseMonster {
         if (AbstractDungeon.ascensionLevel >= 9) {
             defPreCurse += 10;
             tailSwipeDef += 5;
+            this.setHp(312, 324);
         }
 
         if (AbstractDungeon.ascensionLevel >= 19) {

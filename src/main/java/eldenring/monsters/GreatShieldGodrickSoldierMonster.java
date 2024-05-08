@@ -30,6 +30,7 @@ public class GreatShieldGodrickSoldierMonster extends BaseMonster {
 
         if (AbstractDungeon.ascensionLevel >= 7) {
             this.greatShieldBlock += 4;
+            this.setHp(32, 33);
         }
 
         if (AbstractDungeon.ascensionLevel >= 17) {

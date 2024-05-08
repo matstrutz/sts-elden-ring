@@ -25,6 +25,7 @@ public class ExileSoldierMonster extends BaseMonster {
         }
 
         if (AbstractDungeon.ascensionLevel >= 7) {
+            this.setHp(20, 21);
             this.block += 2;
         }
 

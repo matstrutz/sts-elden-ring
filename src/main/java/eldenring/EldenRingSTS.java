@@ -24,6 +24,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import eldenring.bosses.MalikethBoss;
 import eldenring.bosses.MorgottBoss;
 import eldenring.elites.*;
 import eldenring.enumeration.ConfigMenuEnum;
@@ -37,6 +38,7 @@ import eldenring.events.conditions.AlexanderStuckCondition;
 import eldenring.events.conditions.RyaSnakeCondition;
 import eldenring.monsters.*;
 import eldenring.potions.*;
+import eldenring.powers.DestinedDeathPower;
 import eldenring.powers.HemorrhagePower;
 import eldenring.powers.OmenBairnPower;
 import eldenring.powers.ScarletRotPower;
@@ -169,6 +171,7 @@ public class EldenRingSTS implements
         BaseMod.addPower(OmenBairnPower.class, OmenBairnPower.POWER_ID);
         BaseMod.addPower(ScarletRotPower.class, ScarletRotPower.POWER_ID);
         BaseMod.addPower(HemorrhagePower.class, HemorrhagePower.POWER_ID);
+        BaseMod.addPower(DestinedDeathPower.class, DestinedDeathPower.POWER_ID);
     }
 
     public void addEliteManual(){
@@ -194,11 +197,13 @@ public class EldenRingSTS implements
 
     public void addBossManual() {
         BaseMod.addMonster(MorgottBoss.ID, MorgottBoss::new);
+        BaseMod.addMonster(MalikethBoss.ID, MalikethBoss::new);
     }
 
     public void startBossManual(){
         addBossManual();
         BaseMod.addBoss(TheCity.ID, MorgottBoss.ID, bossIconPath(MorgottBoss.FAKE_ID), bossIconPath(MorgottBoss.FAKE_ID));
+        BaseMod.addBoss(TheBeyond.ID, MalikethBoss.ID, bossIconPath(MalikethBoss.FAKE_ID), bossIconPath(MalikethBoss.FAKE_ID));
     }
 
     public void addMonsterManual(){

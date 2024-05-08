@@ -28,5 +28,13 @@
       " 或更多层数时，受到s #b",
       " 点伤害。"
     ]
+  },
+  "${modID}:DestinedDeath": {
+    "NAME": "Destined Death",
+    "DESCRIPTIONS": [
+      "At the start of turn lose [E]",
+      ". At the end of turn, lose all #yBlock, and take 1 damage for each #yBlock lost this way. Whenever you finish your turn without #yBlock, increase [E]",
+      " lost with this power this combat."
+    ]
   }
 }
