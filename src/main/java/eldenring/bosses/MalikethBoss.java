@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.animations.*;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -222,7 +223,7 @@ public class MalikethBoss extends BaseMonster {
                 changePhase();
 
                 int healQtd = (this.maxHealth / 100 * SECOND_PHASE_PERCENT) - this.currentHealth;
-                this.heal(healQtd);
+                AbstractDungeon.actionManager.addToBottom(new HealAction(this, this, healQtd));
 
                 this.turnMove = 5;
             }
@@ -255,6 +256,7 @@ public class MalikethBoss extends BaseMonster {
     private void changePhase(){
         AbstractDungeon.actionManager.addToBottom(new VFXAction(this, new ShockWaveEffect(this.hb.cX, this.hb.cY, Settings.BLUE_TEXT_COLOR, ShockWaveEffect.ShockWaveType.CHAOTIC), 0.75F));
         this.img = ImageMaster.loadImage(EldenRingSTS.monsterPath("Maliketh"));
+        this.name = NAME;
         this.isMaliketh = true;
         AbstractDungeon.scene.fadeOutAmbiance();
         CardCrawlGame.music.playTempBgmInstantly("MALIKETH", true);
